@@ -21,7 +21,7 @@ import { DefaultLayoutComponent } from './containers';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
-import { RegisterComponent } from './views/register/register.component';
+import { RegistroTrabajadorComponent } from './views/registroTrabajador/registroTrabajador.component';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -42,6 +42,18 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+
+import { RegistroclienteComponent } from './views/registroCliente/registroCliente.component';
+import { ListarTrabajadoresComponent } from './views/listarTrabajadores/listartrabajadores.component';
+
 
 @NgModule({
   imports: [
@@ -59,6 +71,14 @@ import { ChartsModule } from 'ng2-charts';
     ChartsModule,
     IconModule,
     IconSetModule.forRoot(),
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSelectModule,
+    MatInputModule,
+    MatSortModule,
+    MatTableModule,
+    MatPaginatorModule
+    
   ],
   declarations: [
     AppComponent,
@@ -66,7 +86,9 @@ import { ChartsModule } from 'ng2-charts';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegistroTrabajadorComponent,
+    RegistroclienteComponent,
+    ListarTrabajadoresComponent
   ],
   providers: [
     {

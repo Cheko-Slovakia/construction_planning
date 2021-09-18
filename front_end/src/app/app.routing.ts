@@ -6,8 +6,10 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
+import { ListarTrabajadoresComponent } from './views/listarTrabajadores/listartrabajadores.component';
 import { LoginComponent } from './views/login/login.component';
-import { RegisterComponent } from './views/register/register.component';
+import { RegistroclienteComponent } from './views/registroCliente/registroCliente.component';
+import { RegistroTrabajadorComponent } from './views/registroTrabajador/registroTrabajador.component';
 
 export const routes: Routes = [
   {
@@ -23,7 +25,7 @@ export const routes: Routes = [
     }
   },
   {
-    path: '500',
+    path: '500', 
     component: P500Component,
     data: {
       title: 'Page 500'
@@ -37,12 +39,27 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'register',
-    component: RegisterComponent,
+    path: 'registrarTrabajador',
+    component: RegistroTrabajadorComponent,
     data: {
       title: 'Register Page'
     }
   },
+  {
+    path: 'registrarCliente',
+    component: RegistroclienteComponent,
+    data: {
+      title: 'Register Page'
+    }
+  },
+  {
+    path: 'listarTrabajadores',
+    component: ListarTrabajadoresComponent,
+    data: {
+      title: 'Register Page'
+    }
+  }
+  ,
   {
     path: '',
     component: DefaultLayoutComponent,
