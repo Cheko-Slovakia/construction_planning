@@ -1,10 +1,4 @@
 
-#centering {
-    width: 100%;
-    position: absolute;
-    left: calc(20% - 75px);
-  }
-  
   .facturacion{
   width: 100%;
   position: absolute;
@@ -76,6 +70,7 @@
   color:#051f34;
   }
   table {
+    background-color: whitesmoke;
     width: 100%;
   }
   
@@ -90,8 +85,8 @@
     width: 100%;
     font-weight: normal;
     font-size:small;
-    background-color: #dcdfd9;
-    color: rgb(85, 83, 83);
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
   }
   
   
@@ -114,18 +109,18 @@
       background-color: white !important;
     }
     .mat-form-field-label{
-      color: white !important;
+      color: rgb(0, 0, 0)
      }
   
      .mat-focused  {
       /*change color of label*/
-      color: white !important;
+      color: rgb(0, 0, 0) !important;
      }
      
   
      
      .mat-form-field-empty.mat-form-field-label {
-      color: white;
+      color: rgb(0, 0, 0);
   }
   
   
@@ -136,10 +131,12 @@
       height: 10%;
       color: black!important;
       font-style: inherit;
+      
     
     }
     .mat-paginator {
       .mat-paginator-container {
+        
           justify-content: start;
           // override material paginator page switch
     .mat-paginator-range-label {
