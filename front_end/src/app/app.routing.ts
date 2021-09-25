@@ -8,6 +8,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { ListarTrabajadoresComponent } from './views/listarTrabajadores/listartrabajadores.component';
 import { LoginComponent } from './views/login/login.component';
+import { MapaComponent } from './views/mapa/mapa.component';
 import { RegistroclienteComponent } from './views/registroCliente/registroCliente.component';
 import { RegistroTrabajadorComponent } from './views/registroTrabajador/registroTrabajador.component';
 
@@ -57,6 +58,14 @@ export const routes: Routes = [
     component: ListarTrabajadoresComponent,
     data: {
       title: 'Register Page'
+    }
+  }
+  ,
+  {
+    path: 'mapa',
+    component: MapaComponent,
+    data: {
+      title: 'Mapa'
     }
   }
   ,
