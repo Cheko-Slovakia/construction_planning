@@ -54,6 +54,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { RegistroclienteComponent } from './views/registroCliente/registroCliente.component';
 import { ListarTrabajadoresComponent } from './views/listarTrabajadores/listartrabajadores.component';
 import { MapaComponent } from './views/mapa/mapa.component';
+import { EditarTrabajadorComponent } from './views/editartrabajador/editartrabajador.component';
+import { EditarclienteComponent } from './views/editarcliente/editarcliente.component';
 
 
 @NgModule({
@@ -90,7 +92,9 @@ import { MapaComponent } from './views/mapa/mapa.component';
     RegistroTrabajadorComponent,
     RegistroclienteComponent,
     ListarTrabajadoresComponent,
-    MapaComponent
+    MapaComponent,
+    EditarTrabajadorComponent,
+    EditarclienteComponent
   ],
   providers: [
     {

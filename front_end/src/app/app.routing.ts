@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+import { EditarTrabajadorComponent } from './views/editartrabajador/editartrabajador.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
@@ -42,6 +43,13 @@ export const routes: Routes = [
   {
     path: 'registrarTrabajador',
     component: RegistroTrabajadorComponent,
+    data: {
+      title: 'Register Page'
+    }
+  },
+  {
+    path: 'trabajadores/editarTrabajador/:trabajador_cedula',
+    component: EditarTrabajadorComponent,
     data: {
       title: 'Register Page'
     }

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-registroTrabajador',
   templateUrl: 'registroTrabajador.component.html'
 })
 
@@ -29,11 +29,14 @@ export class RegistroTrabajadorComponent implements OnInit {
 
   })
 
+  @Input() trabajador_documento: string;
    
 
   constructor(private fb: FormBuilder,private trabajadorService: TrabajadorService, private router: Router) {}
 
   ngOnInit(): void {
+    console.log(this.trabajador_documento);
+    
     
   }
 
