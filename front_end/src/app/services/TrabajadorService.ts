@@ -22,7 +22,7 @@ export class TrabajadorService{
         return this.http.post<Trabajador>(`${this.apiServerUrl}/trabajadores/`,nuevoTrabajador)
     }
     public actualizarTrabajador(trabajadorActualizado : Trabajador):Observable<Trabajador>{
-        return this.http.post<Trabajador>(`${this.apiServerUrl}/trabajadores/`,trabajadorActualizado)
+        return this.http.put<Trabajador>(`${this.apiServerUrl}/trabajadores/`,trabajadorActualizado)
     }
     public obtenerTrabajadores():Observable<Trabajador[]>{
         return this.http.get<Trabajador[]>(`${this.apiServerUrl}/trabajadores/`)

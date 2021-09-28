@@ -22,7 +22,7 @@ export class EditarTrabajadorComponent implements OnInit {
     celular: [{value: '', disabled: false},Validators.required],
     contrasena: [{value: '', disabled: false},Validators.required],
     c_contrasena: [{value: '', disabled: false},Validators.required],
-    cargo: [{value: '', disabled: true},Validators.required]
+    cargo: [{value: '', disabled: false},Validators.required]
   
   
 

@@ -42,7 +42,7 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -56,6 +56,10 @@ import { ListarTrabajadoresComponent } from './views/listarTrabajadores/listartr
 import { MapaComponent } from './views/mapa/mapa.component';
 import { EditarTrabajadorComponent } from './views/editartrabajador/editartrabajador.component';
 import { EditarclienteComponent } from './views/editarcliente/editarcliente.component';
+import { ObraRegistroComponent } from './views/obra-registro/obra-registro.component';
+import { ObraEdicionComponent } from './views/obra-edicion/obra-edicion.component';
+import { ObraListarComponent } from './views/obra-listar/obra-listar.component';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 
 @NgModule({
@@ -80,7 +84,8 @@ import { EditarclienteComponent } from './views/editarcliente/editarcliente.comp
     MatInputModule,
     MatSortModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    GooglePlaceModule
     
   ],
   declarations: [
@@ -94,7 +99,10 @@ import { EditarclienteComponent } from './views/editarcliente/editarcliente.comp
     ListarTrabajadoresComponent,
     MapaComponent,
     EditarTrabajadorComponent,
-    EditarclienteComponent
+    EditarclienteComponent,
+    ObraRegistroComponent,
+    ObraEdicionComponent,
+    ObraListarComponent
   ],
   providers: [
     {

@@ -10,6 +10,7 @@ import { P500Component } from './views/error/500.component';
 import { ListarTrabajadoresComponent } from './views/listarTrabajadores/listartrabajadores.component';
 import { LoginComponent } from './views/login/login.component';
 import { MapaComponent } from './views/mapa/mapa.component';
+import { ObraRegistroComponent } from './views/obra-registro/obra-registro.component';
 import { RegistroclienteComponent } from './views/registroCliente/registroCliente.component';
 import { RegistroTrabajadorComponent } from './views/registroTrabajador/registroTrabajador.component';
 
@@ -44,31 +45,38 @@ export const routes: Routes = [
     path: 'registrarTrabajador',
     component: RegistroTrabajadorComponent,
     data: {
-      title: 'Register Page'
+      title: 'Registrar Trabajador'
     }
   },
   {
     path: 'trabajadores/editarTrabajador/:trabajador_cedula',
     component: EditarTrabajadorComponent,
     data: {
-      title: 'Register Page'
-    }
-  },
-  {
-    path: 'registrarCliente',
-    component: RegistroclienteComponent,
-    data: {
-      title: 'Register Page'
+      title: 'Editar Trabajador'
     }
   },
   {
     path: 'listarTrabajadores',
     component: ListarTrabajadoresComponent,
     data: {
-      title: 'Register Page'
+      title: 'Listar Trabajadores'
     }
   }
   ,
+  {
+    path: 'registrarCliente',
+    component: RegistroclienteComponent,
+    data: {
+      title: 'Registrar Cliente'
+    }
+  },
+  {
+    path: 'registrarObra',
+    component: ObraRegistroComponent,
+    data: {
+      title: 'Registrar Obra'
+    }
+  },
   {
     path: 'mapa',
     component: MapaComponent,
