@@ -3,16 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
-import { EditarTrabajadorComponent } from './views/editartrabajador/editartrabajador.component';
+import { AdministradorLayoutComponent } from './layouts/administrador-layout/administrador-layout.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { ListarTrabajadoresComponent } from './views/listarTrabajadores/listartrabajadores.component';
 import { LoginComponent } from './views/login/login.component';
 import { MapaComponent } from './views/mapa/mapa.component';
-import { ObraRegistroComponent } from './views/obra-registro/obra-registro.component';
-import { RegistroclienteComponent } from './views/registroCliente/registroCliente.component';
-import { RegistroTrabajadorComponent } from './views/registroTrabajador/registroTrabajador.component';
 
 export const routes: Routes = [
   {
@@ -28,7 +24,7 @@ export const routes: Routes = [
     }
   },
   {
-    path: '500', 
+    path: '500',
     component: P500Component,
     data: {
       title: 'Page 500'
@@ -42,95 +38,22 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'registrarTrabajador',
-    component: RegistroTrabajadorComponent,
-    data: {
-      title: 'Registrar Trabajador'
-    }
-  },
-  {
-    path: 'trabajadores/editarTrabajador/:trabajador_cedula',
-    component: EditarTrabajadorComponent,
-    data: {
-      title: 'Editar Trabajador'
-    }
-  },
-  {
-    path: 'listarTrabajadores',
-    component: ListarTrabajadoresComponent,
-    data: {
-      title: 'Listar Trabajadores'
-    }
-  }
-  ,
-  {
-    path: 'registrarCliente',
-    component: RegistroclienteComponent,
-    data: {
-      title: 'Registrar Cliente'
-    }
-  },
-  {
-    path: 'registrarObra',
-    component: ObraRegistroComponent,
-    data: {
-      title: 'Registrar Obra'
-    }
-  },
-  {
     path: 'mapa',
     component: MapaComponent,
     data: {
       title: 'Mapa'
     }
-  }
-  ,
-  {
-    path: '',
-    component: DefaultLayoutComponent,
-    data: {
-      title: 'Home'
-    },
-    children: [
-      {
-        path: 'base',
-        loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)
-      },
-      {
-        path: 'buttons',
-        loadChildren: () => import('./views/buttons/buttons.module').then(m => m.ButtonsModule)
-      },
-      {
-        path: 'charts',
-        loadChildren: () => import('./views/chartjs/chartjs.module').then(m => m.ChartJSModule)
-      },
-      {
-        path: 'dashboard',
-        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
-      },
-      {
-        path: 'icons',
-        loadChildren: () => import('./views/icons/icons.module').then(m => m.IconsModule)
-      },
-      {
-        path: 'notifications',
-        loadChildren: () => import('./views/notifications/notifications.module').then(m => m.NotificationsModule)
-      },
-      {
-        path: 'theme',
-        loadChildren: () => import('./views/theme/theme.module').then(m => m.ThemeModule)
-      },
-      {
-        path: 'widgets',
-        loadChildren: () => import('./views/widgets/widgets.module').then(m => m.WidgetsModule)
-      }
-    ]
   },
-  { path: '**', component: P404Component }
+  {
+    path: 'admin',
+    component: AdministradorLayoutComponent,
+    loadChildren: () => import('./layouts/administrador-layout/administrador-layout.module').then(m => m.AdministradorLayoutModule)
+
+  }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

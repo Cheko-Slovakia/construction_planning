@@ -17,15 +17,15 @@ declare interface trabajadoresTabla {
 }
 
 @Component({
-  selector: 'app-listartrabajadores',
-  templateUrl: './listarTrabajadores.component.html',
-  styleUrls: ['./listarTrabajadores.component.scss']
+  selector: 'app-trabajador-listar',
+  templateUrl: './trabajador-listar.component.html',
+  styleUrls: ['./trabajador-listar.component.scss']
 })
 
 
 
 
-export class ListarTrabajadoresComponent implements OnInit {
+export class TrabajadorListarComponent implements OnInit {
 
   private trabajadores: trabajadoresTabla[] = [];//Trabajadores
   private columnasTrabajadores: string[] = ['nombre', 'apellido', 'celular', 'cargo', 'editar'];//Columnas a mostrar en la tabla

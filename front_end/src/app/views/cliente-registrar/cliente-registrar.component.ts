@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { ClienteService } from '../../services/ClienteService';
 
 @Component({
-  selector: 'app-registrocliente',
-  templateUrl: './registrocliente.component.html',
-  styleUrls: ['./registrocliente.component.scss']
+  selector: 'app-cliente-registrar',
+  templateUrl: './cliente-registrar.component.html',
+  styleUrls: ['./cliente-registrar.component.scss']
 })
-export class RegistroclienteComponent implements OnInit {
+export class ClienteRegistrarComponent implements OnInit {
 
   registroCliente = true;
   edicion = false;

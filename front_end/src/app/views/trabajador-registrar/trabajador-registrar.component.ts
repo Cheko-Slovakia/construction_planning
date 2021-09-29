@@ -4,17 +4,14 @@ import { Router } from '@angular/router';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
 @Component({
-  selector: 'app-registroTrabajador',
-  templateUrl: 'registroTrabajador.component.html'
+  selector: 'app-trabajador-registrar',
+  templateUrl: 'trabajador-registrar.component.html'
 })
 
 
 export class RegistroTrabajadorComponent implements OnInit {
 
-  registroTrabajador = true;
-  edicion = false;
-
-  trabajadorForm: FormGroup = this.fb.group({
+  registrarTrabajadorForm: FormGroup = this.fb.group({
     
     
     nombre: ['',Validators.required],
@@ -29,13 +26,12 @@ export class RegistroTrabajadorComponent implements OnInit {
 
   })
 
-  @Input() trabajador_documento: string;
-   
+
 
   constructor(private fb: FormBuilder,private trabajadorService: TrabajadorService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log(this.trabajador_documento);
+    console.log(this.registrarTrabajadorForm);
     
     
   }
@@ -47,13 +43,13 @@ export class RegistroTrabajadorComponent implements OnInit {
     
 
     const newTrabajador: any={
-      numero_cedula: this.trabajadorForm.get('cedula')?.value,
-      nombre: this.trabajadorForm.get('nombre')?.value,
-      apellido: this.trabajadorForm.get('apellido')?.value,
-      direccion: this.trabajadorForm.get('direccion')?.value,
-      numero_celular: this.trabajadorForm.get('celular')?.value,
-      contrasena: this.trabajadorForm.get('contrasena')?.value,
-      cargo: this.trabajadorForm.get('cargo')?.value
+      numero_cedula: this.registrarTrabajadorForm.get('cedula')?.value,
+      nombre: this.registrarTrabajadorForm.get('nombre')?.value,
+      apellido: this.registrarTrabajadorForm.get('apellido')?.value,
+      direccion: this.registrarTrabajadorForm.get('direccion')?.value,
+      numero_celular: this.registrarTrabajadorForm.get('celular')?.value,
+      contrasena: this.registrarTrabajadorForm.get('contrasena')?.value,
+      cargo: this.registrarTrabajadorForm.get('cargo')?.value
     }
 
 
@@ -66,7 +62,7 @@ export class RegistroTrabajadorComponent implements OnInit {
     )
     console.log(newTrabajador);
     
-    this.trabajadorForm.reset();
+    this.registrarTrabajadorForm.reset();
   }
 
 

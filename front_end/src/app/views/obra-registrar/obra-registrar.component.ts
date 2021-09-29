@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
 @Component({
-  selector: 'app-obra-registro',
-  templateUrl: './obra-registro.component.html',
-  styleUrls: ['./obra-registro.component.scss']
+  selector: 'app-obra-registrar',
+  templateUrl: './obra-registrar.component.html',
+  styleUrls: ['./obra-registrar.component.scss']
 })
 
 
-export class ObraRegistroComponent implements OnInit {
+export class ObraRegistrarComponent implements OnInit {
 
   lat: number;
   lng: number;
@@ -19,7 +19,7 @@ export class ObraRegistroComponent implements OnInit {
 
 
   registrarObraForm: FormGroup = this.fb.group({
-    
+
     
     descripcion_obra: ['',Validators.required],
     tipo_obra: ['',Validators.required],
@@ -45,7 +45,7 @@ export class ObraRegistroComponent implements OnInit {
   }
    
 
-  constructor(private fb: FormBuilder,private trabajadorService: TrabajadorService, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
 

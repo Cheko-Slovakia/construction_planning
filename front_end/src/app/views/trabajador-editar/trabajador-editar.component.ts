@@ -5,12 +5,12 @@ import { Trabajador } from '../../../models/Trabajador';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
 @Component({
-  selector: 'app-editarTrabajador',
-  templateUrl: 'editarTrabajador.component.html'
+  selector: 'app-trabajador-editar',
+  templateUrl: 'trabajador-editar.component.html'
 })
 
 
-export class EditarTrabajadorComponent implements OnInit {
+export class TrabajadorEditarComponent implements OnInit {
   private trabajador_cedula: string;
 
   editarTrabajadorForm: FormGroup = this.fb.group({
@@ -54,6 +54,7 @@ export class EditarTrabajadorComponent implements OnInit {
           nombre:response.nombre,
           apellido:response.apellido,
           celular: response.numero_celular,
+          contrasena: response.contrasena,
           cargo: response.cargo,
           is_active: response.is_active
 
@@ -82,7 +83,7 @@ export class EditarTrabajadorComponent implements OnInit {
 
     this.trabajadorService.actualizarTrabajador(editadoTrabajador).subscribe(
       (response: any)=>{
-        console.log(editadoTrabajador)
+        console.log(response)
         
       }
     )

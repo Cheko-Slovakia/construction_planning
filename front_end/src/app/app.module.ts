@@ -21,7 +21,6 @@ import { DefaultLayoutComponent } from './containers';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
-import { RegistroTrabajadorComponent } from './views/registroTrabajador/registroTrabajador.component';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -42,7 +41,7 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -51,15 +50,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 
-import { RegistroclienteComponent } from './views/registroCliente/registroCliente.component';
-import { ListarTrabajadoresComponent } from './views/listarTrabajadores/listartrabajadores.component';
-import { MapaComponent } from './views/mapa/mapa.component';
-import { EditarTrabajadorComponent } from './views/editartrabajador/editartrabajador.component';
-import { EditarclienteComponent } from './views/editarcliente/editarcliente.component';
-import { ObraRegistroComponent } from './views/obra-registro/obra-registro.component';
-import { ObraEdicionComponent } from './views/obra-edicion/obra-edicion.component';
-import { ObraListarComponent } from './views/obra-listar/obra-listar.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { TrabajadorLayoutComponent } from './layouts/trabajador-layout/trabajador-layout.component';
+import { ClienteLayoutComponent } from './layouts/cliente-layout/cliente-layout.component';
+import { AdministradorLayoutComponent } from './layouts/administrador-layout/administrador-layout.component';
 
 
 @NgModule({
@@ -94,15 +88,9 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
     P404Component,
     P500Component,
     LoginComponent,
-    RegistroTrabajadorComponent,
-    RegistroclienteComponent,
-    ListarTrabajadoresComponent,
-    MapaComponent,
-    EditarTrabajadorComponent,
-    EditarclienteComponent,
-    ObraRegistroComponent,
-    ObraEdicionComponent,
-    ObraListarComponent
+    AdministradorLayoutComponent,
+    TrabajadorLayoutComponent,
+    ClienteLayoutComponent
   ],
   providers: [
     {
