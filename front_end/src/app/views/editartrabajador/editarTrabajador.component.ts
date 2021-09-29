@@ -14,15 +14,17 @@ export class EditarTrabajadorComponent implements OnInit {
   private trabajador_cedula: string;
 
   editarTrabajadorForm: FormGroup = this.fb.group({
-    
-    nombre: [{value: '', disabled: true},Validators.required],
-    apellido: [{value: '', disabled: true},Validators.required],
-    cedula: [{value: '', disabled: true},Validators.required],
-    direccion: [{value: '', disabled: false},Validators.required],
+
+
+    trabajador_id:[{value: '', disabled: true}],
+    cedula: [{value: '', disabled: true}],
+    nombre: [{value: '', disabled: true}],
+    apellido: [{value: '', disabled: true}],
     celular: [{value: '', disabled: false},Validators.required],
     contrasena: [{value: '', disabled: false},Validators.required],
     c_contrasena: [{value: '', disabled: false},Validators.required],
-    cargo: [{value: '', disabled: false},Validators.required]
+    cargo: [{value: '', disabled: false},Validators.required],
+    is_active: [{value: '', disabled: false}],
   
   
 
@@ -37,8 +39,6 @@ export class EditarTrabajadorComponent implements OnInit {
   ngOnInit(): void {
     this.trabajador_cedula = this.aRoute.snapshot.paramMap.get("trabajador_cedula");
     this.obtenerTrabajador();
-
-    console.log(this.trabajador_cedula);
   }
 
  
@@ -46,44 +46,46 @@ export class EditarTrabajadorComponent implements OnInit {
   obtenerTrabajador(){
     this.trabajadorService.obtenerTrabajador(Number(this.trabajador_cedula)).subscribe(
       (response:Trabajador)=>{
+        
 
         this.editarTrabajadorForm.patchValue({
+          trabajador_id: response.trabajador_id,
+          cedula: response.numero_cedula,
           nombre:response.nombre,
           apellido:response.apellido,
-          cedula: response.numero_cedula,
-          direccion: response.direccion,
           celular: response.numero_celular,
-          cargo: response.cargo
+          cargo: response.cargo,
+          is_active: response.is_active
 
         })
         
-        console.log(response);
         
       }
     ) 
   }
 
   editarTrabajador(){
-    console.log("Recibido");
     const editadoTrabajador: any={
+      trabajador_id: this.editarTrabajadorForm.get('trabajador_id')?.value,
       numero_cedula: this.editarTrabajadorForm.get('cedula')?.value,
       nombre: this.editarTrabajadorForm.get('nombre')?.value,
       apellido: this.editarTrabajadorForm.get('apellido')?.value,
-      direccion: 'Calle 5',
       numero_celular: this.editarTrabajadorForm.get('celular')?.value,
       contrasena: this.editarTrabajadorForm.get('contrasena')?.value,
       cargo: this.editarTrabajadorForm.get('cargo')?.value,
+      is_active: this.editarTrabajadorForm.get('is_active')?.value,
       
     }
 
+    
+    
+
     this.trabajadorService.actualizarTrabajador(editadoTrabajador).subscribe(
       (response: any)=>{
-        console.log(response);
+        console.log(editadoTrabajador)
         
       }
     )
-
-    console.log(editadoTrabajador);
 
     this.editarTrabajadorForm.reset();
     
