@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { MapaComponent } from '../../views/mapa/mapa.component';
 import { ClienteListarComponent } from '../../views/cliente-listar/cliente-listar.component';
+import { DashboardComponent } from '../../views/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ClienteListarComponent } from '../../views/cliente-listar/cliente-lista
     RegistroTrabajadorComponent,
     TrabajadorListarComponent,
     TrabajadorEditarComponent,
-    MapaComponent
+    MapaComponent,
+    DashboardComponent
     
   ],
   imports: [

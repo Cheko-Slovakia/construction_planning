@@ -1,10 +1,9 @@
 import { INavData } from '@coreui/angular';
-import { freeSet } from '@coreui/icons';
 
 export const navItems: INavData[] = [
   {
     name: 'Administrador',
-    url: '/admin',
+    url: 'home',
     icon: 'icon-speedometer',
   },
   {

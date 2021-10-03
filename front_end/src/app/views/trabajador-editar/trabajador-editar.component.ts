@@ -18,8 +18,8 @@ export class TrabajadorEditarComponent implements OnInit {
 
     trabajador_id:[{value: '', disabled: true}],
     cedula: [{value: '', disabled: true}],
-    nombre: [{value: '', disabled: true}],
-    apellido: [{value: '', disabled: true}],
+    nombre: [{value: '', disabled: false}],
+    apellido: [{value: '', disabled: false}],
     celular: [{value: '', disabled: false},Validators.required],
     contrasena: [{value: '', disabled: false},Validators.required],
     c_contrasena: [{value: '', disabled: false},Validators.required],

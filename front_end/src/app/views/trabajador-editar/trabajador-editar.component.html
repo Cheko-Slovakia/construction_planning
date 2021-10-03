@@ -1,78 +1,137 @@
-<div class="app-body">
-    <main class="main d-flex align-items-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 mx-auto">
-            <div class="card mx-4">
-              <div class="card-body p-4">
-                <form autocomplete="off" [formGroup]="editarTrabajadorForm">
-                    <h1>Actualizar Trabajador</h1>
-                    <p class="text-muted">Actualice la información deseada del trabajador</p>
+<div class="animated fadeIn app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form autocomplete="off" [formGroup]="editarTrabajadorForm">
+                <h1>Actualizar Trabajador</h1>
+                <p class="text-muted">
+                  Actualice la información deseada del trabajador
+                </p>
 
-  
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-user"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Nombre" autocomplete="username"
-                      formControlName="nombre"  >
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="icon-user"></i
+                    ></span>
                   </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="cil-building"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Apellido" autocomplete="apellido"
-                      formControlName="apellido" >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre"
+                    autocomplete="username"
+                    formControlName="nombre"
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-building"></i
+                    ></span>
                   </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="cil-phone"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Cedula" autocomplete="cedula"
-                      formControlName="cedula" >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Apellido"
+                    autocomplete="apellido"
+                    formControlName="apellido"
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-phone"></i
+                    ></span>
                   </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="cil-industry"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Celular" autocomplete="celular"
-                      formControlName="celular" >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Cedula"
+                    autocomplete="cedula"
+                    formControlName="cedula"
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-industry"></i
+                    ></span>
                   </div>
-  
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="cil-house"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Cargo" formControlName="cargo"
-                      autocomplete="new-password" formControlName="cargo" >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Celular"
+                    autocomplete="celular"
+                    formControlName="celular"
+                  />
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-house"></i
+                    ></span>
                   </div>
-  
-  
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-lock"></i></span>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Contraseña" formControlName="contrasena"
-                      autocomplete="new-password" formControlName="contrasena" >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Cargo"
+                    formControlName="cargo"
+                    autocomplete="new-password"
+                    formControlName="cargo"
+                  />
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="icon-lock"></i
+                    ></span>
                   </div>
-                  
-                  <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-lock"></i></span>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Confirmar contraseña"
-                    formControlName="c_contrasena" autocomplete="new-password" >
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Contraseña"
+                    formControlName="contrasena"
+                    autocomplete="new-password"
+                    formControlName="contrasena"
+                  />
+                </div>
+
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="icon-lock"></i
+                    ></span>
                   </div>
-                    <button (click)="editarTrabajador()"  type="button" [disabled]="!editarTrabajadorForm.valid" class="btn btn-block btn-primary" >Actualizar</button>
-                  <button type="button" class="btn btn-block btn-danger">Cancelar</button>
-                </form>
-              </div>
-  
-  
-  
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Confirmar contraseña"
+                    formControlName="c_contrasena"
+                    autocomplete="new-password"
+                  />
+                </div>
+                <button
+                  [routerLink]="['/admin/listarTrabajadores']"
+                  (click)="editarTrabajador()"
+                  type="button"
+                  [disabled]="!editarTrabajadorForm.valid"
+                  class="btn btn-block btn-primary"
+                >
+                  Actualizar
+                </button>
+
+                <button type="button" class="btn btn-block btn-danger">
+                  Cancelar
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
+</div>

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
 import { AdministradorLayoutComponent } from './layouts/administrador-layout/administrador-layout.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
@@ -13,8 +14,10 @@ import { MapaComponent } from './views/mapa/mapa.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
+    component: LoginComponent,
+    data: {
+      title: 'login'
+    }
   },
   {
     path: '404',

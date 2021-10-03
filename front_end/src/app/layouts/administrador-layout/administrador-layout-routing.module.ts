@@ -8,11 +8,13 @@ import { ClienteRegistrarComponent } from '../../views/cliente-registrar/cliente
 import { RegistroTrabajadorComponent } from '../../views/trabajador-registrar/trabajador-registrar.component';
 import { ClienteListarComponent } from '../../views/cliente-listar/cliente-listar.component';
 import { ClienteEditarComponent } from '../../views/cliente-editar/cliente-editar.component';
+import { DashboardComponent } from '../../views/dashboard/dashboard.component';
 
 export const routes: Routes = [{
   path:'',
   children:[
-    
+     {path:'home',component: DashboardComponent},
+
      {path:'registrarObra',component: ObraRegistrarComponent},
      {path:'editarObra/:id_obra',component: ObraListarComponent},
      {path:'listarObras',component: ObraListarComponent},
