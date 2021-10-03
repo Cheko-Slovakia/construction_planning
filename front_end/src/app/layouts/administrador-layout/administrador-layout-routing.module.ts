@@ -6,6 +6,7 @@ import { ObraListarComponent } from '../../views/obra-listar/obra-listar.compone
 import { ObraRegistrarComponent } from '../../views/obra-registrar/obra-registrar.component';
 import { ClienteRegistrarComponent } from '../../views/cliente-registrar/cliente-registrar.component';
 import { RegistroTrabajadorComponent } from '../../views/trabajador-registrar/trabajador-registrar.component';
+import { ClienteListarComponent } from '../../views/cliente-listar/cliente-listar.component';
 
 export const routes: Routes = [{
   path:'',
@@ -17,7 +18,7 @@ export const routes: Routes = [{
 
      {path:'registrarCliente',component: ClienteRegistrarComponent},
      {path:'editarCliente/:cliente_nit',component: ClienteRegistrarComponent},
-     {path:'listarClientes/',component: ClienteRegistrarComponent},
+     {path:'listarClientes/',component: ClienteListarComponent},
 
      {path:'registrarTrabajador',component: RegistroTrabajadorComponent},
      {path:'editarTrabajador/:trabajador_cedula',component: TrabajadorEditarComponent},
