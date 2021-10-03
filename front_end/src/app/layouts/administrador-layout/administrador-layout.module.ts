@@ -19,11 +19,13 @@ import { TrabajadorEditarComponent } from '../../views/trabajador-editar/trabaja
 import { HttpClientModule } from '@angular/common/http';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { MapaComponent } from '../../views/mapa/mapa.component';
+import { ClienteListarComponent } from '../../views/cliente-listar/cliente-listar.component';
 
 
 @NgModule({
   declarations: [
     ClienteRegistrarComponent,
+    ClienteListarComponent,
     ClienteEditarComponent,
     ObraRegistrarComponent,
     ObraListarComponent,

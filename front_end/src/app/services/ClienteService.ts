@@ -25,7 +25,7 @@ export class ClienteService{
         return this.http.post<Cliente>(`${this.apiServerUrl}/clientes/`,clienteActualizado)
     }
     public obtenerClientes():Observable<Cliente[]>{
-        return this.http.get<Cliente[]>(`${this.apiServerUrl}/clientes/`)
+        return this.http.get<Cliente[]>(`${this.apiServerUrl}/clientes/?all=1`)
     }
     public obtenerCliente(cedula : number): Observable<Cliente>{
         return this.http.get<Cliente>(`${this.apiServerUrl}/clientes/${cedula}`);

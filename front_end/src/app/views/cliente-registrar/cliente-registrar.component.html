@@ -1,120 +1,194 @@
-<div class="app-body">
-    <main class="main d-flex align-items-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 mx-auto">
-            <div class="card mx-4">
-              <div class="card-body p-4">
-                <form autocomplete="off" [formGroup]="clienteForm">
-  
-                  <ng-container *ngIf="registroCliente">
-  
-                    <h1>Registrar Cliente</h1>
-                    <p class="text-muted">Complete el formulario</p>
-  
-                  </ng-container>
-  
-                  <ng-container *ngIf="edicionCliente">
-  
-                    <h1>Actualizar cliente</h1>
-                    <p class="text-muted">Actualice la información deseada del cliente</p>
-  
-                  </ng-container>
-  
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-user"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Nombre" autocomplete="username"
-                      formControlName="nombre" required>
+<div class="animated fadeIn app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form autocomplete="off" [formGroup]="clienteForm">
+                <ng-container *ngIf="registroCliente">
+                  <h1>Registrar Cliente</h1>
+                  <p class="text-muted">Complete el formulario</p>
+                </ng-container>
+
+                <ng-container *ngIf="edicionCliente">
+                  <h1>Actualizar cliente</h1>
+                  <p class="text-muted">
+                    Actualice la información deseada del cliente
+                  </p>
+                </ng-container>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="icon-user"></i
+                    ></span>
                   </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="cil-building"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Apellido" autocomplete="apellido"
-                      formControlName="apellido" required>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre"
+                    autocomplete="username"
+                    formControlName="nombre"
+                    required
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-building"></i
+                    ></span>
                   </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="cil-building"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Cedula" autocomplete="cedula"
-                      formControlName="cedula" required>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Apellido"
+                    autocomplete="apellido"
+                    formControlName="apellido"
+                    required
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-building"></i
+                    ></span>
                   </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="cil-industry"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Dirección" autocomplete="address"
-                      formControlName="direccion" required>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Cedula"
+                    autocomplete="cedula"
+                    formControlName="cedula"
+                    required
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-industry"></i
+                    ></span>
                   </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="cil-industry"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Celular" autocomplete="celular"
-                      formControlName="celular" required>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Dirección"
+                    autocomplete="address"
+                    formControlName="direccion"
+                    required
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-industry"></i
+                    ></span>
                   </div>
-  
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-lock"></i></span>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Cargo" formControlName="cargo"
-                      autocomplete="new-password" formControlName="cargo" required>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Celular"
+                    autocomplete="celular"
+                    formControlName="celular"
+                    required
+                  />
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="icon-lock"></i
+                    ></span>
                   </div>
-  
-  
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-lock"></i></span>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Contraseña" formControlName="contrasena"
-                      autocomplete="new-password" formControlName="contrasena" required>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Cargo"
+                    formControlName="cargo"
+                    autocomplete="new-password"
+                    formControlName="cargo"
+                    required
+                  />
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="icon-lock"></i
+                    ></span>
                   </div>
-                  
-                  <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-lock"></i></span>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Confirmar contraseña"
-                    formControlName="c_contrasena" autocomplete="new-password" required>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Contraseña"
+                    formControlName="contrasena"
+                    autocomplete="new-password"
+                    formControlName="contrasena"
+                    required
+                  />
+                </div>
+
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="icon-lock"></i
+                    ></span>
                   </div>
-                  
-                  <ng-container *ngIf="registroCliente">
-                    <button type="button" class="btn btn-block btn-success" (click)="registrarCliente()"
-                      [disabled]="!clienteForm.valid">Registrar</button>
-                  </ng-container>
-                  <ng-container *ngIf="edicion">
-                    <button type="button" class="btn btn-block btn-primary">Actualizar</button>
-                  </ng-container>
-                  <button type="button" class="btn btn-block btn-danger">Cancelar</button>
-                </form>
-              </div>
-  
-              <ng-container *ngIf="registroCliente">
-                <div class="card-footer p-4">
-                  <div class="row">
-                    <div class="col-4">
-                      <button class="btn btn-block btn-facebook" type="button"><span>Facebook</span></button>
-                    </div>
-                    <div class="col-4">
-                      <button class="btn btn-block btn-twitter" type="button"><span>Twitter</span></button>
-                    </div>
-                    <div class="col-4">
-                      <button class="btn btn-block btn-github" type="button"><span>Github</span></button>
-                    </div>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Confirmar contraseña"
+                    formControlName="c_contrasena"
+                    autocomplete="new-password"
+                    required
+                  />
+                </div>
+
+                <ng-container *ngIf="registroCliente">
+                  <button
+                    type="button"
+                    class="btn btn-block btn-success"
+                    (click)="registrarCliente()"
+                    [disabled]="!clienteForm.valid"
+                  >
+                    Registrar
+                  </button>
+                </ng-container>
+                <ng-container *ngIf="edicion">
+                  <button type="button" class="btn btn-block btn-primary">
+                    Actualizar
+                  </button>
+                </ng-container>
+                <button type="button" class="btn btn-block btn-danger">
+                  Cancelar
+                </button>
+              </form>
+            </div>
+
+            <ng-container *ngIf="registroCliente">
+              <div class="card-footer p-4">
+                <div class="row">
+                  <div class="col-4">
+                    <button class="btn btn-block btn-facebook" type="button">
+                      <span>Facebook</span>
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-block btn-twitter" type="button">
+                      <span>Twitter</span>
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-block btn-github" type="button">
+                      <span>Github</span>
+                    </button>
                   </div>
                 </div>
-  
-              </ng-container>
-  
-  
-  
-            </div>
+              </div>
+            </ng-container>
           </div>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
+</div>

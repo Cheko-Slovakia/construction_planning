@@ -50,8 +50,6 @@ export class ClienteListarComponent implements OnInit {
   constructor(private clientesService: ClienteService, private router: Router) { }
 
   ngOnInit() {
-    //Se genera el menu
-    console.log('Ola1');
     this.generarMenuClientes();
   }
 
@@ -62,12 +60,6 @@ export class ClienteListarComponent implements OnInit {
     this.clientesService.obtenerClientes().subscribe(
       (response: Cliente[]) => {
 
-        console.log('Ola2');
-    
-        console.log(response);
-
-        
-
         response.forEach(cliente => {
           this.clienteAux = {
             id: cliente.cliente_id,
@@ -77,11 +69,8 @@ export class ClienteListarComponent implements OnInit {
             correo: cliente.correo,
             direccion: cliente.direccion,
           }
-          
           this.clientes.push(this.clienteAux)
-          console.log(this.clienteAux)
         })
-        console.log(this.clientes)
 
         //Datasource para la tabla y su correspondiende sorter y paginator
         this.dataSourceClientes = new MatTableDataSource<clientesTabla>(this.clientes)
