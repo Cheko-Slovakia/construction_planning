@@ -1,157 +1,251 @@
+$fuente: Arial,
+Helvetica,
+sans-serif;
 
-  .facturacion{
-  width: 100%;
-  position: absolute;
-  top: calc(150% - 75px);
-  left: calc(90% - 75px);
+$color-headers: rgb(27, 27, 31);
+
+$background-card:#f1f1f1;
+
+$breakpoint-tablet: 768px;
+
+$breakpoint-cel: 600px;
+
+
+
+::ng-deep .tabla-trabajadores {
+  margin: 25px;
+
+  //Filtrar
+  .mat-form-field {
+    width: 20%;
+    color: black;
+    margin: 0px 5px 20px 0px;
   }
-  
-  
-  .right{
-  font-size: 110%;
-  color: #D2DEC3;
-  float:right;
-  width:100%;
-  text-align: right;
+
+  .mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: #000000 !important;
+    ;
   }
-  
-  .btn-editar{
-  width: 100%;
-  background-color: darkgreen;
-  color: white;
-  font-weight: lighter;
-  
+
+  .mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #000000 !important;
   }
-  .btn-estado{
-  width: 100px;
-  background-color: darkred;
-  color: white;
-  font-weight: lighter;
+
+  .mat-form-field-label {
+    color: rgb(0, 0, 0)
   }
-  
-  .facturasTitulo{
-  color: #051f34;
-  font-weight: 500;
-  font-size: 300%
+
+  .mat-focused {
+    /*change color of label*/
+    color: rgb(0, 0, 0) !important;
   }
-  
-  .fill-paleta{
-  fill: #172b4d;
-  }
-  
-  .cabecera{
-  padding-top: 11rem !important;
-  width:120%;
-  }
-  .separator{
-  width:120%;
-  }
-  
-  
-  
-  
-  th{
-    background-color: #dcdfd9;
-    font-weight:bolder;
-    font-size:medium;
-    color: rgb(85, 83, 83);
-  }
-  
-  td {
-    background-color: #f4f5f5;
-    border-top: 2px solid rgb(216, 214, 214);
-    color:rgb(83, 82, 82);
-    font-weight: 500;
-  width: 20%;
-  }
-  .btn-ver{
-  margin-bottom: 5%;
-  background-color: white;
-  color:#051f34;
-  }
-  table {
-    background-color: whitesmoke;
-    width: 100%;
-  }
-  
-  
-  
-  
-    
-  
-  
-  
-  .mat-paginator{
-    width: 100%;
-    font-weight: normal;
-    font-size:small;
-    background-color: #ffffff;
+
+  .mat-form-field-empty.mat-form-field-label {
     color: rgb(0, 0, 0);
   }
-  
-  
-  .mat-form-field {
-    border-radius: 8px;
+
+  .mat-select-value {
+    font-size: 120%;
+    font-style: italic;
+    height: 30%;
+    color: black !important;
+    font-style: inherit;
+    margin-left: 20;
+  }
+}
+
+.card {
+  margin: 30px;
+  border-radius: 1em;
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  .card-header {
+    text-align: center;
     width: 100%;
-    color: black;
-    height: 60%;
+    color: #ffffff;
+    font-family: $fuente;
+    font-size: 50px;
+    background-color: $color-headers;
   }
-  
-  
-  ::ng-deep .tabla-vehiculos{
-    .mat-form-field-ripple {
-      /*change color of underline when focused*/
-      color: white;
-      background-color:  #000000 !important;;
-     }
-     .mat-form-field-underline {
-      /*change color of underline*/
-      background-color: #000000 !important;
+}
+
+
+
+//Tabla 
+.tabla {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 400px;
+}
+
+::ng-deep .mat-sort-header-container {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+th.mat-header-cell {
+  background-color: $color-headers;
+  font-weight: bolder;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+
+td {
+  background-color: #dddddd;
+  text-align: center;
+  border-top: 0.5px solid rgb(39, 39, 39);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  width: 20%;
+}
+
+
+
+/*th.mat-header-cell {
+  text-align: center;
+  background-color: aqua;
+}*/
+
+
+
+//PAGINATOR
+.mat-paginator {
+  width: 100%;
+  font-weight: normal;
+  font-size: small;
+  background-color: $background-card;
+  color: rgb(0, 0, 0);
+}
+
+::ng-deep .paginador {
+
+  margin: 10px 0px 10px 30px;
+
+  .mat-focused {
+    /*change color of label*/
+    color: rgb(0, 0, 0) !important;
+  }
+
+  .mat-paginator {
+    .mat-paginator-container {
+      justify-content: start;
     }
-    .mat-form-field-label{
-      color: rgb(0, 0, 0)
-     }
-  
-     .mat-focused  {
-      /*change color of label*/
-      color: rgb(0, 0, 0) !important;
-     }
-     
-  
-     
-     .mat-form-field-empty.mat-form-field-label {
-      color: rgb(0, 0, 0);
   }
-  
-  
-     .mat-select-value{    
-       
-      font-size: 120%;
-      font-style:italic;
-      height: 30%;
-      color: black!important;
-      font-style: inherit;
-      margin-left: 20;
-      
-    
+}
+
+::ng-deep .mat-paginator-page-size-select {
+  width: 45px !important;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: transparent;
+}
+
+::ng-deep .mat-select-value {
+  color: #000000;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+::ng-deep .mat-select-arrow {
+  color: #000000;
+}
+
+::ng-deep .mat-option {
+  padding: 0 !important;
+}
+
+::ng-deep .mat-option-text {
+  text-align: center;
+}
+
+
+
+@media (max-width: $breakpoint-tablet) {
+  ::ng-deep .tabla-trabajadores {
+    margin: 25px;
+
+    //Filtrar
+    .mat-form-field {
+      width: 50%;
+      color: black;
+      margin: 0px 5px 20px 0px;
     }
-    .mat-paginator {
-      .mat-paginator-container {
-        
-          justify-content: start;
-          // override material paginator page switch
-    .mat-paginator-range-label {
-      order: 2;
   }
-  
-  .mat-paginator-navigation-previous {
-      order: 1;
-  }
-  .mat-paginator-navigation-next {
-      order: 3;
-  }
-          
-      }
+}
+
+
+@media (max-width: $breakpoint-tablet) {
+  ::ng-deep .tabla-trabajadores {
+    margin: 25px;
+
+    //Filtrar
+    .mat-form-field {
+      width: 50%;
+      color: black;
+      margin: 0px 5px 20px 0px;
     }
-  
   }
+
+  .card {
+    margin: 30px;
+    border-radius: 1em;
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    .card-header {
+      text-align: center;
+      width: 100%;
+      color: #ffffff;
+      font-family: $fuente;
+      font-size: 35px;
+      background-color: $color-headers;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-cel) {
+  ::ng-deep .tabla-trabajadores {
+    margin: 25px;
+
+    //Filtrar
+    .mat-form-field {
+      width: 100%;
+      color: black;
+      margin: 0px 5px 20px 0px;
+    }
+  }
+
+  .card {
+    margin: 30px;
+    border-radius: 1em;
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    .card-header {
+      text-align: center;
+      width: 100%;
+      color: #ffffff;
+      font-family: $fuente;
+      font-size: 25px;
+      background-color: $color-headers;
+    }
+  }
+
+
+}
