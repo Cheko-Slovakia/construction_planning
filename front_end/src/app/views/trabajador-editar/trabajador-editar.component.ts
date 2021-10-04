@@ -46,8 +46,6 @@ export class TrabajadorEditarComponent implements OnInit {
   obtenerTrabajador(){
     this.trabajadorService.obtenerTrabajador(Number(this.trabajador_cedula)).subscribe(
       (response:Trabajador)=>{
-        
-
         this.editarTrabajadorForm.patchValue({
           trabajador_id: response.trabajador_id,
           cedula: response.numero_cedula,

@@ -10,7 +10,6 @@ import { ClienteService } from '../../services/ClienteService';
 declare interface clientesTabla {
   id: string,
   nit: string,
-  
   nombre: string,
   apellido: string,
   correo: string,

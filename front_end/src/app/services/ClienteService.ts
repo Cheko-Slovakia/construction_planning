@@ -22,13 +22,13 @@ export class ClienteService{
         return this.http.post<Cliente>(`${this.apiServerUrl}/clientes/`,nuevoCliente)
     }
     public actualizarCliente(clienteActualizado : Cliente):Observable<Cliente>{
-        return this.http.post<Cliente>(`${this.apiServerUrl}/clientes/`,clienteActualizado)
+        return this.http.put<Cliente>(`${this.apiServerUrl}/clientes/`,clienteActualizado)
     }
     public obtenerClientes():Observable<Cliente[]>{
         return this.http.get<Cliente[]>(`${this.apiServerUrl}/clientes/?all=1`)
     }
-    public obtenerCliente(cedula : number): Observable<Cliente>{
-        return this.http.get<Cliente>(`${this.apiServerUrl}/clientes/${cedula}`);
+    public obtenerCliente(nit : number): Observable<Cliente>{
+        return this.http.get<Cliente>(`${this.apiServerUrl}/clientes/?numero_nit=${nit}`);
 
     }
 
