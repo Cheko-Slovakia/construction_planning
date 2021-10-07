@@ -50,7 +50,7 @@ export class ClienteEditarComponent implements OnInit {
           cargo: response.cargo,
           is_active: response.is_active
 
-        }) 
+        })
       }  
     )
   }
