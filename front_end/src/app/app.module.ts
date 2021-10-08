@@ -55,7 +55,6 @@ import { TrabajadorLayoutComponent } from './layouts/trabajador-layout/trabajado
 import { ClienteLayoutComponent } from './layouts/cliente-layout/cliente-layout.component';
 import { AdministradorLayoutComponent } from './layouts/administrador-layout/administrador-layout.component';
 
-
 @NgModule({
   imports: [
     BrowserModule,

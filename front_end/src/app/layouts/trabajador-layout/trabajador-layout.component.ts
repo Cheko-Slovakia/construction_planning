@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { navItemsJefeAlmacen, navItemsOperario, navItemsJefeObra } from './trabajador_nav';
 
 @Component({
   selector: 'app-trabajador-layout',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrabajadorLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+  public sidebarMinimized = false;
+  public navItems = [];
+  private tipo_trabajador
 
   ngOnInit(): void {
+    
+    this.navItems = navItemsJefeAlmacen
+
+
   }
 
 }

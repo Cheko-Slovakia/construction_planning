@@ -8,10 +8,23 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { EvidenciaListarComponent } from '../../views/evidencia-listar/evidencia-listar.component';
+import { EvidenciaRegistrarComponent } from '../../views/evidencia-registrar/evidencia-registrar.component';
+import { MaterialComprarComponent } from '../../views/material-comprar/material-comprar.component';
+import { MaterialListarComponent } from '../../views/material-listar/material-listar.component';
+import { MaterialSolicitarComponent } from '../../views/material-solicitar/material-solicitar.component';
+import { MaterialSolicitudesComponent } from '../../views/material-solicitudes/material-solicitudes.component';
+import { ObraListarComponent } from '../../views/obra-listar/obra-listar.component';
 
 
 @NgModule({
   declarations: [
+    EvidenciaListarComponent,
+    EvidenciaRegistrarComponent,
+    MaterialComprarComponent,
+    MaterialListarComponent,
+    MaterialSolicitarComponent,
+    MaterialSolicitudesComponent
     
   ],
   imports: [
