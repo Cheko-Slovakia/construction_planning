@@ -15,6 +15,7 @@ import { MaterialListarComponent } from '../../views/material-listar/material-li
 import { MaterialSolicitarComponent } from '../../views/material-solicitar/material-solicitar.component';
 import { MaterialSolicitudesComponent } from '../../views/material-solicitudes/material-solicitudes.component';
 import { ObraListarComponent } from '../../views/obra-listar/obra-listar.component';
+import { MatOptionModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ObraListarComponent } from '../../views/obra-listar/obra-listar.compone
     MatInputModule,
     MatSortModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatOptionModule
   ]
 })
 export class TrabajadorLayoutModule { }

@@ -13,19 +13,45 @@
                                 </p>
 
                                 <div class="input-group mb-3">
+                                    
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="icon-user"></i></span>
+                                        
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Proveedor" autocomplete="proveedor"
-                                        formControlName="proveedor" required />
+                                    <mat-form-field>
+                                        <mat-select requiered  formControlName="proveedor"
+                                            name="proveedor">
+                                            <mat-option required style="color: black" class="not-empty-select"
+                                                *ngFor="let proveedorLista of proveedores "
+                                                [value]="proveedorLista.proveedor_id"
+                                                (click)="obtenerMaterialesProveedor(proveedor)">
+                                                {{proveedorLista.proveedor_nombre}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
                                 </div>
+
+                                
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="icon-user"></i></span>
+                                        
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Material" autocomplete="material"
-                                        formControlName="material" required />
+                                    <mat-form-field>
+                                        <mat-select requiered  formControlName="material"
+                                            name="material">
+                                            <mat-option required style="color: black" class="not-empty-select"
+                                                *ngFor="let materialLista of materiales "
+                                                [value]="materialLista.material_id"
+                                                (click)="setValorMaterial(materialLista.material_precio)">
+                                                {{materialLista.material_nombre}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
                                 </div>
+
+
+                                
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="cil-building"></i></span>
