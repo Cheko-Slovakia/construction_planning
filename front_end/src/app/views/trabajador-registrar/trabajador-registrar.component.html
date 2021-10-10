@@ -1,175 +1,134 @@
-<div class="animated fadeIn app-body">
-  <main class="main d-flex align-items-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="card mx-4">
-            <div class="card-body p-4">
-              <form autocomplete="off" [formGroup]="registrarTrabajadorForm">
-                <h1>Registrar Trabajador</h1>
-                <p class="text-muted">Complete el formulario</p>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="icon-user"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Nombre"
-                    autocomplete="username"
-                    formControlName="nombre"
-                    required
-                  />
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="cil-building"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Apellido"
-                    autocomplete="apellido"
-                    formControlName="apellido"
-                    required
-                  />
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="cil-building"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Cedula"
-                    autocomplete="cedula"
-                    formControlName="cedula"
-                    required
-                  />
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="cil-industry"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Dirección"
-                    autocomplete="address"
-                    formControlName="direccion"
-                    required
-                  />
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="cil-industry"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Celular"
-                    autocomplete="celular"
-                    formControlName="celular"
-                    required
-                  />
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="icon-lock"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="password"
-                    class="form-control"
-                    placeholder="Cargo"
-                    formControlName="cargo"
-                    autocomplete="new-password"
-                    formControlName="cargo"
-                    required
-                  />
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="icon-lock"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="password"
-                    class="form-control"
-                    placeholder="Contraseña"
-                    formControlName="contrasena"
-                    autocomplete="new-password"
-                    formControlName="contrasena"
-                    required
-                  />
-                </div>
-
-                <div class="input-group mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="icon-lock"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="password"
-                    class="form-control"
-                    placeholder="Confirmar contraseña"
-                    formControlName="c_contrasena"
-                    autocomplete="new-password"
-                    required
-                  />
-                </div>
-
-                <button
-                  type="button"
-                  class="btn btn-block btn-success"
-                  (click)="registrarTrabajador()"
-                  [disabled]="!registrarTrabajadorForm.valid"
-                >
-                  Registrar
-                </button>
-                <button type="button" class="btn btn-block btn-danger">
-                  Cancelar
-                </button>
-              </form>
-            </div>
-            <div class="card-footer p-4">
-              <div class="row">
-                <div class="col-4">
-                  <button class="btn btn-block btn-facebook" type="button">
-                    <span>Facebook</span>
-                  </button>
-                </div>
-                <div class="col-4">
-                  <button class="btn btn-block btn-twitter" type="button">
-                    <span>Twitter</span>
-                  </button>
-                </div>
-                <div class="col-4">
-                  <button class="btn btn-block btn-github" type="button">
-                    <span>Github</span>
-                  </button>
-                </div>
+<div class="animated fadeIn contenedor">
+  <div class="col-xl-12 mb-lg-8 mb-sm-4 mb-2">
+    <div class="card">
+      <div class="card-header">Registrar Trabajador</div>
+      <div class="card-body">
+        <div class="formulario-registro-trabajador">
+          <form autocomplete="off" [formGroup]="registrarTrabajadorForm">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-user"></i></span>
               </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Nombre"
+                autocomplete="username"
+                formControlName="nombre"
+                required
+              />
             </div>
-          </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="cil-building"></i></span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Apellido"
+                autocomplete="apellido"
+                formControlName="apellido"
+                required
+              />
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="cil-building"></i></span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Cedula"
+                autocomplete="cedula"
+                formControlName="cedula"
+                required
+              />
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="cil-industry"></i></span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Dirección"
+                autocomplete="address"
+                formControlName="direccion"
+                required
+              />
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="cil-industry"></i></span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Celular"
+                autocomplete="celular"
+                formControlName="celular"
+                required
+              />
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-lock"></i></span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Cargo"
+                formControlName="cargo"
+                autocomplete="new-password"
+                formControlName="cargo"
+                required
+              />
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-lock"></i></span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Contraseña"
+                formControlName="contrasena"
+                autocomplete="new-password"
+                formControlName="contrasena"
+                required
+              />
+            </div>
+
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-lock"></i></span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Confirmar contraseña"
+                formControlName="c_contrasena"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-block btn-success"
+              (click)="registrarTrabajador()"
+              [disabled]="!registrarTrabajadorForm.valid"
+            >
+              Registrar
+            </button>
+            <button type="button" class="btn btn-block btn-danger">
+              Cancelar
+            </button>
+          </form>
         </div>
       </div>
     </div>
-  </main>
+  </div>
 </div>

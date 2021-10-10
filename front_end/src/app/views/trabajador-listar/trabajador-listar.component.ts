@@ -12,8 +12,7 @@ declare interface trabajadoresTabla {
   nombre: string,
   apellido: string,
   celular: string,
-  cargo: string
-
+  cargo: string,
 }
 
 @Component({

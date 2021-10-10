@@ -8,7 +8,6 @@ import { ClienteService } from '../../services/ClienteService';
 
 //Interfaz de los clientes que se mostrarán 
 declare interface clientesTabla {
-  id: string,
   nit: string,
   nombre: string,
   apellido: string,
@@ -27,12 +26,11 @@ declare interface clientesTabla {
 export class ClienteListarComponent implements OnInit {
 
   private clientes: clientesTabla[] = [];//clientes
-  private columnasClientes: string[] = ['id', 'nit', 'nombre', 'apellido', 'correo', 'direccion', 'editar'];//Columnas a mostrar en la tabla
+  private columnasClientes: string[] = ['nit', 'nombre', 'apellido', 'correo', 'direccion', 'editar'];//Columnas a mostrar en la tabla
   private dataSourceClientes: MatTableDataSource<clientesTabla>
 
 
   private clienteAux: clientesTabla = {
-    id: null,
     nit: null,
     nombre: null,
     apellido: null,
@@ -61,7 +59,6 @@ export class ClienteListarComponent implements OnInit {
 
         response.forEach(cliente => {
           this.clienteAux = {
-            id: cliente.cliente_id,
             nit: cliente.numero_nit,
             nombre: cliente.nombre,
             apellido: cliente.apellido,

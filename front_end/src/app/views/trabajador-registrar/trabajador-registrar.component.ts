@@ -5,7 +5,8 @@ import { TrabajadorService } from '../../services/TrabajadorService';
 
 @Component({
   selector: 'app-trabajador-registrar',
-  templateUrl: 'trabajador-registrar.component.html'
+  templateUrl: 'trabajador-registrar.component.html',
+  styleUrls: ['./trabajador-registrar.component.scss']
 })
 
 
