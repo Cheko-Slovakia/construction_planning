@@ -86,13 +86,13 @@
 
                 <!--  Columna Editar -->
                 <ng-container matColumnDef="editar">
-                  <th mat-header-cell *matHeaderCellDef>Editar</th>
+                  <th mat-header-cell *matHeaderCellDef></th>
                   <td mat-cell *matCellDef="let obrasTabla">
                     <a
                       routerLinkActive="active"
                       [routerLink]="[
                         '/admin/editarObra',
-                        obraTabla.nit
+                        obrasTabla.obra_id
                       ]"
                       class="nav-link"
                       ><i class="cil-cog text-default"></i

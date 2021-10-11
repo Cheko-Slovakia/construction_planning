@@ -32,15 +32,12 @@ export class RegistroTrabajadorComponent implements OnInit {
   constructor(private fb: FormBuilder,private trabajadorService: TrabajadorService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log(this.registrarTrabajadorForm);
-    
     
   }
 
   //Registro 
 
   registrarTrabajador(){
-    console.log("Recibido");
     
 
     const newTrabajador: any={

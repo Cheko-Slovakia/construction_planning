@@ -49,7 +49,6 @@ export class TrabajadorListarComponent implements OnInit {
 
   ngOnInit() {
     //Se genera el menu
-    console.log('Ola');
     this.generarMenuTrabajadores();
   }
 
@@ -58,12 +57,6 @@ export class TrabajadorListarComponent implements OnInit {
     
     this.trabajadoresService.obtenerTrabajadores().subscribe(
       (response: Trabajador[]) => {
-
-        console.log('Ola');
-        
-        console.log(response);
-        
-
         response.forEach(trabajador => {
           this.trabajadorAux = {
             cedula: trabajador.numero_cedula,

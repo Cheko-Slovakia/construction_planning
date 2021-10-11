@@ -76,11 +76,10 @@
                 <span class="input-group-text"><i class="icon-lock"></i></span>
               </div>
               <input
-                type="password"
+                type="text"
                 class="form-control"
                 placeholder="Cargo"
-                formControlName="cargo"
-                autocomplete="new-password"
+                autocomplete="cargo"
                 formControlName="cargo"
                 required
               />
@@ -117,6 +116,7 @@
 
             <button
               type="button"
+              [routerLink]="['/admin/listarTrabajadores']"
               class="btn btn-block btn-success"
               (click)="registrarTrabajador()"
               [disabled]="!registrarTrabajadorForm.valid"

@@ -26,6 +26,9 @@ export class ObraService{
     public obtenerObras():Observable<Obra[]>{
         return this.http.get<Obra[]>(`${this.apiServerUrl}/obras/?all=1`)
     }
+    public obtenerObra(obra_id: number):Observable<Obra[]>{
+      return this.http.get<Obra[]>(`${this.apiServerUrl}/obras/?id=${obra_id}`)
+    }
     public obtenerObraFase(fase : number): Observable<Obra>{
         return this.http.get<Obra>(`${this.apiServerUrl}/obras/?fase=${fase}`);
 

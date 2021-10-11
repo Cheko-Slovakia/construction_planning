@@ -8,6 +8,7 @@ import { ObraService } from '../../services/ObrasService';
 
 //Interfaz de las obras que se mostrarán 
 declare interface obrasTabla {
+  obra_id: number,
   nombre: string,
   direccion: string,
   ciudad: string,
@@ -28,11 +29,12 @@ declare interface obrasTabla {
 export class ObraListarComponent implements OnInit {
 
   private obras: obrasTabla[] = [];//obras
-  private columnasObras: string[] = ['nombre', 'direccion', 'ciudad', 'latitud', 'longitud'];//Columnas a mostrar en la tabla
+  private columnasObras: string[] = ['nombre', 'direccion', 'ciudad', 'latitud', 'longitud', 'editar'];//Columnas a mostrar en la tabla
   private dataSourceObras: MatTableDataSource<obrasTabla>
 
 
   private obraAux: obrasTabla = {
+    obra_id: null,
     nombre: null,
     direccion: null,
     ciudad: null,
@@ -51,18 +53,16 @@ export class ObraListarComponent implements OnInit {
 
   ngOnInit() {
     this.generarMenuObras();
-    console.log()
   }
 
 
   generarMenuObras() {
-
-    
     this.ObraService.obtenerObras().subscribe(
       (response: Obra[]) => {
 
         response.forEach(obra => {
           this.obraAux = {
+            obra_id: obra.obra_id,
             nombre: obra.nombre,
             direccion: obra.direccion,
             ciudad: obra.ciudad,
@@ -72,7 +72,7 @@ export class ObraListarComponent implements OnInit {
           }
           this.obras.push(this.obraAux)
         })
-        console.log(this.obras)
+
 
         //Datasource para la tabla y su correspondiende sorter y paginator
         this.dataSourceObras = new MatTableDataSource<obrasTabla>(this.obras)
@@ -94,18 +94,3 @@ export class ObraListarComponent implements OnInit {
 
 }
 
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-obra-listar',
-//   templateUrl: './obra-listar.component.html',
-//   styleUrls: ['./obra-listar.component.scss']
-// })
-// export class ObraListarComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
