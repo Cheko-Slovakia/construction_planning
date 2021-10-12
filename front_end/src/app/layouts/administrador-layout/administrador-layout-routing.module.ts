@@ -4,6 +4,7 @@ import { TrabajadorEditarComponent } from '../../views/trabajador-editar/trabaja
 import { TrabajadorListarComponent } from '../../views/trabajador-listar/trabajador-listar.component';
 import { ObraListarComponent } from '../../views/obra-listar/obra-listar.component';
 import { ObraRegistrarComponent } from '../../views/obra-registrar/obra-registrar.component';
+import { ObraEditarComponent } from '../../views/obra-editar/obra-editar.component';
 import { ClienteRegistrarComponent } from '../../views/cliente-registrar/cliente-registrar.component';
 import { RegistroTrabajadorComponent } from '../../views/trabajador-registrar/trabajador-registrar.component';
 import { ClienteListarComponent } from '../../views/cliente-listar/cliente-listar.component';
@@ -16,7 +17,7 @@ export const routes: Routes = [{
      {path:'home',component: DashboardComponent},
 
      {path:'registrarObra',component: ObraRegistrarComponent},
-     {path:'editarObra/:id_obra',component: ObraListarComponent},
+     {path:'editarObra/:obra_id',component: ObraEditarComponent},
      {path:'listarObras',component: ObraListarComponent},
 
      {path:'registrarCliente',component: ClienteRegistrarComponent},

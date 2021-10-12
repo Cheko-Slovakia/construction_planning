@@ -64,13 +64,13 @@ export class ObraRegistrarComponent implements OnInit{
   
 
   })
+   
 
   
   ngOnInit() {
 
     this.obtenerClientes();
     
-
     this.loader.load().then(()=>{
       new google.maps.Map(document.getElementById("map"),{
         center:{lat: this.latitud , lng: this.longitud},
@@ -86,8 +86,13 @@ export class ObraRegistrarComponent implements OnInit{
     console.log(address);
     this.latitud = address.geometry.location.lat()
     this.longitud = address.geometry.location.lng()
-    
     this.zoom = 15;
+
+    this.registrarObraForm.patchValue({
+      latitud: address.geometry.location.lat(),
+      longitud: address.geometry.location.lat(),
+      direccion_obra: address.vicinity
+    })
 
 
     this.loader.load().then(()=>{
@@ -105,11 +110,6 @@ export class ObraRegistrarComponent implements OnInit{
       })
     })
 
-    this.registrarObraForm.patchValue({
-      latitud: this.latitud,
-      longitud: this.longitud,
-      direccion_obra: address.vicinity
-    })
     
     
   }
@@ -117,8 +117,6 @@ export class ObraRegistrarComponent implements OnInit{
   public setCurrentLocation(){
     if('geolocation' in navigator){
       navigator.geolocation.getCurrentPosition((position)=>{
-
-
         
         this.latitud = position.coords.latitude;
         this.longitud = position.coords.longitude;
@@ -165,8 +163,9 @@ export class ObraRegistrarComponent implements OnInit{
 
     this.obraServicio.registrarObra(newObra).subscribe(
       (response:any)=>{
-        this.registrarObraForm.reset();
         console.log(response);
+    
+        this.registrarObraForm.reset();
         
       }
     )

@@ -78,7 +78,7 @@ import { AdministradorLayoutComponent } from './layouts/administrador-layout/adm
     MatSortModule,
     MatTableModule,
     MatPaginatorModule,
-    GooglePlaceModule
+    GooglePlaceModule,
     
   ],
   declarations: [

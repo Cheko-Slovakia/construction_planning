@@ -6,7 +6,8 @@ import { TrabajadorService } from '../../services/TrabajadorService';
 
 @Component({
   selector: 'app-trabajador-editar',
-  templateUrl: 'trabajador-editar.component.html'
+  templateUrl: 'trabajador-editar.component.html',
+  styleUrls: ['./trabajador-editar.component.scss']
 })
 
 
@@ -22,7 +23,7 @@ export class TrabajadorEditarComponent implements OnInit {
     apellido: [{value: '', disabled: false}],
     celular: [{value: '', disabled: false},Validators.required],
     contrasena: [{value: '', disabled: false},Validators.required],
-    c_contrasena: [{value: '', disabled: false},Validators.required],
+    //c_contrasena: [{value: '', disabled: false},Validators.required],
     cargo: [{value: '', disabled: false},Validators.required],
     is_active: [{value: '', disabled: false}],
   
@@ -86,9 +87,10 @@ export class TrabajadorEditarComponent implements OnInit {
       }
     )
 
+    this.obtenerTrabajador();
     this.editarTrabajadorForm.reset();
     
-    
+    //crear acción para redirigir al usuario a la lista de trabajadores actualizada
   }
 
   

@@ -9,7 +9,7 @@ $breakpoint-tablet: 768px;
 $breakpoint-cel: 600px;
 
 
-::ng-deep .formulario-actualizar-cliente {
+::ng-deep .formulario-registro-trabajador {
   margin: 20px;
 }
 
@@ -35,7 +35,7 @@ $breakpoint-cel: 600px;
 
 
 @media (max-width: $breakpoint-tablet) {
-  ::ng-deep .formulario-actualizar-cliente {
+  ::ng-deep .formulario-registro-trabajador {
     margin: 25px;
 
     //Filtrar
@@ -49,7 +49,7 @@ $breakpoint-cel: 600px;
 
 
 @media (max-width: $breakpoint-tablet) {
-  ::ng-deep .formulario-actualizar-cliente {
+  ::ng-deep .formulario-registro-trabajador {
     margin: 25px;
 
     //Filtrar
@@ -79,7 +79,7 @@ $breakpoint-cel: 600px;
 }
 
 @media (max-width: $breakpoint-cel) {
-  ::ng-deep .formulario-actualizar-cliente {
+  ::ng-deep .formulario-registro-trabajador {
     margin: 25px;
 
     //Filtrar
@@ -108,3 +108,4 @@ $breakpoint-cel: 600px;
   }
 
 }
+

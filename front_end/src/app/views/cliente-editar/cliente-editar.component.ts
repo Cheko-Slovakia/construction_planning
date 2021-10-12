@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from '../../../models/Cliente';
 import { ClienteService } from '../../services/ClienteService';
 
+
 @Component({
   selector: 'app-cliente-editar',
   templateUrl: './cliente-editar.component.html',
@@ -21,7 +22,7 @@ export class ClienteEditarComponent implements OnInit {
     correo: [{value: '', disabled: false},Validators.required],
     direccion: [{value: '', disabled: false},Validators.required],
     contrasena: [{value: '', disabled: false},Validators.required],
-    c_contrasena: [{value: '', disabled: false},Validators.required],
+    //c_contrasena: [{value: '', disabled: false},Validators.required],
     cargo: [{value: '', disabled: false},Validators.required],
     is_active: [{value: '', disabled: false}],
   }) 
@@ -32,8 +33,6 @@ export class ClienteEditarComponent implements OnInit {
     this.cliente_nit = this.aRoute.snapshot.paramMap.get("cliente_nit");
     this.obtenerCliente();
   }
-
- 
 
   obtenerCliente(){
     this.ClienteService.obtenerCliente(Number(this.cliente_nit)).subscribe(
@@ -71,12 +70,16 @@ export class ClienteEditarComponent implements OnInit {
 
     this.ClienteService.actualizarCliente(editadoCliente).subscribe(
       (response: any)=>{
-        console.log(response)
         
+        console.log(response) 
       }
     )
-
+      
+    this.obtenerCliente();
     this.editarClienteForm.reset();
+
+
+    //Crear acción para redirigir al usuario a la lista de clientes actualizada
     
     
   }
