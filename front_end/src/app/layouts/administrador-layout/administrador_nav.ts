@@ -48,7 +48,7 @@ export const navItems: INavData[] = [
         icon: 'icon-list'
       },
       {
-        name: 'RegistrarObra',
+        name: 'Registrar Obra',
         url: 'registrarObra',
         icon: 'icon-user-follow'
       },

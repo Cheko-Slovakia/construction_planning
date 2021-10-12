@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MaterialService } from '../../services/MaterialService';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
 interface proveedorLista{
@@ -11,7 +12,6 @@ interface proveedorLista{
 interface materialLista{
   material_id: number;
   material_nombre: string;
-  material_precio: number;
 }
 
 @Component({
@@ -39,10 +39,27 @@ export class MaterialComprarComponent implements OnInit {
       proveedor_nombre: "proveedor 4"
     },
 
-
   ];
 
-  public materiales: materialLista[]
+  public materiales: materialLista[] = [
+    {
+      material_id: 1,
+      material_nombre: "material 1"
+    },
+    {
+      material_id: 2,
+      material_nombre: "material 2"
+    },
+    {
+      material_id: 3,
+      material_nombre: "material 3"
+    },
+    {
+      material_id: 4,
+      material_nombre: "material 4"
+    },
+
+  ]
 
   comprarMaterialForm: FormGroup = this.fb.group({
     
@@ -56,29 +73,24 @@ export class MaterialComprarComponent implements OnInit {
   })
 
 
-  constructor(private fb: FormBuilder,private trabajadorService: TrabajadorService, private router: Router) {}
+  constructor(private fb: FormBuilder,private materialService: MaterialService, private aRoute : ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log(this.comprarMaterialForm);
+    this.comprarMaterialForm.patchValue({material : this.aRoute.snapshot.paramMap.get("material_id")});
     
     
   }
 
-  obtenerMaterialesProveedor(){
+  obtenerProveedoresMaterial(){
     console.log("hola");
-    
-    
 
   }
 
-  setValorMaterial(valor_material : number){
-    console.log("hola");
+  setValorMaterial(){
+    let proveedor_consulta = this.comprarMaterialForm.get('proveedor')?.value;
+    let material_consulta =  this.comprarMaterialForm.get('material')?.value;
     
-    console.log(valor_material);
-    
-    this.comprarMaterialForm.patchValue({
-      precio: valor_material
-    })
+    console.log(proveedor_consulta);
 
 
   }

@@ -29,7 +29,7 @@ declare interface obrasTabla {
 export class ObraListarComponent implements OnInit {
 
   private obras: obrasTabla[] = [];//obras
-  private columnasObras: string[] = ['nombre', 'direccion', 'ciudad', 'latitud', 'longitud', 'editar'];//Columnas a mostrar en la tabla
+  private columnasObras: string[] = ['nombre', 'direccion', 'ciudad', 'estado', 'latitud', 'longitud', 'editar'];//Columnas a mostrar en la tabla
   private dataSourceObras: MatTableDataSource<obrasTabla>
 
 

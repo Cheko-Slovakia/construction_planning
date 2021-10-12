@@ -16,6 +16,7 @@ import { MaterialSolicitarComponent } from '../../views/material-solicitar/mater
 import { MaterialSolicitudesComponent } from '../../views/material-solicitudes/material-solicitudes.component';
 import { ObraListarComponent } from '../../views/obra-listar/obra-listar.component';
 import { MatOptionModule } from '@angular/material/core';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { MatOptionModule } from '@angular/material/core';
     MaterialListarComponent,
     MaterialSolicitarComponent,
     MaterialSolicitudesComponent
+    
     
   ],
   imports: [
@@ -38,7 +40,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatSortModule,
     MatTableModule,
     MatPaginatorModule,
-    MatOptionModule
+    MatOptionModule,
+    GooglePlaceModule
   ]
 })
 export class TrabajadorLayoutModule { }
