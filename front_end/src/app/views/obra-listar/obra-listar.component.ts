@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Obra } from '../../../models/Obra';
-import { ObraService } from '../../services/ObrasService';
+import { ObraService } from '../../services/ObraService';
 
 //Interfaz de las obras que se mostrarán 
 declare interface obrasTabla {
@@ -59,7 +59,6 @@ export class ObraListarComponent implements OnInit {
   generarMenuObras() {
     this.ObraService.obtenerObras().subscribe(
       (response: Obra[]) => {
-
         response.forEach(obra => {
           this.obraAux = {
             obra_id: obra.obra_id,
@@ -70,8 +69,11 @@ export class ObraListarComponent implements OnInit {
             latitud: obra.latitud,
             longitud: obra.longitud,
           }
+          console.log(this.obraAux)
           this.obras.push(this.obraAux)
-        })
+          
+        }
+      )
 
 
         //Datasource para la tabla y su correspondiende sorter y paginator

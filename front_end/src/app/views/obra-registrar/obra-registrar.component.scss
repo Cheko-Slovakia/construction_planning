@@ -1,46 +1,65 @@
+$fuente: Arial,
+Helvetica,
+sans-serif;
+
+$color-headers: rgb(27, 27, 31);
+
+$background-color: #f1f1f1;
+
+$breakpoint-tablet: 768px;
+
+$breakpoint-cel: 600px;
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center
   }
   
+  ::ng-deep formulario-registro-obra {
+    margin: 20px;
+  }
+
   .card {
-    margin-top: 200px;
-    width: 500px;
+    margin: 30px;
+    border-radius: 1em;
+    background-color: #f1f1f1;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    .card-body{
+        padding: 40px;
+    }
+    .card-header {
+      text-align: center;
+      width: 100%;
+      color: #ffffff;
+      font-family: $fuente;
+      font-size: 50px;
+      background-color: $color-headers;
+    }
   }
-  
-  .full {
+
+  .mapa {
     width: 100%;
     height: 30vh;
   }
 
-  .h-registro{
-    color: #051f34;
-    font-weight: 500;
-    font-size: 300%
+ .mat-form-field {
+    background-color: $background-color;
+    width: 50%;
+    color: black; 
 }
 
-
-
- 
- .mat-form-field {
-    background-color: #f4f5f5;
-    border-left: 10px solid #f4f5f5 ;
-    border-right: 10px solid #f4f5f5 ;
-    border-bottom: 5px solid #f4f5f5 ;
-    border-radius: 8px;
-    width: 100%;
-    color: red;
-    height: 50%;
-    
+.cliente-panel.mat-select-panel{
+    background-color: red;
 }
 
 
 ::ng-deep .mat-select-value{    
      
     font-size: 120%;
+    background-color: $background-color;
     font-style:italic;
     height: 10%;
     color: black!important;
@@ -49,36 +68,50 @@
 }
 
 
-.altura{
-    height: 50px;
-    color: black;
-    background-color: #f4f5f5;
+@media (max-width: $breakpoint-tablet) {
+    .mat-form-field {
+      width: 75%;
+    }
+
+    .card {
+        margin: 30px;
+        border-radius: 1em;
+        background-color: #f1f1f1;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        .card-header {
+        text-align: center;
+        width: 100%;
+        color: #ffffff;
+        font-family: $fuente;
+        font-size: 35px;
+        background-color: $color-headers;
+        }
+    }
 }
 
+@media (max-width: $breakpoint-cel) {
 
-.label-vehiculo{
-    color: #172b4d;
-    font-weight:600;
-    font-size: 200;
-}
+    .mat-form-field {
+        width: 100%;
+    }
 
+    .card {
+        margin: 30px;
+        border-radius: 1em;
+        background-color: #f1f1f1;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
- .botonActualizar{
-    background-color: #172b4d;
-    color:#E3E4BC;
-    font-weight: normal;
+        .card-header {
+        text-align: center;
+        width: 100%;
+        color: #ffffff;
+        font-family: $fuente;
+        font-size: 25px;
+        background-color: $color-headers;
+        }
+    }
 
-}
-
- .botonRegistrar{
-    background-color: #2dce89;
-    color:#172b4d;
-    font-weight: normal;
-
-}
-
-.bg-gradient-blanco
-{
-    background-color: white;
-    //background: linear-gradient(180deg, #bad6db 0, #fff 100%) !important;
 }

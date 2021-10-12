@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Obra } from '../../../models/Obra';
-import { ObraService } from '../../services/ObrasService';
+import { ObraService } from '../../services/ObraService';
 @Component({
   selector: 'app-obra-editar',
   templateUrl: './obra-editar.component.html',
