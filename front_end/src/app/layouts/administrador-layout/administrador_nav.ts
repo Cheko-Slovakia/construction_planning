@@ -38,4 +38,20 @@ export const navItems: INavData[] = [
       },
     ]
   },
+  {
+    name: 'Obras',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Listar Obras',
+        url: 'listarObras',
+        icon: 'icon-list'
+      },
+      {
+        name: 'Registrar Obra',
+        url: 'registrarObra',
+        icon: 'icon-user-follow'
+      },
+    ]
+  },
 ];

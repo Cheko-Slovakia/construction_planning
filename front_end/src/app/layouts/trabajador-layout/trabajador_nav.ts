@@ -69,11 +69,6 @@ export const navItemsJefeAlmacen: INavData[] = [
         icon: 'icon-list'
       },
       {
-        name: 'Realizar pedido de materiales',
-        url: 'comprarMateriales',
-        icon: 'icon-user-follow'
-      },
-      {
         name: 'Ver inventario',
         url: 'listarMateriales',
         icon: 'icon-user-follow'

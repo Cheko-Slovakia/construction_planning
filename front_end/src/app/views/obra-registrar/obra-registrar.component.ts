@@ -1,7 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Loader } from '@googlemaps/js-api-loader';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import { Cliente } from '../../../models/Cliente';
+import { ClienteService } from '../../services/ClienteService';
 import { TrabajadorService } from '../../services/TrabajadorService';
+
+interface clienteLista{
+  cliente_id: number;
+  cliente_nombre: string;
+}
+
 
 @Component({
   selector: 'app-obra-registrar',
@@ -10,55 +21,142 @@ import { TrabajadorService } from '../../services/TrabajadorService';
 })
 
 
-export class ObraRegistrarComponent implements OnInit {
+export class ObraRegistrarComponent implements OnInit{
+  public clientes: clienteLista[] = []
 
-  lat: number;
-  lng: number;
-
-
-
-
-  registrarObraForm: FormGroup = this.fb.group({
-
-    
-    descripcion_obra: ['',Validators.required],
-    tipo_obra: ['',Validators.required],
-    ciudad_obra: ['',Validators.required],
-    direccion_obra: ['',Validators.required],
-    latitud: ['',Validators.required],
-    cliente_obra: ['',Validators.required],
   
+  constructor(private fb: FormBuilder, private router: Router, private clienteServicio: ClienteService) {}
 
+  loader = new Loader({
+    apiKey : 'AIzaSyDi3vXai4YsLlN7j9nV03i_cp_Gk_-4IMY'
   })
+
+
+  title = 'Registrar Evidencia'
+  latitud =  3.6070813999999993;
+  longitud = -76.25948679999999;
+  zoom = 5;
 
   formattedAddress = '';
 
   options = {
     componentRestrictions:{
-      country:['AU']
+      country:['CO']
     }
   }
 
-  public handleAddressChange(address: any){
-    this.formattedAddress = address.formattedAddress;
-
-  }
-   
-
-  constructor(private fb: FormBuilder, private router: Router) {}
-
-  ngOnInit(): void {
-
-    this.lat = 5;
-    this.lng = 6;
-    
-    
-  }
-
-  //Registro 
-
-
+  
+  @ViewChild("placesRef") placesRef: GooglePlaceDirective;
 
   
+
+
+  registrarObraForm: FormGroup = this.fb.group({
+
+  
+    ciudad_obra: ['',Validators.required],
+    direccion_obra: ['',Validators.required],
+    latitud: [{value: '', disabled: true},Validators.required],
+    longitud: [{value: '', disabled: true },Validators.required],
+    cliente_obra: ['',Validators.required],
+  
+
+  })
+
+  
+  ngOnInit() {
+
+    this.obtenerClientes();
+    
+
+    this.loader.load().then(()=>{
+      new google.maps.Map(document.getElementById("map"),{
+        center:{lat: this.latitud , lng: this.longitud},
+        zoom: this.zoom,
+        mapId: '6ce8ed066b2273c1'
+      })
+    })
+  }
+
+ 
+
+  public handleAddressChange(address: Address){
+    console.log(address);
+    this.latitud = address.geometry.location.lat()
+    this.longitud = address.geometry.location.lng()
+    
+    this.zoom = 15;
+
+
+    this.loader.load().then(()=>{
+      let map = new google.maps.Map(document.getElementById("map"),{
+        center:{lat: this.latitud , lng: this.longitud},
+        zoom: this.zoom,
+        mapId: '6ce8ed066b2273c1'
+
+      })
+
+      new google.maps.Marker({
+        position : {lat: this.latitud , lng: this.longitud},
+        map: map,
+        title: "Evidencia"
+      })
+    })
+
+    this.registrarObraForm.patchValue({
+      latitud: this.latitud,
+      longitud: this.longitud,
+      direccion_obra: address.formatted_address
+    })
+    
+    
+  }
+ 
+  public setCurrentLocation(){
+    if('geolocation' in navigator){
+      navigator.geolocation.getCurrentPosition((position)=>{
+        this.latitud = position.coords.latitude;
+        this.longitud = position.coords.longitude;
+        this.zoom = 15
+      })
+    }
+
+  }
+
+  public obtenerClientes(){
+    this.clienteServicio.obtenerClientes().subscribe(
+      (response:Cliente[])=>{
+
+        response.forEach(cliente => {
+          let clienteAux ={
+            cliente_id : cliente.cliente_id,
+            cliente_nombre : cliente.nombre
+          }
+
+          this.clientes.push(clienteAux);
+          
+        });
+        
+      }
+    )
+  }
+
+  public registrarObra(){
+    console.log("Recibido");
+
+    const newObra: any={
+      direccion: this.registrarObraForm.get('direccion_obra')?.value,
+      ciudad: this.registrarObraForm.get('ciudad_obra')?.value,
+      latitud: this.registrarObraForm.get('latitud')?.value,
+      longitud: this.registrarObraForm.get('longitud')?.value,
+      cliente: this.registrarObraForm.get('cliente_obra')?.value,
+
+    }
+    console.log(newObra);
+    
+  }
+
+ 
+  //Registro 
 
 }

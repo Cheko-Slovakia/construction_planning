@@ -8,30 +8,23 @@
                             <form autocomplete="off" [formGroup]="registrarObraForm">
 
                                 <h1>Registrar Obra</h1>
-                                <p class="text-muted">Complete el formulario</p>
+                                <p class="text-muted">Complete el formulario para el registro de la obra</p>
 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="icon-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Descripción" autocomplete="descripcion_obra"
-                                        formControlName="descripcion_obra" required>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="icon-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Cliente" autocomplete="cliente"
-                                        formControlName="cliente_obra" required>
-                                </div>
                                 
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="cil-building"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Tipo"
-                                        autocomplete="tipo_obra" formControlName="tipo_obra" required>
+                                    <mat-form-field>
+                                        <mat-select requiered  formControlName="cliente_obra"
+                                            name="cliente">
+                                            <mat-option required style="color: black" class="not-empty-select"
+                                                *ngFor="let clienteLista of clientes "
+                                                [value]="clienteLista.cliente_id"
+                                                >
+                                                {{clienteLista.cliente_nombre}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
                                 </div>
+                                
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="cil-building"></i></span>
@@ -43,29 +36,43 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="cil-industry"></i></span>
                                     </div>
-                                    <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+                                    <input formControlName="direccion_obra" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
                                 </div>
 
 
                         
                                 <div class="mb-4 center">
-                                    <app-mapa ></app-mapa>
+
+                                    <div class="full" id="map">
+
+                                    </div>
                                 </div>
 
-
-                                <button type="button" class="btn btn-block btn-success" (click)="registrarTrabajador()"
-                                    [disabled]="!registrarObraForm.valid">Añadir Obra</button>
-                                <button type="button" class="btn btn-block btn-danger">Cancelar</button>
-
-                                
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="cil-building"></i></span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Latitud"
-                                        autocomplete="latitud_obra" formControlName="latitud" required>
+                                        autocomplete="latitud_obra" formControlName="latitud"  required>
                                 </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="cil-building"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="longitud"
+                                        autocomplete="longitud_obra" formControlName="longitud" required>
+                                </div>
+
+
+                                <button type="button" class="btn btn-block btn-success" (click)="registrarObra()"
+                                    [disabled]="!registrarObraForm.valid">Añadir Obra</button>
+                                <button type="button" class="btn btn-block btn-danger">Cancelar</button>
+
+                                
+
+                                
 
 
                             </form>

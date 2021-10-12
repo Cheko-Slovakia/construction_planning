@@ -7,9 +7,9 @@
                         <div class="card-body p-4">
                             <form autocomplete="off" [formGroup]="comprarMaterialForm">
 
-                                <h1>Comprar materiales</h1>
+                                <h1>Comprar {{material}}</h1>
                                 <p class="text-muted">
-                                    Seleccione el material a pedir
+                                    Complete el formulario para realizar el pedido
                                 </p>
 
                                 <div class="input-group mb-3">
@@ -24,32 +24,13 @@
                                             <mat-option required style="color: black" class="not-empty-select"
                                                 *ngFor="let proveedorLista of proveedores "
                                                 [value]="proveedorLista.proveedor_id"
-                                                (click)="obtenerMaterialesProveedor(proveedor)">
+                                                (click)="setValorMaterial()"
+                                                >
                                                 {{proveedorLista.proveedor_nombre}}
                                             </mat-option>
                                         </mat-select>
                                     </mat-form-field>
                                 </div>
-
-                                
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="icon-user"></i></span>
-                                        
-                                    </div>
-                                    <mat-form-field>
-                                        <mat-select requiered  formControlName="material"
-                                            name="material">
-                                            <mat-option required style="color: black" class="not-empty-select"
-                                                *ngFor="let materialLista of materiales "
-                                                [value]="materialLista.material_id"
-                                                (click)="setValorMaterial(materialLista.material_precio)">
-                                                {{materialLista.material_nombre}}
-                                            </mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
-                                </div>
-
 
                                 
                                 <div class="input-group mb-3">

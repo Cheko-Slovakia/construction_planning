@@ -18,7 +18,7 @@ export const routes: Routes = [{
 
 
      {path:'listarSolicitudesMateriales',component: MaterialSolicitudesComponent},
-     {path:'comprarMateriales',component: MaterialComprarComponent},
+     {path:'comprarMaterial/:material_id',component: MaterialComprarComponent},
      {path:'listarMateriales',component: MaterialListarComponent},
 
      {path:'listarObras',component: ObraListarComponent},

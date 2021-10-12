@@ -8,7 +8,7 @@ import { ClienteService } from '../../services/ClienteService';
 
 //Interfaz de los clientes que se mostrarán 
 declare interface clientesTabla {
-  id: string,
+  id: number,
   nit: string,
   nombre: string,
   apellido: string,
