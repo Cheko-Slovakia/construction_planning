@@ -27,7 +27,7 @@ export class EvidenciaRegistrarComponent implements OnInit{
   title = 'Registrar Evidencia'
   latitud =  3.6070813999999993;
   longitud = -76.25948679999999;
-  zoom = 5;
+  zoom = 15;
 
   formattedAddress = '';
 
@@ -46,40 +46,32 @@ export class EvidenciaRegistrarComponent implements OnInit{
   registrarEvidenciaForm: FormGroup = this.fb.group({
 
     
-    descripcion_obra: ['',Validators.required],
-    tipo_obra: ['',Validators.required],
-    ciudad_obra: ['',Validators.required],
-    direccion_obra: ['',Validators.required],
-    latitud: [{value: '', disabled: true}],
-    longitud: [{value: '', disabled: true}],
-    cliente_obra: ['',Validators.required],
+    descripcion: ['',Validators.required],
+    tipo: ['',Validators.required],
+    enlace: ['',Validators.required],
+    latitud: [{value: '', disabled: true},Validators.required],
+    longitud: [{value: '', disabled: true },Validators.required]
   
 
   })
 
   
   ngOnInit() {
-    
 
 
-    this.loader.load().then(()=>{
-      new google.maps.Map(document.getElementById("map"),{
-        center:{lat: this.latitud , lng: this.longitud},
-        zoom: this.zoom,
-        mapId: '6ce8ed066b2273c1'
+    if('geolocation' in navigator){
+      navigator.geolocation.getCurrentPosition((position)=>{
+        this.latitud = position.coords.latitude;
+        this.longitud = position.coords.longitude;
+        this.zoom = 15
+
+        this.registrarEvidenciaForm.patchValue({
+          latitud: this.latitud,
+          longitud: this.longitud
+        })
       })
-    })
-  }
-
- 
-
-  public handleAddressChange(address: Address){
-    console.log(address);
-    this.latitud = address.geometry.location.lat()
-    this.longitud = address.geometry.location.lng()
-    this.zoom = 15;
-
-
+    };
+    
     this.loader.load().then(()=>{
       let map = new google.maps.Map(document.getElementById("map"),{
         center:{lat: this.latitud , lng: this.longitud},
@@ -94,28 +86,30 @@ export class EvidenciaRegistrarComponent implements OnInit{
         title: "Evidencia"
       })
     })
-
-    this.registrarEvidenciaForm.patchValue({
-      latitud: this.latitud,
-      longitud: this.longitud
-    })
-    
-    
   }
- 
-  public setCurrentLocation(){
-    if('geolocation' in navigator){
-      navigator.geolocation.getCurrentPosition((position)=>{
-        this.latitud = position.coords.latitude;
-        this.longitud = position.coords.longitude;
-        this.zoom = 15
-      })
+
+
+  public registrarEvidencia(){
+
+    const newEvidencia: any={
+      descripcion: this.registrarEvidenciaForm.get('descripcion')?.value,
+      tipo: this.registrarEvidenciaForm.get('tipo')?.value,
+      latitud: this.registrarEvidenciaForm.get('latitud')?.value,
+      longitud: this.registrarEvidenciaForm.get('longitud')?.value,
+      obra: this.registrarEvidenciaForm.get('obra')?.value
+
+
     }
 
+    console.log(newEvidencia);
+    
+
+
   }
-  //Registro 
 
+ 
 
+ 
 
   
 

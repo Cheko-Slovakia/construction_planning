@@ -7,79 +7,70 @@
                         <div class="card-body p-4">
                             <form autocomplete="off" [formGroup]="registrarEvidenciaForm">
 
-                                <h1>Registrar evidencia fotografica</h1>
-                                <p class="text-muted">Anexe la imagen y ubicación de su evidencia</p>
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="icon-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Descripción" autocomplete="descripcion_obra"
-                                        formControlName="descripcion_obra" required>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="icon-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Cliente" autocomplete="cliente"
-                                        formControlName="cliente_obra" required>
-                                </div>
-                                
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="cil-building"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Tipo"
-                                        autocomplete="tipo_obra" formControlName="tipo_obra" required>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="cil-building"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Ciudad" autocomplete="ciudad"
-                                        formControlName="ciudad_obra" required>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="cil-industry"></i></span>
-                                    </div>
-                                    <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
-                                </div>
-
-
+                                <h1>Registrar evidencia </h1>
                         
+
+
+                                <div class="input-group mb-3 mt-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="icon-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Descripción"
+                                        autocomplete="descripcion" formControlName="descripcion" required>
+                                </div>
+
+                                <div class="text-left ml-2 mb-2 mt-3"><b>Tipo de evidencia:</b></div>
+
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="custom-control custom-radio mb-3">
+                                                <input formControlName="tipo" name="tipo"
+                                                    class="custom-control-input" id="radioEvidenciaAudio" value="1"
+                                                    type="radio">
+                                                <label class="custom-control-label"
+                                                    for="radioEvidenciaAudio">Audio</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="custom-control custom-radio mb-3">
+                                                <input formControlName="tipo"  name="tipo"
+                                                    class="custom-control-input" id="radioEvidenciaImagen" value="2"
+                                                    type="radio">
+                                                <label class="custom-control-label"
+                                                    for="radioEvidenciaImagen">Imagen</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="cil-building"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Enlace"
+                                        formControlName="enlace" required>
+                                </div>
+
+
                                 <div class="mb-4 center">
-
                                     <div class="full" id="map">
-
                                     </div>
                                 </div>
 
 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="cil-building"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Latitud"
-                                        autocomplete="latitud_obra" formControlName="latitud"  required>
-                                </div>
 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="cil-building"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="longitud"
-                                        autocomplete="longitud_obra" formControlName="longitud" required>
-                                </div>
-
-
-                                <button type="button" class="btn btn-block btn-success" (click)="registrarTrabajador()"
+                                <button type="button" class="btn btn-block btn-success" (click)="registrarEvidencia()"
                                     [disabled]="!registrarEvidenciaForm.valid">Añadir Obra</button>
                                 <button type="button" class="btn btn-block btn-danger">Cancelar</button>
 
-                                
 
-                                
+
+
 
 
                             </form>

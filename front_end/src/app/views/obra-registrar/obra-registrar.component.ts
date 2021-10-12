@@ -6,6 +6,7 @@ import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { Cliente } from '../../../models/Cliente';
 import { ClienteService } from '../../services/ClienteService';
+import { ObraService } from '../../services/ObraService';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
 interface clienteLista{
@@ -25,7 +26,7 @@ export class ObraRegistrarComponent implements OnInit{
   public clientes: clienteLista[] = []
 
   
-  constructor(private fb: FormBuilder, private router: Router, private clienteServicio: ClienteService) {}
+  constructor(private fb: FormBuilder, private router: Router, private clienteServicio: ClienteService, private obraServicio: ObraService) {}
 
   loader = new Loader({
     apiKey : 'AIzaSyDi3vXai4YsLlN7j9nV03i_cp_Gk_-4IMY'
@@ -55,6 +56,7 @@ export class ObraRegistrarComponent implements OnInit{
 
   
     ciudad_obra: ['',Validators.required],
+    nombre_obra: ['',Validators.required],
     direccion_obra: ['',Validators.required],
     latitud: [{value: '', disabled: true},Validators.required],
     longitud: [{value: '', disabled: true },Validators.required],
@@ -106,7 +108,7 @@ export class ObraRegistrarComponent implements OnInit{
     this.registrarObraForm.patchValue({
       latitud: this.latitud,
       longitud: this.longitud,
-      direccion_obra: address.formatted_address
+      direccion_obra: address.vicinity
     })
     
     
@@ -115,6 +117,9 @@ export class ObraRegistrarComponent implements OnInit{
   public setCurrentLocation(){
     if('geolocation' in navigator){
       navigator.geolocation.getCurrentPosition((position)=>{
+
+
+        
         this.latitud = position.coords.latitude;
         this.longitud = position.coords.longitude;
         this.zoom = 15
@@ -145,14 +150,26 @@ export class ObraRegistrarComponent implements OnInit{
     console.log("Recibido");
 
     const newObra: any={
+      nombre: this.registrarObraForm.get('nombre_obra')?.value,
       direccion: this.registrarObraForm.get('direccion_obra')?.value,
       ciudad: this.registrarObraForm.get('ciudad_obra')?.value,
       latitud: this.registrarObraForm.get('latitud')?.value,
       longitud: this.registrarObraForm.get('longitud')?.value,
-      cliente: this.registrarObraForm.get('cliente_obra')?.value,
+      cliente: this.registrarObraForm.get('cliente_obra')?.value
+
 
     }
+
     console.log(newObra);
+    
+
+    this.obraServicio.registrarObra(newObra).subscribe(
+      (response:any)=>{
+        this.registrarObraForm.reset();
+        console.log(response);
+        
+      }
+    )
     
   }
 

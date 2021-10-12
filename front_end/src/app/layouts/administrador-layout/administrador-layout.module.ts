@@ -18,7 +18,6 @@ import { ClienteEditarComponent } from '../../views/cliente-editar/cliente-edita
 import { TrabajadorEditarComponent } from '../../views/trabajador-editar/trabajador-editar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
-import { MapaComponent } from '../../views/mapa/mapa.component';
 import { ClienteListarComponent } from '../../views/cliente-listar/cliente-listar.component';
 import { DashboardComponent } from '../../views/dashboard/dashboard.component';
 
@@ -34,7 +33,6 @@ import { DashboardComponent } from '../../views/dashboard/dashboard.component';
     RegistroTrabajadorComponent,
     TrabajadorListarComponent,
     TrabajadorEditarComponent,
-    MapaComponent,
     DashboardComponent
     
   ],

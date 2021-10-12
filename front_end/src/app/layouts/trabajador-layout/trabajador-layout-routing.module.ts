@@ -14,7 +14,7 @@ export const routes: Routes = [{
   children:[
 
      {path:'registrarEvidencia',component: EvidenciaRegistrarComponent},
-     {path:'listarEvidencias',component: EvidenciaListarComponent},
+     {path:'solicitarMateriales',component: MaterialSolicitarComponent},
 
 
      {path:'listarSolicitudesMateriales',component: MaterialSolicitudesComponent},
@@ -22,7 +22,6 @@ export const routes: Routes = [{
      {path:'listarMateriales',component: MaterialListarComponent},
 
      {path:'listarObras',component: ObraListarComponent},
-     {path:'solicitarMateriales',component: MaterialSolicitarComponent},
      {path:'listarMaterialesObra',component: ObraListarMaterialComponent},
      
 

@@ -16,8 +16,8 @@ export const navItemsOperario: INavData[] = [
         icon: 'icon-list'
       },
       {
-        name: 'Solicitar Materiales',
-        url: 'listarEvidencias',
+        name: 'Solicitar/Listar Materiales',
+        url: 'listarMaterialesObra',
         icon: 'icon-user-follow'
       },
     ]
