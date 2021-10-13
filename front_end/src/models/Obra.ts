@@ -3,7 +3,7 @@ export interface Obra{
   nombre: string,
   direccion: string,
   ciudad: string,
-  estado: string,
+  fase: string,
   latitud: number,
   longitud: number,
 

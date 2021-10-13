@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Obra } from '../../../models/Obra';
-import { ObraService } from '../../services/ObraService';
+import { ObraService } from '../../services/ObraService'
 
 //Interfaz de las obras que se mostrarán 
 declare interface obrasTabla {
@@ -12,7 +12,7 @@ declare interface obrasTabla {
   nombre: string,
   direccion: string,
   ciudad: string,
-  estado: string,
+  fase: string,
   latitud: number,
   longitud: number,
   
@@ -29,7 +29,7 @@ declare interface obrasTabla {
 export class ObraListarComponent implements OnInit {
 
   private obras: obrasTabla[] = [];//obras
-  private columnasObras: string[] = ['nombre', 'direccion', 'ciudad', 'estado', 'latitud', 'longitud', 'editar'];//Columnas a mostrar en la tabla
+  private columnasObras: string[] = ['nombre', 'direccion', 'ciudad', 'fase', 'latitud', 'longitud', 'editar'];//Columnas a mostrar en la tabla
   private dataSourceObras: MatTableDataSource<obrasTabla>
 
 
@@ -38,7 +38,7 @@ export class ObraListarComponent implements OnInit {
     nombre: null,
     direccion: null,
     ciudad: null,
-    estado: null,
+    fase: null,
     latitud: null,
     longitud: null,
   }
@@ -65,7 +65,7 @@ export class ObraListarComponent implements OnInit {
             nombre: obra.nombre,
             direccion: obra.direccion,
             ciudad: obra.ciudad,
-            estado: obra.estado,
+            fase: obra.fase,
             latitud: obra.latitud,
             longitud: obra.longitud,
           }

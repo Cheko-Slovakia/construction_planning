@@ -30,8 +30,8 @@
               </mat-form-field>
             </div>
 
-             <!-- input del nombre -->
-             <div class="input-group mb-3">
+            <!-- input del nombre -->
+            <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
                   ><i class="cil-building"></i
@@ -40,13 +40,30 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Nombre"
+                placeholder="Nombre de la obra"
                 autocomplete="nombre"
                 formControlName="nombre_obra"
                 required
               />
             </div>
 
+            <!-- input de dirección -->
+            <div class="direccion">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="cil-industry"></i
+                  ></span>
+                </div>
+                <input
+                  formControlName="direccion_obra"
+                  ngx-google-places-autocomplete
+                  [options]="options"
+                  #placesRef="ngx-places"
+                  (onAddressChange)="handleAddressChange($event)"
+                />
+              </div>
+            </div>
             <!-- input de ciudad -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -57,26 +74,10 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Ciudad"
+                placeholder="Ciudad de la obra"
                 autocomplete="ciudad"
                 formControlName="ciudad_obra"
                 required
-              />
-            </div>
-
-            <!-- input de dirección -->
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="cil-industry"></i
-                ></span>
-              </div>
-              <input
-                formControlName="direccion_obra"
-                ngx-google-places-autocomplete
-                [options]="options"
-                #placesRef="ngx-places"
-                (onAddressChange)="handleAddressChange($event)"
               />
             </div>
 

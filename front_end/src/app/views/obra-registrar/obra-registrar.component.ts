@@ -53,8 +53,6 @@ export class ObraRegistrarComponent implements OnInit{
 
 
   registrarObraForm: FormGroup = this.fb.group({
-
-  
     ciudad_obra: ['',Validators.required],
     nombre_obra: ['',Validators.required],
     direccion_obra: ['',Validators.required],
@@ -91,7 +89,8 @@ export class ObraRegistrarComponent implements OnInit{
     this.registrarObraForm.patchValue({
       latitud: address.geometry.location.lat(),
       longitud: address.geometry.location.lat(),
-      direccion_obra: address.vicinity
+      ciudad_obra: address.vicinity,
+      direccion_obra: address.name
     })
 
 

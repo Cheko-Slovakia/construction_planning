@@ -19,6 +19,7 @@ export class ObraEditarComponent implements OnInit {
     nombre: [{value: '', disabled: true},Validators.required],
     direccion: [{value: '', disabled: true},Validators.required],
     ciudad: [{value: '', disabled: false},Validators.required],
+    fase: [{value: '', disabled: true},Validators.required],
     latitud: [{value: '', disabled: false},Validators.required],
     longitud: [{value: '', disabled: false},Validators.required],
 
@@ -29,7 +30,7 @@ export class ObraEditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.obra_id = parseInt(this.aRoute.snapshot.paramMap.get("obra_id"));
-    //this.obtenerObra();
+    //this.obtenerObra()
   }
 
  
@@ -37,6 +38,7 @@ export class ObraEditarComponent implements OnInit {
   // obtenerObra(){
   //   this.obraService.obtenerObra(Number(this.obra_id)).subscribe(
   //     (response:Obra)=>{
+  //       console.log(response)
   //       this.editarObraForm.patchValue({
   //         obra_id: response.obra_id,
   //         nombre: response.nombre,
