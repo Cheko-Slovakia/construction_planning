@@ -53,7 +53,7 @@ export class ObraRegistrarComponent implements OnInit{
 
 
   registrarObraForm: FormGroup = this.fb.group({
-    ciudad_obra: ['',Validators.required],
+    ciudad_obra: [{value:'', disabled: true},Validators.required],
     nombre_obra: ['',Validators.required],
     direccion_obra: ['',Validators.required],
     latitud: [{value: '', disabled: true},Validators.required],

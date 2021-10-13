@@ -5,14 +5,25 @@
       <div class="card-body">
         <div class="formulario-registro-obra">
           <form autocomplete="off" [formGroup]="registrarObraForm">
-            <h2>Seleccione un cliente</h2>
+            <h2
+              style="
+                border-bottom: 1px solid black;
+                margin-bottom: 30px;
+                padding: 20px;
+              "
+              align="center"
+            >
+              CONTRATISTA
+            </h2>
+          
+            <h2>Clientes:</h2>
+            <!-- Select de clientes-->
             <div class="input-group mb-3 matSelect">
               <mat-form-field>
-                <mat-label style="color: rgb(134, 134, 134)"
+                <mat-label 
                   >pulse aquí para ver los clientes</mat-label
                 >
                 <mat-select
-                  panelClass="cliente-panel"
                   requiered
                   formControlName="cliente_obra"
                   name="cliente"
@@ -29,30 +40,24 @@
                 </mat-select>
               </mat-form-field>
             </div>
-
-            <!-- input del nombre -->
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="cil-building"></i
-                ></span>
-              </div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Nombre de la obra"
-                autocomplete="nombre"
-                formControlName="nombre_obra"
-                required
-              />
-            </div>
+   
+            <h2
+              style="
+                border-bottom: 1px solid black;
+                margin-bottom: 30px;
+                padding: 20px;
+              "
+              align="center"
+            >
+              INFORMACIÓN DE LA OBRA
+            </h2>
 
             <!-- input de dirección -->
             <div class="direccion">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"
-                    ><i class="cil-industry"></i
+                    ><i class="cil-map"></i
                   ></span>
                 </div>
                 <input
@@ -64,58 +69,86 @@
                 />
               </div>
             </div>
-            <!-- input de ciudad -->
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="cil-building"></i
-                ></span>
-              </div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Ciudad de la obra"
-                autocomplete="ciudad"
-                formControlName="ciudad_obra"
-                required
-              />
-            </div>
+
+            <table class="ubicacion-table">
+              <th>
+                <!-- input del nombre -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-building"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre de la obra"
+                    autocomplete="nombre"
+                    formControlName="nombre_obra"
+                    required
+                  />
+                </div>
+              </th>
+              <th>
+                <!-- input de ciudad -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-location-pin"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Ciudad de la obra"
+                    autocomplete="ciudad"
+                    formControlName="ciudad_obra"
+                    required
+                  />
+                </div>
+              </th>
+            </table>
 
             <div class="mb-4 center">
               <div class="mapa" id="map"></div>
             </div>
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="cil-building"></i
-                ></span>
-              </div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Latitud"
-                autocomplete="latitud_obra"
-                formControlName="latitud"
-                required
-              />
-            </div>
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="cil-building"></i
-                ></span>
-              </div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="longitud"
-                autocomplete="longitud_obra"
-                formControlName="longitud"
-                required
-              />
-            </div>
+            <table class="ubicacion-table">
+              <th>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-compass"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Latitud"
+                    autocomplete="latitud_obra"
+                    formControlName="latitud"
+                    required
+                  />
+                </div>
+              </th>
+              <th>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-compass"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="longitud"
+                    autocomplete="longitud_obra"
+                    formControlName="longitud"
+                    required
+                  />
+                </div>
+              </th>
+            </table>
 
             <button
               type="button"

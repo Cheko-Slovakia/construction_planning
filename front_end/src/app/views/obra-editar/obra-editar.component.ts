@@ -35,22 +35,22 @@ export class ObraEditarComponent implements OnInit {
 
  
 
-  // obtenerObra(){
-  //   this.obraService.obtenerObra(Number(this.obra_id)).subscribe(
-  //     (response:Obra)=>{
-  //       console.log(response)
-  //       this.editarObraForm.patchValue({
-  //         obra_id: response.obra_id,
-  //         nombre: response.nombre,
-  //         direccion:response.direccion,
-  //         ciudad: response.ciudad,
-  //         latitud: response.latitud,
-  //         longitud: response.longitud,
-  //       })
+  obtenerObra(){
+    this.obraService.obtenerObra(Number(this.obra_id)).subscribe(
+      (response:Obra)=>{
+        console.log(response)
+        this.editarObraForm.patchValue({
+          obra_id: response.obra_id,
+          nombre: response.nombre,
+          direccion:response.direccion,
+          ciudad: response.ciudad,
+          latitud: response.latitud,
+          longitud: response.longitud,
+        })
         
-  //     }
-  //   ) 
-  // }
+      }
+    ) 
+  }
 
   editarObra(){
     const editadoObra: any={
