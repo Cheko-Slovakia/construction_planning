@@ -33,8 +33,8 @@ export class ObraService{
     }
 
     //obtiene una obra por id
-    public obtenerObra(obra_id: number):Observable<Obra[]>{
-      return this.http.get<Obra[]>(`${this.apiServerUrl}/obras/?id=${obra_id}`)
+    public obtenerObra(obra_id: number):Observable<Obra>{
+      return this.http.get<Obra>(`${this.apiServerUrl}/obras/?id=${obra_id}`)
     }
 
     //obtiene una obra por fase
