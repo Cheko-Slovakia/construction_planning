@@ -5,6 +5,10 @@
       <div class="card-body">
         <div class="formulario-actualizar-trabajador">
           <form autocomplete="off" [formGroup]="editarTrabajadorForm">
+
+            
+
+            <!-- Nombre -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
@@ -33,22 +37,8 @@
                 formControlName="apellido"
               />
             </div>
-            <p class= "ml-3">Obra:</p>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="cil-building"></i
-                ></span>
-              </div>
-              <select formControlName="obra" class="form-select" aria-label="Default select example">
-                <option  *ngFor="let obra of obrasLista"
-                [value]= "obra.id"
-                [selected]="obra==obra.id ? true : false"
-                >
-              {{obra.nombre}}</option>
-              </select>
-            </div>
 
+        
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
@@ -109,6 +99,21 @@
                 formControlName="contrasena"
               />
             </div>
+
+            <!-- Obra asignada  -->
+            <table style='width:100%'>
+              <p class= "ml-1 mt-3">OBRA ASIGNADA:</p>
+              <div class="input-group mb-3 select-div">
+                <select formControlName="obra" class="form-select mb-5 select-obra" data-live-search="true" aria-label="Default select example">
+                  <option  *ngFor="let obra of obrasLista"
+                  [value]= "obra.id"
+                  [selected]="obra==obra.id ? true : false"
+                  >
+                {{obra.nombre}}</option>
+                </select>
+              </div>
+            </table>
+
             <button
               [routerLink]="['/admin/listarTrabajadores']"
               (click)="editarTrabajador()"

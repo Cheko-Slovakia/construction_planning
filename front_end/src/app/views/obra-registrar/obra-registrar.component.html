@@ -5,30 +5,7 @@
       <div class="card-body">
         <div class="formulario-registro-obra">
           <form autocomplete="off" [formGroup]="registrarObraForm">
-            <h2>Seleccione un cliente</h2>
-            <div class="input-group mb-3 matSelect">
-              <mat-form-field>
-                <mat-label style="color: rgb(134, 134, 134)"
-                  >pulse aquí para ver los clientes</mat-label
-                >
-                <mat-select
-                  panelClass="cliente-panel"
-                  requiered
-                  formControlName="cliente_obra"
-                  name="cliente"
-                >
-                  <mat-option
-                    required
-                    style="color: white; background-color: rgb(27, 27, 31)"
-                    class="not-empty-select"
-                    *ngFor="let clienteLista of clientes"
-                    [value]="clienteLista.cliente_id"
-                  >
-                    {{ clienteLista.cliente_nombre }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
+            
 
             <!-- input del nombre -->
             <div class="input-group mb-3">
@@ -115,6 +92,34 @@
                 formControlName="longitud"
                 required
               />
+            </div>
+
+            <div>
+              <h2 class="mt-4" align=center>Seleccione un cliente: </h2>
+            </div>
+            
+            <div class="input-group mb-3 matSelect">
+              <mat-form-field>
+                <mat-label style="color: rgb(134, 134, 134)"
+                  >pulse aquí para ver los clientes</mat-label
+                >
+                <mat-select
+                  panelClass="cliente-panel"
+                  requiered
+                  formControlName="cliente_obra2"
+                  name="cliente"
+                >
+                  <mat-option
+                    required
+                    style="color: white; background-color: rgb(27, 27, 31)"
+                    class="not-empty-select"
+                    *ngFor="let clienteLista of clientes"
+                    [value]="clienteLista.cliente_id"
+                  >
+                    {{ clienteLista.cliente_nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </div>
 
             <button

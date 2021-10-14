@@ -144,7 +144,6 @@ export class ObraRegistrarComponent implements OnInit{
   }
 
   public registrarObra(){
-    console.log("Recibido");
 
     const newObra: any={
       nombre: this.registrarObraForm.get('nombre_obra')?.value,
@@ -153,9 +152,9 @@ export class ObraRegistrarComponent implements OnInit{
       latitud: this.registrarObraForm.get('latitud')?.value,
       longitud: this.registrarObraForm.get('longitud')?.value,
       cliente: this.registrarObraForm.get('cliente_obra')?.value
-
-
+    
     }
+    console.log(newObra.cliente)
 
     console.log(newObra);
     
