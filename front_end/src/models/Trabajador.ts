@@ -7,7 +7,7 @@ export interface Trabajador{
     contrasena: string,
     cargo: string,
     is_active: boolean,
-    obra: number,
+    obra_participante: number,
 
     
 }

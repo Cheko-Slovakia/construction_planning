@@ -29,7 +29,6 @@ export class TrabajadorService{
     }
     public obtenerTrabajador(cedula : number): Observable<Trabajador>{
         return this.http.get<Trabajador>(`${this.apiServerUrl}/trabajadores/${cedula}`);
-
         
     }
 

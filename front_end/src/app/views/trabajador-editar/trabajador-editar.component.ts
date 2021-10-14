@@ -21,7 +21,7 @@ interface obraAux{
 
 export class TrabajadorEditarComponent implements OnInit {
 
-  private obrasLista: obraAux[]= [];
+  private obrasLista: obraAux[]= [{id: 0,nombre: 'Sin Asignar'}];
   private trabajador_cedula: string;
 
   editarTrabajadorForm: FormGroup = this.fb.group({
@@ -67,7 +67,8 @@ export class TrabajadorEditarComponent implements OnInit {
           celular: response.numero_celular,
           contrasena: response.contrasena,
           cargo: response.cargo,
-          is_active: response.is_active
+          is_active: response.is_active,
+          obra: response.obra_participante
 
         })
         
@@ -86,7 +87,7 @@ export class TrabajadorEditarComponent implements OnInit {
       contrasena: this.editarTrabajadorForm.get('contrasena')?.value,
       cargo: this.editarTrabajadorForm.get('cargo')?.value,
       is_active: this.editarTrabajadorForm.get('is_active')?.value,
-      obra: this.editarTrabajadorForm.get('obra')?.value
+      obra_participante: this.editarTrabajadorForm.get('obra')?.value
       
     }
 

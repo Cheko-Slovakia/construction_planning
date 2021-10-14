@@ -67,10 +67,10 @@
                 <!--  Columna Cargo -->
                 <ng-container matColumnDef="obra">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                     Obra
+                     Estado
                   </th>
                   <td mat-cell *matCellDef="let trabajadoresTabla">
-                    {{ trabajadoresTabla.obra }}
+                    {{trabajadoresTabla.obra | transformarEstado}}
                   </td>
                 </ng-container>
 
