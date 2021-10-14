@@ -111,6 +111,7 @@ export class TrabajadorEditarComponent implements OnInit {
     )
 
     this.obtenerTrabajador();
+    this.router.navigateByUrl("/admin/listarTrabajadores")
     this.editarTrabajadorForm.reset();
     
     //crear acción para redirigir al usuario a la lista de trabajadores actualizada
