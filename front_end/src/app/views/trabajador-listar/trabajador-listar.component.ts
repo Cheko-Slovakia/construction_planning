@@ -162,10 +162,10 @@ export class TrabajadorListarComponent implements OnInit {
 
   transform(input: number): string {
     if (input == 0) {
-      return 'sin asignar obra'
+      return 'asignado'
     }
     else {
-      return 'obra asignada'
+      return 'sin asignar'
     }
   }
 

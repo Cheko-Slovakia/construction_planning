@@ -14,12 +14,9 @@ import { MaterialComprarComponent } from '../../views/material-comprar/material-
 import { MaterialListarComponent } from '../../views/material-listar/material-listar.component';
 import { MaterialSolicitarComponent } from '../../views/material-solicitar/material-solicitar.component';
 import { MaterialSolicitudesComponent } from '../../views/material-solicitudes/material-solicitudes.component';
-import { ObraListarComponent } from '../../views/obra-listar/obra-listar.component';
-import { MatOptionModule } from '@angular/material/core';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { HttpClientModule } from '@angular/common/http';
 import { ObraListarMaterialComponent } from '../../views/obra-listar-material/obra-listar-material.component';
-import { TrabajadorListarComponent } from '../../views/trabajador-listar/trabajador-listar.component';
 
 
 @NgModule({

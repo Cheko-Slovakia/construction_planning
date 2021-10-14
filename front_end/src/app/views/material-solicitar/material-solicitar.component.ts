@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Material } from '../../../models/Material';
+import { MaterialService } from '../../services/MaterialService';
 import { TrabajadorService } from '../../services/TrabajadorService'
 
 interface materialLista{
@@ -17,26 +19,7 @@ interface materialLista{
 
 export class MaterialSolicitarComponent implements OnInit {
   
-  public materiales: materialLista[] = [
-    {
-      material_id: 1,
-      material_nombre: "material 1"
-    },
-    {
-      material_id: 2,
-      material_nombre: "material 2"
-    },
-    {
-      material_id: 3,
-      material_nombre: "material 3"
-    },
-    {
-      material_id: 4,
-      material_nombre: "material 4"
-    },
-
-
-  ];
+  public materiales: materialLista[] = [];
 
 
   solicitarMaterialForm: FormGroup = this.fb.group({
@@ -49,16 +32,27 @@ export class MaterialSolicitarComponent implements OnInit {
   })
 
 
-  constructor(private fb: FormBuilder,private trabajadorService: TrabajadorService, private router: Router) {}
+  constructor(private fb: FormBuilder,private trabajadorService: TrabajadorService,private materialService: MaterialService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log(this.solicitarMaterialForm);
+    this.obtenerMateriales();
     
     
   }
 
-  obtenerMaterialesProveedor(){
-    console.log("hola");
+  obtenerMateriales(){
+    this.materialService.obtenerMateriales().subscribe(
+      (response:Material[])=>{
+        response.forEach(material => {
+          let materialAux : any={
+            material_id:material.material_id,
+            material_nombre: material.nombre
+          }
+
+          this.materiales.push(materialAux);
+        });
+      }
+    )
 
   }
 
@@ -70,6 +64,22 @@ export class MaterialSolicitarComponent implements OnInit {
     this.solicitarMaterialForm.patchValue({
     })
 
+
+  }
+
+  solicitarMaterial(){
+    let newSolicitud ={
+      material: this.solicitarMaterialForm.get('material')?.value,
+      obra: 1,
+      cantidad: this.solicitarMaterialForm.get('unidades')?.value,
+    }
+
+    this.materialService.solicitarMaterialObra(newSolicitud).subscribe(
+      (response:any)=>{
+        console.log(response);
+        
+      }
+    )
 
   }
 

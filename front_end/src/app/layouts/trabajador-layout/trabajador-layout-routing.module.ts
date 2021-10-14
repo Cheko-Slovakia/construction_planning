@@ -14,16 +14,21 @@ export const routes: Routes = [{
   path:'',
   children:[
 
+    //Rutas para operarios
      {path:'registrarEvidencia',component: EvidenciaRegistrarComponent},
-     {path:'solicitarMateriales',component: MaterialSolicitarComponent},
+     
 
-
+    //Rutas para jefe de almacen
      {path:'listarSolicitudesMateriales',component: MaterialSolicitudesComponent},
-     {path:'comprarMaterial/:material_id',component: MaterialComprarComponent},
+     {path:'comprarMaterial/:material_id/:material_nombre',component: MaterialComprarComponent},
      {path:'listarMateriales',component: MaterialListarComponent},
 
-     {path:'listarObras',component: ObraListarComponent},
+
+     //Rutas para jefe de obra
+     {path:'listarEvidencias/:obra_id',component: EvidenciaListarComponent},
      {path:'listarTrabajadores',component: TrabajadorListarComponent},
+     {path:'solicitarMaterial',component: MaterialSolicitarComponent},
+     {path:'evidencia',component: EvidenciaRegistrarComponent},
 
      {path: '**', redirectTo: 'dashboard'}
   ]

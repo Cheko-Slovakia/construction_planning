@@ -7,7 +7,7 @@
                         <div class="card-body p-4">
                             <form autocomplete="off" [formGroup]="comprarMaterialForm">
 
-                                <h1>Comprar {{material}}</h1>
+                                <h1>Comprar {{nombreMaterial}}</h1>
                                 <p class="text-muted">
                                     Complete el formulario para realizar el pedido
                                 </p>
@@ -18,18 +18,14 @@
                                         <span class="input-group-text"><i class="icon-user"></i></span>
                                         
                                     </div>
-                                    <mat-form-field>
-                                        <mat-select requiered  formControlName="proveedor"
-                                            name="proveedor">
-                                            <mat-option required style="color: black" class="not-empty-select"
-                                                *ngFor="let proveedorLista of proveedores "
-                                                [value]="proveedorLista.proveedor_id"
-                                                (click)="setValorMaterial()"
-                                                >
-                                                {{proveedorLista.proveedor_nombre}}
-                                            </mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
+
+                                    <select formControlName="proveedor" class="form-select" aria-label="Default select example">
+                                        <option  *ngFor="let proveedorLista of proveedores "
+                                        [value]="proveedorLista.proveedor_id"
+                                        (click)="setValorMaterial()"
+                                        >
+                                        {{proveedorLista.proveedor_nombre}}</option>
+                                      </select>
                                 </div>
 
                                 

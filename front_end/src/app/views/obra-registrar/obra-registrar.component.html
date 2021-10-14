@@ -5,7 +5,22 @@
       <div class="card-body">
         <div class="formulario-registro-obra">
           <form autocomplete="off" [formGroup]="registrarObraForm">
-            
+            <h2>Seleccione un cliente</h2>
+            <div class="input-group mb-3 ">
+
+
+              <div class="input-group-prepend">
+                <span class="input-group-text"
+                  ><i class="cil-building"></i
+                ></span>
+              </div>
+              <select formControlName="cliente_obra" class="form-select" aria-label="Default select example">
+                <option  *ngFor="let clienteLista of clientes"
+                [value]= "clienteLista.cliente_id"
+                >
+                {{ clienteLista.cliente_nombre }}</option>
+              </select>
+            </div>
 
             <!-- input del nombre -->
             <div class="input-group mb-3">

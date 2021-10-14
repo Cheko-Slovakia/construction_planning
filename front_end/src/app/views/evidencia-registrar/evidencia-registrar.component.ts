@@ -5,6 +5,7 @@ import { Loader } from '@googlemaps/js-api-loader';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { title } from 'process';
+import Swal from 'sweetalert2';
 import { EvidenciaService } from '../../services/EvidenciaService';
 
 @Component({
@@ -98,6 +99,7 @@ export class EvidenciaRegistrarComponent implements OnInit{
       link: this.registrarEvidenciaForm.get('enlace')?.value,
       latitud: this.registrarEvidenciaForm.get('latitud')?.value,
       longitud: this.registrarEvidenciaForm.get('longitud')?.value,
+      tipo: this.registrarEvidenciaForm.get('tipo')?.value,
       //obra: this.registrarEvidenciaForm.get('obra')?.value
 
     }
@@ -107,7 +109,13 @@ export class EvidenciaRegistrarComponent implements OnInit{
 
     this.evidenciaService.registrarEvidencia(newEvidencia).subscribe(
       (response:any)=>{
-        console.log(response);
+        Swal.fire({
+          title: newEvidencia.tipo ==1? 'Evidencia fotografica registrada satisfactoriamente': 'Evidencia de en audio registrada satisfactoriamente',
+          imageUrl: newEvidencia.tipo ==2? 'https://images.vexels.live/media/users/3/145866/isolated/preview/b4efb6c6682b2a808631bf8fbd96d015-sound-wave-icon.png': newEvidencia.link,
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Custom image',
+        })
         
       }
     )

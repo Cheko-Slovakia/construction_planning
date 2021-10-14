@@ -11,25 +11,21 @@
                                 <p class="text-muted">
                                     Seleccione el material a pedir
                                 </p>
-                                
-                                
+
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="icon-user"></i></span>
-                                        
+                                      <span class="input-group-text"
+                                        ><i class="cil-building"></i
+                                      ></span>
                                     </div>
-                                    <mat-form-field>
-                                        <mat-select requiered  formControlName="material"
-                                            name="material">
-                                            <mat-option required style="color: black" class="not-empty-select"
-                                                *ngFor="let materialLista of materiales "
-                                                [value]="materialLista.material_id"
-                                                (click)="setValorMaterial(materialLista.material_precio)">
-                                                {{materialLista.material_nombre}}
-                                            </mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
-                                </div>
+                                    <select formControlName="material" class="form-select" aria-label="Default select example">
+                                      <option  
+                                      *ngFor="let materialLista of materiales "
+                                      [value]="materialLista.material_id"
+                                      >
+                                      {{materialLista.material_nombre}}</option>
+                                    </select>
+                                  </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -40,7 +36,7 @@
                                 </div>
                                 
 
-                                    <button type="button" class="btn btn-block btn-success" (click)="registrarCliente()"
+                                    <button type="button" class="btn btn-block btn-success" (click)="solicitarMaterial()"
                                         [disabled]="!solicitarMaterialForm.valid">
                                         Realizar soliciud
                                     </button>
