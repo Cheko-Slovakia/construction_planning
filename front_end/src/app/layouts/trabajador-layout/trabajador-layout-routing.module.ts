@@ -26,7 +26,7 @@ export const routes: Routes = [{
 
 
      //Rutas para jefe de obra
-     {path:'listarEvidencias/:obra_id',component: EvidenciaListarComponent},
+     {path:'listarEvidencias',component: EvidenciaListarComponent},
      {path:'listarTrabajadores',component: TrabajadorListarComponent},
      {path:'solicitarMaterial',component: MaterialSolicitarComponent},
      {path:'evidencia',component: MapaComponent},

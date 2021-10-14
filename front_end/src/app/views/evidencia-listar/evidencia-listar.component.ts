@@ -34,6 +34,10 @@ export class EvidenciaListarComponent implements OnInit {
 
   public latitudEvidencia;
   public longitudEvidencia;
+  public descripcionEvidencia;
+  public fechaEvidencia;
+  public trabajadorEvidencia;
+  public enlaceEvidencia;
 
   private evidencias: evidenciasTabla[] = [];//evidencias
   private columnasEvidencias: string[] = ['tipo', 'Obra', 'trabajador', 'fecha', 'detalle'];//Columnas a mostrar en la tabla
@@ -153,13 +157,16 @@ export class EvidenciaListarComponent implements OnInit {
 
   detallarEvidencia(evidencia: any){
 
-    console.log(evidencia.lat);
+    console.log(evidencia);
     
     this.latitudEvidencia = evidencia.lat;
     this.longitudEvidencia = evidencia.lng;
+    this.descripcionEvidencia = evidencia.descripcion;
+    this.fechaEvidencia = evidencia.fecha;
+    this.trabajadorEvidencia= evidencia.trabajador;
+    this.enlaceEvidencia = evidencia.link
     this.detallar = true;
     console.log(evidencia.descripcion);
-
     
   }
 

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { Cliente } from '../../../models/Cliente';
 import { ClienteService } from '../../services/ClienteService';
 
-//Interfaz de los clientes que se mostrarán 
+//Interfaz de los clientes que se mostrarán
 declare interface clientesTabla {
   nit: string,
   nombre: string,
@@ -53,7 +53,7 @@ export class ClienteListarComponent implements OnInit {
 
   generarMenuClientes() {
 
-    
+
     this.clientesService.obtenerClientes().subscribe(
       (response: Cliente[]) => {
 
@@ -78,6 +78,7 @@ export class ClienteListarComponent implements OnInit {
 
    //Filtrado
    applyFilter(event: Event) {
+
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSourceClientes.filter = filterValue.trim().toLowerCase();
 

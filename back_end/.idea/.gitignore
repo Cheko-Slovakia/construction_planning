@@ -2,7 +2,7 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
-/../../../../../../:\Workspace\React\construction_planning\back_end\.idea/dataSources/
+/../../../../../:\Workspace\Angular\cpm\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
