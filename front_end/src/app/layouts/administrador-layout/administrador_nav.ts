@@ -8,7 +8,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Trabajadores',
-    icon: 'icon-puzzle',
+    icon: 'icon-briefcase',
     children: [
       {
         name: 'Listar Trabajadores',
@@ -24,7 +24,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Clientes',
-    icon: 'icon-puzzle',
+    icon: 'icon-people',
     children: [
       {
         name: 'Listar Clientes',
@@ -40,7 +40,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Obras',
-    icon: 'icon-puzzle',
+    icon: 'icon-flag',
     children: [
       {
         name: 'Listar Obras',

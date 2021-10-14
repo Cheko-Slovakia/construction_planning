@@ -5,28 +5,30 @@
       <div class="card-body">
         <div class="formulario-registro-obra">
           <form autocomplete="off" [formGroup]="registrarObraForm">
-            <h2>Seleccione un cliente</h2>
-            <div class="input-group mb-3 ">
-
-
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="cil-building"></i
-                ></span>
+            
+            <!-- input de dirección -->
+            <div class="direccion">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="cil-map"></i
+                  ></span>
+                </div>
+                <input
+                  formControlName="direccion_obra"
+                  ngx-google-places-autocomplete
+                  [options]="options"
+                  #placesRef="ngx-places"
+                  (onAddressChange)="handleAddressChange($event)"
+                />
               </div>
-              <select formControlName="cliente_obra" class="form-select" aria-label="Default select example">
-                <option  *ngFor="let clienteLista of clientes"
-                [value]= "clienteLista.cliente_id"
-                >
-                {{ clienteLista.cliente_nombre }}</option>
-              </select>
             </div>
 
             <!-- input del nombre -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
-                  ><i class="cil-building"></i
+                  ><i class="cil-factory"></i
                 ></span>
               </div>
               <input
@@ -39,28 +41,12 @@
               />
             </div>
 
-            <!-- input de dirección -->
-            <div class="direccion">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"
-                    ><i class="cil-industry"></i
-                  ></span>
-                </div>
-                <input
-                  formControlName="direccion_obra"
-                  ngx-google-places-autocomplete
-                  [options]="options"
-                  #placesRef="ngx-places"
-                  (onAddressChange)="handleAddressChange($event)"
-                />
-              </div>
-            </div>
+            
             <!-- input de ciudad -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
-                  ><i class="cil-building"></i
+                  ><i class="cil-location-pin"></i
                 ></span>
               </div>
               <input
@@ -80,7 +66,7 @@
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
-                  ><i class="cil-building"></i
+                  ><i class="cil-compass"></i
                 ></span>
               </div>
               <input
@@ -96,7 +82,7 @@
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
-                  ><i class="cil-building"></i
+                  ><i class="cil-compass"></i
                 ></span>
               </div>
               <input
@@ -109,34 +95,18 @@
               />
             </div>
 
-            <div>
-              <h2 class="mt-4" align=center>Seleccione un cliente: </h2>
-            </div>
-            
-            <div class="input-group mb-3 matSelect">
-              <mat-form-field>
-                <mat-label style="color: rgb(134, 134, 134)"
-                  >pulse aquí para ver los clientes</mat-label
-                >
-                <mat-select
-                  panelClass="cliente-panel"
-                  requiered
-                  formControlName="cliente_obra2"
-                  name="cliente"
-                >
-                  <mat-option
-                    required
-                    style="color: white; background-color: rgb(27, 27, 31)"
-                    class="not-empty-select"
-                    *ngFor="let clienteLista of clientes"
-                    [value]="clienteLista.cliente_id"
-                  >
-                    {{ clienteLista.cliente_nombre }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
+            <div class="p-3 label-cliente" align=center>
+              SELECCIONE UN CLIENTE:
             </div>
 
+            <div class="input-group mb-3 boostrap-select">
+              <select formControlName="cliente_obra" class="form-select select-bt" aria-label="Default select example">
+                <option  *ngFor="let clienteLista of clientes"
+                [value]= "clienteLista.cliente_id"
+                >
+                {{ clienteLista.cliente_nombre }}</option>
+              </select>
+            </div>
             <button
               type="button"
               class="btn btn-block btn-success"

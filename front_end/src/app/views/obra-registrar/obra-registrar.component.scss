@@ -50,14 +50,23 @@ $breakpoint-cel: 600px;
     height: 30vh;
   }
 
- .mat-form-field {
-   text-align: center;
-    background-color: $background-color;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    color: black; 
-}
+  .label-cliente{
+    font-size: 18px;
+    font-family: $fuente;
+    font-weight: bold;
+  }
+
+  .boostrap-select{
+    padding:3px 0px 8px 0px;
+    text-align: center;
+    width: 100%;
+    select{
+      width:50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
 
 .cliente-panel.mat-select-panel{
     background-color: red;
@@ -77,9 +86,22 @@ $breakpoint-cel: 600px;
 
 
 @media (max-width: $breakpoint-tablet) {
-    .mat-form-field {
-      width: 75%;
+
+  .label-cliente{
+    font-size: 15px;
+    font-family: $fuente;
+    font-weight: bold;
+  }
+
+  .boostrap-select{
+    text-align: center;
+    width: 100%;
+    select{
+      width:75%;
+      margin-left: auto;
+      margin-right: auto;
     }
+  }
 
     .card {
         margin: 30px;
@@ -101,9 +123,21 @@ $breakpoint-cel: 600px;
 
 @media (max-width: $breakpoint-cel) {
 
-    .mat-form-field {
-        width: 100%;
+  .label-cliente{
+    font-size: 13px;
+    font-family: $fuente;
+    font-weight: bold;
+  }
+
+  .boostrap-select{
+    text-align: center;
+    width: 100%;
+    select{
+      width:100%;
+      margin-left: auto;
+      margin-right: auto;
     }
+  }
 
     .card {
         margin: 30px;
