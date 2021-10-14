@@ -9,6 +9,8 @@ import { ClienteService } from '../../services/ClienteService';
 import { ObraService } from '../../services/ObraService';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
+import Swal from 'sweetalert2';
+
 interface clienteLista{
   cliente_id: number;
   cliente_nombre: string;
@@ -154,14 +156,19 @@ export class ObraRegistrarComponent implements OnInit{
       cliente: this.registrarObraForm.get('cliente_obra')?.value
     
     }
-    console.log(newObra.cliente)
-
-    console.log(newObra);
     
 
     this.obraServicio.registrarObra(newObra).subscribe(
       (response:any)=>{
-        console.log(response);
+        if(response){
+          Swal.fire('Éxitoso!','Obra registrada','success');
+        } else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+          })
+        }
     
         this.registrarObraForm.reset();
         

@@ -6,6 +6,8 @@ import { Trabajador } from '../../../models/Trabajador';
 import { ObraService } from '../../services/ObraService';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
+import Swal from 'sweetalert2';
+
 
 interface obraAux {
   id: number,
@@ -50,10 +52,7 @@ export class RegistroTrabajadorComponent implements OnInit {
   //Registro 
 
   registrarTrabajador() {
-
-
-
-    const newTrabajador: any = {
+     const newTrabajador: any = {
       numero_cedula: this.registrarTrabajadorForm.get('cedula')?.value,
       nombre: this.registrarTrabajadorForm.get('nombre')?.value,
       apellido: this.registrarTrabajadorForm.get('apellido')?.value,
@@ -65,7 +64,15 @@ export class RegistroTrabajadorComponent implements OnInit {
 
     this.trabajadorService.registrarTrabajador(newTrabajador).subscribe(
       (response: any)=>{
-        console.log(response);
+        if(response){
+          Swal.fire('Éxitoso!','Trabajador registrado','success');
+        } else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+          })
+        }
         
       }
     )
