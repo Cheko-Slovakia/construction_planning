@@ -11,6 +11,21 @@ $breakpoint-cel: 600px;
 
 ::ng-deep .formulario-actualizar-trabajador {
   margin: 20px;
+  
+  table p{
+    text-align: center;
+    color:  $color-headers;
+    font-family: $fuente;
+    font-weight: bold;
+  }
+
+  .select-obra{
+    margin-left: auto;
+    margin-right: auto;
+    width:50%;
+    height: 30px;
+    font-family: $fuente;
+  }
 }
 
 .card {
@@ -52,11 +67,17 @@ $breakpoint-cel: 600px;
   ::ng-deep .formulario-actualizar-trabajador {
     margin: 25px;
 
-    //Filtrar
-    .mat-form-field {
-      width: 50%;
-      color: black;
-      margin: 0px 5px 20px 0px;
+    table p{
+      color:  $color-headers;
+      text-align: center;
+      font-family: $fuente;
+      font-weight: bold;
+    }
+  
+    .select-obra{
+      width:75%;
+      height: 30px;
+      font-family: $fuente;
     }
   }
 
@@ -82,11 +103,16 @@ $breakpoint-cel: 600px;
   ::ng-deep .formulario-actualizar-trabajador {
     margin: 25px;
 
-    //Filtrar
-    .mat-form-field {
-      width: 100%;
-      color: black;
-      margin: 0px 5px 20px 0px;
+    table p{
+      color:  $color-headers;
+      font-family: $fuente;
+      font-weight: bold;
+    }
+  
+    .select-obra{
+      width:100%;
+      height: 30px;
+      font-family: $fuente;
     }
   }
 

@@ -6,6 +6,8 @@ import { Trabajador } from '../../../models/Trabajador';
 import { ObraService } from '../../services/ObraService';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
+import Swal from 'sweetalert2';
+
 
 interface obraAux{
   id: number,
@@ -96,10 +98,15 @@ export class TrabajadorEditarComponent implements OnInit {
 
     this.trabajadorService.actualizarTrabajador(editadoTrabajador).subscribe(
       (response: any)=>{
-        console.log(editadoTrabajador);
-        
-        console.log(response)
-        
+      if(response){
+        Swal.fire('Éxitoso!','Trabajador actualizado','success');
+      } else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        })
+      }
       }
     )
 
