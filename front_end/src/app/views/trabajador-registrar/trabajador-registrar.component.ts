@@ -77,8 +77,7 @@ export class RegistroTrabajadorComponent implements OnInit {
       }
     )
 
-    console.log(newTrabajador);
-
+    this.router.navigateByUrl('admin/listarTrabajadores')
     this.registrarTrabajadorForm.reset();
   }
 

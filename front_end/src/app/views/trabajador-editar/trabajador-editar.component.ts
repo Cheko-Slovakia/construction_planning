@@ -90,7 +90,6 @@ export class TrabajadorEditarComponent implements OnInit {
       cargo: this.editarTrabajadorForm.get('cargo')?.value,
       is_active: this.editarTrabajadorForm.get('is_active')?.value,
       obra_participante: this.editarTrabajadorForm.get('obra')?.value
-      
     }
 
     
@@ -119,7 +118,6 @@ export class TrabajadorEditarComponent implements OnInit {
     this.router.navigateByUrl("/admin/listarTrabajadores")
     this.editarTrabajadorForm.reset();
     
-    //crear acción para redirigir al usuario a la lista de trabajadores actualizada
   }
 
   obtenerObras(){
