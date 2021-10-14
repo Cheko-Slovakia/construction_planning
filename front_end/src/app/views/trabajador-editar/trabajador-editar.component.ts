@@ -90,7 +90,6 @@ export class TrabajadorEditarComponent implements OnInit {
       cargo: this.editarTrabajadorForm.get('cargo')?.value,
       is_active: this.editarTrabajadorForm.get('is_active')?.value,
       obra_participante: this.editarTrabajadorForm.get('obra')?.value
-      
     }
 
     
@@ -123,13 +122,8 @@ export class TrabajadorEditarComponent implements OnInit {
             id: obra.obra_id,
             nombre: obra.nombre
           }
-
           this.obrasLista.push(obraAux);
-          
         });
-
-        
-      console.log(this.obrasLista);
       }
       
     )
