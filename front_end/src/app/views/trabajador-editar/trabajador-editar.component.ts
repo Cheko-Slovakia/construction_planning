@@ -109,8 +109,13 @@ export class TrabajadorEditarComponent implements OnInit {
       }
       }
     )
-
-    this.obtenerTrabajador();
+    
+    // if(perfil_cargo=='Jefe_Obra'){
+    //   this.router.navigateByUrl("/trabajador/listarTrabajadores")
+    // } else if(perfil_cargo == 'ADMINISTRADOR'){
+    //   this.router.navigateByUrl("/admin/listarTrabajadores")
+    // }
+    
     this.router.navigateByUrl("/admin/listarTrabajadores")
     this.editarTrabajadorForm.reset();
     
@@ -125,15 +130,9 @@ export class TrabajadorEditarComponent implements OnInit {
             id: obra.obra_id,
             nombre: obra.nombre
           }
-
           this.obrasLista.push(obraAux);
-          
         });
-
-        
-      console.log(this.obrasLista);
       }
-      
     )
   }
 
