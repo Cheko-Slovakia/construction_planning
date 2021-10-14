@@ -12,7 +12,7 @@ export class TrabajadorLayoutComponent implements OnInit {
   constructor(private router: Router) { }
   public sidebarMinimized = false;
   public navItems = [];
-  private tipo_trabajador
+  private navItemsOperario
 
   ngOnInit(): void {
 

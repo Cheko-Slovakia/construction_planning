@@ -17,6 +17,7 @@ import { MaterialSolicitudesComponent } from '../../views/material-solicitudes/m
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { HttpClientModule } from '@angular/common/http';
 import { ObraListarMaterialComponent } from '../../views/obra-listar-material/obra-listar-material.component';
+import { MapaComponent } from '../../views/mapa/mapa.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ObraListarMaterialComponent } from '../../views/obra-listar-material/ob
     MaterialListarComponent,
     MaterialSolicitarComponent,
     MaterialSolicitudesComponent,
-    ObraListarMaterialComponent
+    ObraListarMaterialComponent,
+    MapaComponent
     
     
     

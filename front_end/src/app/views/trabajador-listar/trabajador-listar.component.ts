@@ -61,6 +61,15 @@ export class TrabajadorListarComponent implements OnInit {
 
   private obrasLista: obraAux[] = [];
 
+  transform(input: number): string {
+    if (input == 0) {
+      return 'sin asignar'
+    }
+    else {
+      return 'asignado'
+    }
+  }
+
 
 
   ngOnInit() {
@@ -160,14 +169,6 @@ export class TrabajadorListarComponent implements OnInit {
 
   
 
-  transform(input: number): string {
-    if (input == 0) {
-      return 'asignado'
-    }
-    else {
-      return 'sin asignar'
-    }
-  }
 
   
 
