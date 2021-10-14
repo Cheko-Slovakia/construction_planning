@@ -1,13 +1,13 @@
 
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from "../../environments/environment";
+import { environment } from '../../environments/environment';
 import { Obra } from '../../models/Obra';
 
 
 @Injectable({
-    providedIn:'root'
+    providedIn: 'root'
 })
 
 export class ObraService{
@@ -46,5 +46,5 @@ export class ObraService{
 
     }
 
-    
+
 }

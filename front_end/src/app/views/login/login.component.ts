@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/LoginService';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,26 +12,38 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit{
 
 
-  registrarEvidenciaForm: FormGroup = this.fb.group({
+  credentialsForm: FormGroup = this.fb.group({
     usuario: ['',Validators.required],
     contrasena: ['',Validators.required]
-  
 
   })
-  constructor(private fb : FormBuilder, private router: Router){
-    
+
+  constructor(private fb : FormBuilder, private router: Router, private loginService: LoginService){
+
 
   }
 
- 
-  
+
+
 
   ngOnInit(): void {
   }
 
   iniciarSesion(){
-    this.router.navigateByUrl("/admin")
+
+    const credentials: any={
+      numero_cedula: this.credentialsForm.get('usuario')?.value,
+      password: this.credentialsForm.get('contrasena')?.value
+    }
+
+    console.log(credentials);
+
+
+    this.loginService.postCredentials(credentials).subscribe(
+      (response:any)=>{
+        console.log(response)
+      }
+    )
+//    this.router.navigateByUrl("/admin")
   }
-
-
  }
