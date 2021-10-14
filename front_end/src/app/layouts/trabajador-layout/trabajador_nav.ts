@@ -39,8 +39,8 @@ export const navItemsJefeObra: INavData[] = [
         icon: 'icon-list'
       },
       {
-        name: 'Consultar/Solicitar materiales de obra',
-        url: 'listarMateriales',
+        name: 'Solicitar materiales de obra',
+        url: 'solicitarMateriales',
         icon: 'icon-user-follow'
       },
     ]

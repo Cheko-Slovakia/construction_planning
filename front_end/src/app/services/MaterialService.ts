@@ -27,6 +27,14 @@ export class MaterialService{
         return this.http.get<Material[]>(`${this.apiServerUrl}/materiales/`)
     }
 
+    public solicitarMaterialObra(solicitud: any):Observable<any>{
+        return this.http.post<any>(`${this.apiServerUrl}/obras/materiales/`,solicitud);
+    }
+
+    public obtenerSolicitudesMaterialesObra(obra: number):Observable<Material[]>{
+        return this.http.get<Material[]>(`${this.apiServerUrl}/obras/materiales/?obra_id=${obra}`)
+    }
+
 
     
 }

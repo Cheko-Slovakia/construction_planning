@@ -16,7 +16,7 @@ export class TrabajadorLayoutComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.navItems = navItemsJefeObra
+    this.navItems = navItemsJefeAlmacen
     
 
 
