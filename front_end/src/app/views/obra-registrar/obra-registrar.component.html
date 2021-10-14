@@ -63,37 +63,42 @@
               <div class="mapa" id="map"></div>
             </div>
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="cil-compass"></i
-                ></span>
-              </div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Latitud"
-                autocomplete="latitud_obra"
-                formControlName="latitud"
-                required
-              />
-            </div>
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="cil-compass"></i
-                ></span>
-              </div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="longitud"
-                autocomplete="longitud_obra"
-                formControlName="longitud"
-                required
-              />
-            </div>
+            <table class="ubicacion-table">
+              <th>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-compass"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Latitud"
+                    autocomplete="latitud_obra"
+                    formControlName="latitud"
+                    required
+                  />
+                </div>
+              </th>
+              <th>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="cil-compass"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="longitud"
+                    autocomplete="longitud_obra"
+                    formControlName="longitud"
+                    required
+                  />
+                </div>
+              </th>
+            </table>
 
             <div class="p-3 label-cliente" align=center>
               SELECCIONE UN CLIENTE:
