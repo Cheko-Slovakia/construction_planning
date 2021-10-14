@@ -25,6 +25,13 @@ export class EvidenciaService{
         return this.http.get<Evidencia[]>(`${this.apiServerUrl}/obras/avances/?obra_id=${obra}`)
     }
 
+    public obtenerEvidenciasPorEstadoObra(obra: number,opcion: string):Observable<any[]>{
+        console.log(obra);
+        console.log(opcion);
+        
+        return this.http.get<any[]>(`${this.apiServerUrl}/obras/avances/?obra_id=${obra}&aprobado=${opcion}`)
+    }
+
     public registrarEvidencia(nuevaEvidencia: Evidencia):Observable<Evidencia>{
         return this.http.post<Evidencia>(`${this.apiServerUrl}/obras/avances/`,nuevaEvidencia)
     }

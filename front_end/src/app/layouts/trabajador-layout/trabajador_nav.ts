@@ -31,7 +31,7 @@ export const navItemsJefeObra: INavData[] = [
     children: [
       {
         name: 'Listar Evidencias',
-        url: 'listarEvidencias',
+        url: 'listarEvidencias/:obra_id',
         icon: 'icon-list'
       },{
         name: 'Asignar Trabajadores',
@@ -39,8 +39,8 @@ export const navItemsJefeObra: INavData[] = [
         icon: 'icon-list'
       },
       {
-        name: 'Solicitar materiales de obra',
-        url: 'solicitarMateriales',
+        name: 'Solicitar material de obra',
+        url: 'solicitarMaterial',
         icon: 'icon-user-follow'
       },
     ]
