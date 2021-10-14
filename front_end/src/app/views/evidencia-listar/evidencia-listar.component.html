@@ -11,7 +11,7 @@
                 <mat-label>Filtrar</mat-label>
                 <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Gerente" #input />
               </mat-form-field>
-  
+
               <!--  Tabla -->
               <div class="tabla">
                 <table mat-table [dataSource]="dataSourceEvidencias" class="mat-elevation-z8 tabla table-dark" matSort>
@@ -40,7 +40,7 @@
                       {{ evidenciasTabla.trabajador }}
                     </td>
                   </ng-container>
-  
+
                   <ng-container matColumnDef="fecha">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>
                       Fecha de carga
@@ -49,8 +49,8 @@
                       {{ evidenciasTabla.fecha }}
                     </td>
                   </ng-container>
-  
-  
+
+
                   <!--  Columna Editar -->
                   <ng-container matColumnDef="detalle">
                     <th mat-header-cell *matHeaderCellDef>Detalle
@@ -61,7 +61,7 @@
                       </button>
                     </td>
                   </ng-container>
-  
+
                   <!-- elementos necesarios para el mat-table de angular material-->
                   <tr mat-header-row *matHeaderRowDef="columnasEvidencias"></tr>
                   <tr mat-row *matRowDef="let row; columns: columnasEvidencias"></tr>
@@ -70,12 +70,12 @@
             </div>
           </div>
         </div>
-  
+
         <!-- Paginator -->
         <div class="paginador">
           <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
         </div>
-  
+
         <div class="mb-4 center">
           <div class="full" id="map">
           </div>
@@ -87,15 +87,14 @@
 </ng-container>
 
 <ng-container *ngIf="detallar">
-  <div >
-    
-  <app-mapa [latitud]="latitudEvidencia" [longitud]= "longitudEvidencia" [fecha]= "fechaEvidencia" >
-    
-  </app-mapa>
-  
+  <div>
+
+    <app-mapa [latitud]="latitudEvidencia" [longitud]="longitudEvidencia" [descripcion]="descripcionEvidencia"
+      [fecha]="fechaEvidencia" [trabajador] = "trabajadorEvidencia">
+
+    </app-mapa>
+
 
   </div>
 
 </ng-container>
-
-

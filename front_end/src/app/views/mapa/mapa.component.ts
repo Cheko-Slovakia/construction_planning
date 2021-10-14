@@ -11,7 +11,6 @@ export class MapaComponent implements OnInit  {
 
   @Input() latitud : number;
   @Input() longitud : number;
-  @Input() zoom : number;
 
   title = 'google-maps';
 
@@ -28,7 +27,7 @@ export class MapaComponent implements OnInit  {
     loader.load().then(()=>{
       let map = new google.maps.Map(document.getElementById("map"),{
         center:{lat: this.latitud , lng: this.longitud},
-        zoom: 15,
+        zoom: 10,
         mapId: '6ce8ed066b2273c1'
       })
 
