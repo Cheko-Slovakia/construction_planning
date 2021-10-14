@@ -20,6 +20,8 @@ interface materialLista{
   styleUrls: ['./material-comprar.component.scss']
 })
 export class MaterialComprarComponent implements OnInit {
+
+  private nombreMaterial: string;
   
   public proveedores: proveedorLista[] = [
     {
@@ -41,26 +43,6 @@ export class MaterialComprarComponent implements OnInit {
 
   ];
 
-  public materiales: materialLista[] = [
-    {
-      material_id: 1,
-      material_nombre: "material 1"
-    },
-    {
-      material_id: 2,
-      material_nombre: "material 2"
-    },
-    {
-      material_id: 3,
-      material_nombre: "material 3"
-    },
-    {
-      material_id: 4,
-      material_nombre: "material 4"
-    },
-
-  ]
-
   comprarMaterialForm: FormGroup = this.fb.group({
     
     
@@ -77,7 +59,7 @@ export class MaterialComprarComponent implements OnInit {
 
   ngOnInit(): void {
     this.comprarMaterialForm.patchValue({material : this.aRoute.snapshot.paramMap.get("material_id")});
-    
+    this.nombreMaterial = this.aRoute.snapshot.paramMap.get("material_nombre")
     
   }
 
@@ -88,8 +70,7 @@ export class MaterialComprarComponent implements OnInit {
 
   setValorMaterial(){
     let proveedor_consulta = this.comprarMaterialForm.get('proveedor')?.value;
-    let material_consulta =  this.comprarMaterialForm.get('material')?.value;
-    
+
     console.log(proveedor_consulta);
 
 

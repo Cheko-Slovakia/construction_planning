@@ -28,8 +28,6 @@ declare interface solicitudesTabla {
 
 export class MaterialSolicitudesComponent implements OnInit {
 
-  private obra: number;
-
   private materiales: solicitudesTabla[] = [];//materiales
   private columnasMateriales: string[] = ['material', 'obra', 'cantidad', 'autorizar'];//Columnas a mostrar en la tabla
   private dataSourceMateriales: MatTableDataSource<solicitudesTabla>
@@ -58,26 +56,28 @@ export class MaterialSolicitudesComponent implements OnInit {
 
 
   generarMenuMateriales() {
-    this.materialesService.obtenerSolicitudesMaterialesObra(Number(this.obra)).subscribe(
+    this.materialesService.obtenerSolicitudesMaterialesObras().subscribe(
       (response: any) => {
 
         response.forEach(solicitud => {
           this.materialAux = {
-            material_id: solicitud.material_id,
-            material_nombre: solicitud.nombre,
-            obra_id: solicitud.obra_id,
-            obra_nombre: solicitud.obra_nombre,
+            material_id: solicitud.material,
+            material_nombre: solicitud.nombre_material,
+            obra_id: solicitud.obra,
+            obra_nombre: solicitud.nombre_obra,
             cantidad: solicitud.cantidad,
-            estado: solicitud.estado
+            estado: solicitud.aprobado
           }
           this.materiales.push(this.materialAux)
+          console.log(this.materialAux);
+          
         })
 
         //Datasource para la tabla y su correspondiende sorter y paginator
         this.dataSourceMateriales = new MatTableDataSource<solicitudesTabla>(this.materiales)
         this.dataSourceMateriales.sort = this.sort;
         this.dataSourceMateriales.paginator = this.paginator;
-        console.log(response);
+ 
 
       }
     )
@@ -91,6 +91,25 @@ export class MaterialSolicitudesComponent implements OnInit {
     if (this.dataSourceMateriales.paginator) {
       this.dataSourceMateriales.paginator.firstPage();
     }
+  }
+
+  cambiarEstadoSolicitud(material,obra,respuesta){
+
+    /*
+    this.materialesService.cambiarEstadoMaterial({
+      material_id: material,
+      obra_id: obra,
+      aprobado: respuesta,
+    }).subscribe(
+      (response: any)=>{
+        console.log(response);
+        
+      }
+    )
+    */
+
+
+    
   }
 
 }

@@ -51,13 +51,13 @@
 
                 <!--  Columna Editar -->
                 <ng-container matColumnDef="solicitar">
-                  <th mat-header-cell *matHeaderCellDef>Solicitar</th>
+                  <th mat-header-cell *matHeaderCellDef>Pedir Material</th>
                   <td mat-cell *matCellDef="let materialesTabla">
                     <a
                       routerLinkActive="active"
                       [routerLink]="[
-                        '/admin/solicitarMaterial',
-                        materialesTabla.id
+                        '/trabajador/comprarMaterial',
+                        materialesTabla.id,materialesTabla.nombre
                       ]"
                       class="nav-link"
                       ><i class="cil-cog text-default"></i

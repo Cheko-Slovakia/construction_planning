@@ -28,14 +28,14 @@
                 <ng-container matColumnDef="material">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header>Material</th>
                   <td mat-cell *matCellDef="let solicitudesTabla">
-                    {{ solicitudesTabla.material }}
+                    {{ solicitudesTabla.material_nombre }}
                   </td>
                 </ng-container>
                 <!--  Columna Nit -->
                 <ng-container matColumnDef="obra">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header>Obra</th>
                   <td mat-cell *matCellDef="let solicitudesTabla">
-                    {{ solicitudesTabla.cantidad }}
+                    {{ solicitudesTabla.obra_nombre }}
                   </td>
                 </ng-container>
                 <!--  Columna material -->
@@ -44,7 +44,7 @@
                     Cantidad
                   </th>
                   <td mat-cell *matCellDef="let solicitudesTabla">
-                    {{ solicitudesTabla.estado }}
+                    {{ solicitudesTabla.cantidad}}
                   </td>
                 </ng-container>
 
@@ -57,15 +57,18 @@
                 <ng-container matColumnDef="autorizar">
                   <th mat-header-cell *matHeaderCellDef>Autorizar</th>
                   <td mat-cell *matCellDef="let solicitudesTabla">
-                    <a
-                      routerLinkActive="active"
-                      [routerLink]="[
-                        '/admin/solicitarMaterial',
-                        solicitudesTabla.id
-                      ]"
-                      class="nav-link"
-                      ><i class="cil-cog text-default"></i
-                    ></a>
+                    <div class="row">
+                      
+                      <button
+                      (click)="cambiarEstadoSolicitud(solicitudesTabla.material_id,solicitudesTabla.obra_id,true)"
+                      > <i  class="cil-check text-success"></i></button> 
+                      <button
+                      (click)="cambiarEstadoSolicitud(solicitudesTabla.material_id,solicitudesTabla.obra_id,false)"
+                      ><i class="cil-x text-danger"></i
+                    ></button> 
+                    </div>
+                    
+                    
                   </td>
                 </ng-container>
 

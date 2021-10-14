@@ -19,7 +19,7 @@ export const routes: Routes = [{
 
 
      {path:'listarSolicitudesMateriales',component: MaterialSolicitudesComponent},
-     {path:'comprarMaterial/:material_id',component: MaterialComprarComponent},
+     {path:'comprarMaterial/:material_id/:material_nombre',component: MaterialComprarComponent},
      {path:'listarMateriales',component: MaterialListarComponent},
 
      {path:'listarObras',component: ObraListarComponent},
