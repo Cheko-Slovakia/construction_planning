@@ -7,7 +7,8 @@ import { MaterialListarComponent } from '../../views/material-listar/material-li
 import { MaterialSolicitarComponent } from '../../views/material-solicitar/material-solicitar.component';
 import { MaterialSolicitudesComponent } from '../../views/material-solicitudes/material-solicitudes.component';
 import { ObraListarMaterialComponent } from '../../views/obra-listar-material/obra-listar-material.component';
-import { ObraListarComponent } from '../../views/obra-listar/obra-listar.component';
+import { ObraListarComponent } from '../../views/obra-listar/obra-listar.component'; 
+import { TrabajadorListarComponent } from '../../views/trabajador-listar/trabajador-listar.component';
 
 export const routes: Routes = [{
   path:'',
@@ -22,8 +23,7 @@ export const routes: Routes = [{
      {path:'listarMateriales',component: MaterialListarComponent},
 
      {path:'listarObras',component: ObraListarComponent},
-     {path:'listarMaterialesObra',component: ObraListarMaterialComponent},
-     
+     {path:'listarTrabajadores',component: TrabajadorListarComponent},
 
      {path: '**', redirectTo: 'dashboard'}
   ]

@@ -5,6 +5,7 @@ import { Loader } from '@googlemaps/js-api-loader';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { title } from 'process';
+import { EvidenciaService } from '../../services/EvidenciaService';
 
 @Component({
   selector: 'app-evidencia-registrar',
@@ -17,7 +18,7 @@ import { title } from 'process';
 export class EvidenciaRegistrarComponent implements OnInit{
 
   
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router, private evidenciaService : EvidenciaService) {}
 
   loader = new Loader({
     apiKey : 'AIzaSyDi3vXai4YsLlN7j9nV03i_cp_Gk_-4IMY'
@@ -92,16 +93,24 @@ export class EvidenciaRegistrarComponent implements OnInit{
   public registrarEvidencia(){
 
     const newEvidencia: any={
+      obra:1,
       descripcion: this.registrarEvidenciaForm.get('descripcion')?.value,
-      tipo: this.registrarEvidenciaForm.get('tipo')?.value,
+      link: this.registrarEvidenciaForm.get('enlace')?.value,
       latitud: this.registrarEvidenciaForm.get('latitud')?.value,
       longitud: this.registrarEvidenciaForm.get('longitud')?.value,
-      obra: this.registrarEvidenciaForm.get('obra')?.value
-
+      //obra: this.registrarEvidenciaForm.get('obra')?.value
 
     }
 
     console.log(newEvidencia);
+
+
+    this.evidenciaService.registrarEvidencia(newEvidencia).subscribe(
+      (response:any)=>{
+        console.log(response);
+        
+      }
+    )
     
 
 

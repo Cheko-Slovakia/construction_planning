@@ -12,7 +12,7 @@ $breakpoint-cel: 600px;
 
 
 
-::ng-deep .tabla-clientes {
+::ng-deep .tabla-materiales {
   margin: 25px;
 
   //Filtrar
@@ -175,7 +175,7 @@ td {
 
 
 @media (max-width: $breakpoint-tablet) {
-  ::ng-deep .tabla-clientes {
+  ::ng-deep .tabla-materiales {
     margin: 25px;
 
     //Filtrar
@@ -189,7 +189,7 @@ td {
 
 
 @media (max-width: $breakpoint-tablet) {
-  ::ng-deep .tabla-clientes {
+  ::ng-deep .tabla-materiales {
     margin: 25px;
 
     //Filtrar
@@ -219,7 +219,7 @@ td {
 }
 
 @media (max-width: $breakpoint-cel) {
-  ::ng-deep .tabla-clientes {
+  ::ng-deep .tabla-materiales {
     margin: 25px;
 
     //Filtrar

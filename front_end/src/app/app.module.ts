@@ -54,6 +54,7 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { TrabajadorLayoutComponent } from './layouts/trabajador-layout/trabajador-layout.component';
 import { ClienteLayoutComponent } from './layouts/cliente-layout/cliente-layout.component';
 import { AdministradorLayoutComponent } from './layouts/administrador-layout/administrador-layout.component';
+import { TrabajadorListarComponent } from './views/trabajador-listar/trabajador-listar.component';
 
 @NgModule({
   imports: [
@@ -89,7 +90,8 @@ import { AdministradorLayoutComponent } from './layouts/administrador-layout/adm
     LoginComponent,
     AdministradorLayoutComponent,
     TrabajadorLayoutComponent,
-    ClienteLayoutComponent
+    ClienteLayoutComponent,
+    TrabajadorListarComponent
   ],
   providers: [
     {

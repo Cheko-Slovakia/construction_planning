@@ -14,12 +14,7 @@ export const navItemsOperario: INavData[] = [
         name: 'Registrar Evidencia',
         url: 'registrarEvidencia',
         icon: 'icon-list'
-      },
-      {
-        name: 'Solicitar/Listar Materiales',
-        url: 'listarMaterialesObra',
-        icon: 'icon-user-follow'
-      },
+      }
     ]
   },
 ];
@@ -38,15 +33,14 @@ export const navItemsJefeObra: INavData[] = [
         name: 'Listar Evidencias',
         url: 'listarEvidencias',
         icon: 'icon-list'
+      },{
+        name: 'Asignar Trabajadores',
+        url: 'listarTrabajadores',
+        icon: 'icon-list'
       },
       {
-        name: 'Consultar materiales de obra',
-        url: 'listarMaterialesObra',
-        icon: 'icon-user-follow'
-      },
-      {
-        name: 'Solicitar materiales al almacén  ',
-        url: 'solicitarMateriales',
+        name: 'Consultar/Solicitar materiales de obra',
+        url: 'listarMateriales',
         icon: 'icon-user-follow'
       },
     ]

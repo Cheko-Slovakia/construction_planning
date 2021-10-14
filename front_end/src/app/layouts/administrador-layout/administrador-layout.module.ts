@@ -31,7 +31,6 @@ import { DashboardComponent } from '../../views/dashboard/dashboard.component';
     ObraListarComponent,
     ObraEditarComponent,
     RegistroTrabajadorComponent,
-    TrabajadorListarComponent,
     TrabajadorEditarComponent,
     DashboardComponent
     

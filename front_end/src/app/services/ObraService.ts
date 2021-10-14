@@ -16,7 +16,10 @@ export class ObraService{
 
     constructor(private http: HttpClient){}
 
-    
+    public registrarTrabajadorObra(trabajadoresParticipanObras:any):Observable<any>{
+        return this.http.post<any>(`${this.apiServerUrl}/obras/trabajadores/`,trabajadoresParticipanObras)
+    }
+
     //todas las obras
     public obtenerObras():Observable<Obra[]>{
         return this.http.get<Obra[]>(`${this.apiServerUrl}/obras/?all=1`)

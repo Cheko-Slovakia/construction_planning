@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Obra } from '../../../models/Obra';
 import { Trabajador } from '../../../models/Trabajador';
+import { ObraService } from '../../services/ObraService';
 import { TrabajadorService } from '../../services/TrabajadorService';
+
+
+interface obraAux{
+  id: number,
+  nombre: string
+}
 
 @Component({
   selector: 'app-trabajador-editar',
@@ -12,12 +20,15 @@ import { TrabajadorService } from '../../services/TrabajadorService';
 
 
 export class TrabajadorEditarComponent implements OnInit {
+
+  private obrasLista: obraAux[]= [];
   private trabajador_cedula: string;
 
   editarTrabajadorForm: FormGroup = this.fb.group({
 
 
     trabajador_id:[{value: '', disabled: true}],
+    obra:[{value: '', disabled: false}],
     cedula: [{value: '', disabled: true}],
     nombre: [{value: '', disabled: false}],
     apellido: [{value: '', disabled: false}],
@@ -35,9 +46,10 @@ export class TrabajadorEditarComponent implements OnInit {
 
    
 
-  constructor(private fb: FormBuilder,private trabajadorService: TrabajadorService, private aRoute: ActivatedRoute, private router: Router) {}
+  constructor(private fb: FormBuilder,private trabajadorService: TrabajadorService, private aRoute: ActivatedRoute, private router: Router,private obraService: ObraService) {}
 
   ngOnInit(): void {
+    this.obtenerObras();
     this.trabajador_cedula = this.aRoute.snapshot.paramMap.get("trabajador_cedula");
     this.obtenerTrabajador();
   }
@@ -74,6 +86,7 @@ export class TrabajadorEditarComponent implements OnInit {
       contrasena: this.editarTrabajadorForm.get('contrasena')?.value,
       cargo: this.editarTrabajadorForm.get('cargo')?.value,
       is_active: this.editarTrabajadorForm.get('is_active')?.value,
+      obra: this.editarTrabajadorForm.get('obra')?.value
       
     }
 
@@ -82,6 +95,8 @@ export class TrabajadorEditarComponent implements OnInit {
 
     this.trabajadorService.actualizarTrabajador(editadoTrabajador).subscribe(
       (response: any)=>{
+        console.log(editadoTrabajador);
+        
         console.log(response)
         
       }
@@ -91,6 +106,26 @@ export class TrabajadorEditarComponent implements OnInit {
     this.editarTrabajadorForm.reset();
     
     //crear acción para redirigir al usuario a la lista de trabajadores actualizada
+  }
+
+  obtenerObras(){
+    this.obraService.obtenerObras().subscribe(
+      (response: Obra[])=>{
+        response.forEach(obra => {
+          let obraAux  ={
+            id: obra.obra_id,
+            nombre: obra.nombre
+          }
+
+          this.obrasLista.push(obraAux);
+          
+        });
+
+        
+      console.log(this.obrasLista);
+      }
+      
+    )
   }
 
   

@@ -13,6 +13,8 @@ declare interface trabajadoresTabla {
   apellido: string,
   celular: string,
   cargo: string,
+  obra: number
+  
 }
 
 @Component({
@@ -27,7 +29,7 @@ declare interface trabajadoresTabla {
 export class TrabajadorListarComponent implements OnInit {
 
   private trabajadores: trabajadoresTabla[] = [];//Trabajadores
-  private columnasTrabajadores: string[] = ['nombre', 'apellido', 'celular', 'cargo', 'editar'];//Columnas a mostrar en la tabla
+  private columnasTrabajadores: string[] = ['nombre', 'apellido', 'celular', 'cargo','obra','editar'];//Columnas a mostrar en la tabla
   private dataSourceTrabajadores: MatTableDataSource<trabajadoresTabla>
 
 
@@ -36,7 +38,8 @@ export class TrabajadorListarComponent implements OnInit {
     nombre: null,
     apellido: null,
     celular: null,
-    cargo: null
+    cargo: null,
+    obra: null
   }
 
 
@@ -57,13 +60,15 @@ export class TrabajadorListarComponent implements OnInit {
     
     this.trabajadoresService.obtenerTrabajadores().subscribe(
       (response: Trabajador[]) => {
+        
         response.forEach(trabajador => {
           this.trabajadorAux = {
             cedula: trabajador.numero_cedula,
             nombre: trabajador.nombre,
             apellido: trabajador.apellido,
             celular: trabajador.numero_celular,
-            cargo: trabajador.cargo
+            cargo: trabajador.cargo,
+            obra: trabajador.obra
           }
           this.trabajadores.push(this.trabajadorAux)
         })
@@ -72,6 +77,9 @@ export class TrabajadorListarComponent implements OnInit {
         this.dataSourceTrabajadores = new MatTableDataSource<trabajadoresTabla>(this.trabajadores)
         this.dataSourceTrabajadores.sort = this.sort;
         this.dataSourceTrabajadores.paginator = this.paginator;
+
+        console.log(this.trabajadores);
+        
       }
     )
   }

@@ -90,7 +90,7 @@ export class ObraRegistrarComponent implements OnInit{
       latitud: address.geometry.location.lat(),
       longitud: address.geometry.location.lat(),
       ciudad_obra: address.vicinity,
-      direccion_obra: address.name
+      direccion_obra: address.vicinity
     })
 
 

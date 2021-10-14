@@ -64,6 +64,16 @@
                   </td>
                 </ng-container>
 
+                <!--  Columna Cargo -->
+                <ng-container matColumnDef="obra">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                     Obra
+                  </th>
+                  <td mat-cell *matCellDef="let trabajadoresTabla">
+                    {{ trabajadoresTabla.obra }}
+                  </td>
+                </ng-container>
+
                 <!--  Columna Editar -->
                 <ng-container matColumnDef="editar">
                   <th mat-header-cell *matHeaderCellDef>Editar</th>

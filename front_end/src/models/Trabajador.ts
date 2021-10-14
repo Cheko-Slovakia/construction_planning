@@ -6,7 +6,8 @@ export interface Trabajador{
     numero_celular: string,
     contrasena: string,
     cargo: string,
-    is_active: boolean
+    is_active: boolean,
+    obra: number,
 
     
 }
