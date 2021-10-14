@@ -105,7 +105,6 @@
             
 
             <button
-              [routerLink]="['/admin/listarClientes']"
               (click)="editarCliente()"
               type="button"
               [disabled]="!editarClienteForm.valid"
@@ -114,7 +113,7 @@
               Actualizar
             </button>
 
-            <button type="button" class="btn btn-block btn-danger">
+            <button type="button" [routerLink]="['/admin/listarClientes']" class="btn btn-block btn-danger">
               Cancelar
             </button>
           </form>

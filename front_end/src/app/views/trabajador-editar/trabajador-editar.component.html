@@ -115,7 +115,6 @@
             </table>
 
             <button
-              [routerLink]="['/admin/listarTrabajadores']"
               (click)="editarTrabajador()"
               type="button"
               [disabled]="!editarTrabajadorForm.valid"
@@ -124,7 +123,7 @@
               Actualizar
             </button>
 
-            <button type="button" class="btn btn-block btn-danger">
+            <button type="button" [routerLink]="['/admin/listarTrabajadores']" class="btn btn-block btn-danger">
               Cancelar
             </button>
           </form>
