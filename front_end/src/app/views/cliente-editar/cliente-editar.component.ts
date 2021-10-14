@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from '../../../models/Cliente';
 import { ClienteService } from '../../services/ClienteService';
 
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-cliente-editar',
@@ -71,7 +73,15 @@ export class ClienteEditarComponent implements OnInit {
     this.ClienteService.actualizarCliente(editadoCliente).subscribe(
       (response: any)=>{
         
-        console.log(response) 
+        if(response){
+          Swal.fire('Éxitoso!','Cliente actualizado','success');
+        } else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+          })
+        }
       }
     )
       

@@ -5,76 +5,92 @@
                 <div class="col-md-6 mx-auto">
                     <div class="card mx-4">
                         <div class="card-body p-4">
-                            <form autocomplete="off" [formGroup]="registrarEvidenciaForm">
 
-                                <h1>Registrar evidencia </h1>
-                        
+                            <ng-container *ngIf="registrar">
 
 
-                                <div class="input-group mb-3 mt-4">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="icon-user"></i></span>
+
+                                <form autocomplete="off" [formGroup]="registrarEvidenciaForm">
+
+                                    <h1>Registrar evidencia </h1>
+
+
+
+                                    <div class="input-group mb-3 mt-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="icon-user"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Descripción"
+                                            autocomplete="descripcion" formControlName="descripcion" required>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Descripción"
-                                        autocomplete="descripcion" formControlName="descripcion" required>
-                                </div>
 
-                                <div class="text-left ml-2 mb-2 mt-3"><b>Tipo de evidencia:</b></div>
+                                    <div class="text-left ml-2 mb-2 mt-3"><b>Tipo de evidencia:</b></div>
 
 
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="custom-control custom-radio mb-3">
-                                                <input formControlName="tipo" name="tipo"
-                                                    class="custom-control-input" id="radioEvidenciaAudio" value="2"
-                                                    type="radio">
-                                                <label class="custom-control-label"
-                                                    for="radioEvidenciaAudio">Audio</label>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-radio mb-3">
+                                                    <input formControlName="tipo" name="tipo"
+                                                        class="custom-control-input" id="radioEvidenciaAudio" value="2"
+                                                        type="radio">
+                                                    <label class="custom-control-label"
+                                                        for="radioEvidenciaAudio">Audio</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-radio mb-3">
+                                                    <input formControlName="tipo" name="tipo"
+                                                        class="custom-control-input" id="radioEvidenciaImagen" value="1"
+                                                        type="radio">
+                                                    <label class="custom-control-label"
+                                                        for="radioEvidenciaImagen">Imagen</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="custom-control custom-radio mb-3">
-                                                <input formControlName="tipo"  name="tipo"
-                                                    class="custom-control-input" id="radioEvidenciaImagen" value="1"
-                                                    type="radio">
-                                                <label class="custom-control-label"
-                                                    for="radioEvidenciaImagen">Imagen</label>
-                                            </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="cil-building"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Enlace"
+                                            formControlName="enlace" required>
+                                    </div>
+
+
+                                    <div class="mb-4 center">
+                                        <div class="full" id="map">
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="cil-building"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Enlace"
-                                        formControlName="enlace" required>
-                                </div>
 
+
+                                    <button type="button" class="btn btn-block btn-success"
+                                        (click)="registrarEvidencia()" [disabled]="!registrarEvidenciaForm.valid">Añadir
+                                        Obra</button>
+                                    <button type="button" class="btn btn-block btn-danger">Cancelar</button>
+
+
+
+
+
+
+                                </form>
+                            </ng-container>
+
+                            <ng-container *ngIf="!registrar">
 
                                 <div class="mb-4 center">
                                     <div class="full" id="map">
                                     </div>
                                 </div>
 
-
-
-                                <button type="button" class="btn btn-block btn-success" (click)="registrarEvidencia()"
-                                    [disabled]="!registrarEvidenciaForm.valid">Añadir Obra</button>
-                                <button type="button" class="btn btn-block btn-danger">Cancelar</button>
-
-
-
-
-
-
-                            </form>
-
+                            </ng-container>
+                            
 
                         </div>
 

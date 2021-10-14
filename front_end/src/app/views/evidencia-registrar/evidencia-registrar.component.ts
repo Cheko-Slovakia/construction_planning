@@ -16,7 +16,10 @@ import { EvidenciaService } from '../../services/EvidenciaService';
 
 
 
+
 export class EvidenciaRegistrarComponent implements OnInit{
+
+
 
   
   constructor(private fb: FormBuilder, private router: Router, private evidenciaService : EvidenciaService) {}
@@ -25,7 +28,7 @@ export class EvidenciaRegistrarComponent implements OnInit{
     apiKey : 'AIzaSyDi3vXai4YsLlN7j9nV03i_cp_Gk_-4IMY'
   })
 
-
+  
   title = 'Registrar Evidencia'
   latitud =  3.6070813999999993;
   longitud = -76.25948679999999;
@@ -73,6 +76,8 @@ export class EvidenciaRegistrarComponent implements OnInit{
         })
       })
     };
+
+
     
     this.loader.load().then(()=>{
       let map = new google.maps.Map(document.getElementById("map"),{

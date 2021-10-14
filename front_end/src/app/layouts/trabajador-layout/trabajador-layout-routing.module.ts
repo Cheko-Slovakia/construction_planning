@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EvidenciaListarComponent } from '../../views/evidencia-listar/evidencia-listar.component';
 import { EvidenciaRegistrarComponent } from '../../views/evidencia-registrar/evidencia-registrar.component';
+import { MapaComponent } from '../../views/mapa/mapa.component';
 import { MaterialComprarComponent } from '../../views/material-comprar/material-comprar.component';
 import { MaterialListarComponent } from '../../views/material-listar/material-listar.component';
 import { MaterialSolicitarComponent } from '../../views/material-solicitar/material-solicitar.component';
@@ -25,10 +26,10 @@ export const routes: Routes = [{
 
 
      //Rutas para jefe de obra
-     {path:'listarEvidencias/:obra_id',component: EvidenciaListarComponent},
+     {path:'listarEvidencias',component: EvidenciaListarComponent},
      {path:'listarTrabajadores',component: TrabajadorListarComponent},
      {path:'solicitarMaterial',component: MaterialSolicitarComponent},
-     {path:'evidencia',component: EvidenciaRegistrarComponent},
+     {path:'evidencia',component: MapaComponent},
 
      {path: '**', redirectTo: 'dashboard'}
   ]

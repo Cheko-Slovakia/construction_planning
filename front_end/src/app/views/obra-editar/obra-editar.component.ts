@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Obra } from '../../../models/Obra';
 import { ObraService } from '../../services/ObraService'
+
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-obra-editar',
   templateUrl: './obra-editar.component.html',
@@ -67,7 +69,15 @@ export class ObraEditarComponent implements OnInit {
 
     this.obraService.actualizarObra(editadoObra).subscribe(
       (response: any) => {
-        console.log(response)
+        if(response){
+          Swal.fire('Éxitoso!','Obra actualizada','success');
+        } else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+          })
+        }
 
       }
     )

@@ -61,12 +61,27 @@ export class TrabajadorListarComponent implements OnInit {
 
   private obrasLista: obraAux[] = [];
 
+  transform(input: number): string {
+    if (input == 0) {
+      return 'sin asignar'
+    }
+    else {
+      return 'asignado'
+    }
+  }
+
 
 
   ngOnInit() {
     //Se genera el menu
     this.obtenerObras();
     this.generarMenuTrabajadores();
+
+    // if(this.perfil_cargo == "Jefe_obra"){
+    //   this.generarMenuTrabajadoresObreros(perfil_cargo)
+    // }else{
+    //   this.generarMenuTrabajadores();
+    // }
     
     
     
@@ -76,6 +91,35 @@ export class TrabajadorListarComponent implements OnInit {
   generarMenuTrabajadores() {
 
     this.trabajadoresService.obtenerTrabajadores().subscribe(
+      (response: Trabajador[]) => {
+
+        response.forEach(trabajador => {
+          this.trabajadorAux = {
+            cedula: trabajador.numero_cedula,
+            nombre: trabajador.nombre,
+            apellido: trabajador.apellido,
+            celular: trabajador.numero_celular,
+            cargo: trabajador.cargo,
+            obra: trabajador.obra_participante
+          }
+          this.trabajadores.push(this.trabajadorAux)
+        })
+
+        //Datasource para la tabla y su correspondiende sorter y paginator
+        this.dataSourceTrabajadores = new MatTableDataSource<trabajadoresTabla>(this.trabajadores)
+        this.dataSourceTrabajadores.sort = this.sort;
+        this.dataSourceTrabajadores.paginator = this.paginator;
+
+        console.log(this.trabajadores);
+
+      }
+    )
+  }
+
+  //obtiene todos los trabajadores con cargo Obrero
+  generarMenuTrabajadoresObreros(cargo: string) {
+
+    this.trabajadoresService.obtenerTrabajadoresCargo(cargo).subscribe(
       (response: Trabajador[]) => {
 
         response.forEach(trabajador => {
@@ -125,14 +169,6 @@ export class TrabajadorListarComponent implements OnInit {
 
   
 
-  transform(input: number): string {
-    if (input == 0) {
-      return 'asignado'
-    }
-    else {
-      return 'sin asignar'
-    }
-  }
 
   
 

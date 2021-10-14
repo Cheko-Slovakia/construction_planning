@@ -5,6 +5,8 @@ import { Material } from '../../../models/Material';
 import { MaterialService } from '../../services/MaterialService';
 import { TrabajadorService } from '../../services/TrabajadorService'
 
+import Swal from 'sweetalert2';
+
 interface materialLista{
   material_id: number;
   material_nombre: string;
@@ -76,7 +78,15 @@ export class MaterialSolicitarComponent implements OnInit {
 
     this.materialService.solicitarMaterialObra(newSolicitud).subscribe(
       (response:any)=>{
-        console.log(response);
+        if(response){
+          Swal.fire('Éxitoso!','Material Solicitado','success');
+        } else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+          })
+        }
         
       }
     )

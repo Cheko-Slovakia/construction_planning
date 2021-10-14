@@ -9,6 +9,8 @@ import { ClienteService } from '../../services/ClienteService';
 import { ObraService } from '../../services/ObraService';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
+import Swal from 'sweetalert2';
+
 interface clienteLista{
   cliente_id: number;
   cliente_nombre: string;
@@ -53,7 +55,7 @@ export class ObraRegistrarComponent implements OnInit{
 
 
   registrarObraForm: FormGroup = this.fb.group({
-    ciudad_obra: ['',Validators.required],
+    ciudad_obra: [{value:'', disabled: true},Validators.required],
     nombre_obra: ['',Validators.required],
     direccion_obra: ['',Validators.required],
     latitud: [{value: '', disabled: true},Validators.required],
@@ -144,7 +146,6 @@ export class ObraRegistrarComponent implements OnInit{
   }
 
   public registrarObra(){
-    console.log("Recibido");
 
     const newObra: any={
       nombre: this.registrarObraForm.get('nombre_obra')?.value,
@@ -153,16 +154,21 @@ export class ObraRegistrarComponent implements OnInit{
       latitud: this.registrarObraForm.get('latitud')?.value,
       longitud: this.registrarObraForm.get('longitud')?.value,
       cliente: this.registrarObraForm.get('cliente_obra')?.value
-
-
+    
     }
-
-    console.log(newObra);
     
 
     this.obraServicio.registrarObra(newObra).subscribe(
       (response:any)=>{
-        console.log(response);
+        if(response){
+          Swal.fire('Éxitoso!','Obra registrada','success');
+        } else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+          })
+        }
     
         this.registrarObraForm.reset();
         
