@@ -5,6 +5,7 @@ import { Obra } from '../../../models/Obra';
 import { Trabajador } from '../../../models/Trabajador';
 import { ObraService } from '../../services/ObraService';
 import { TrabajadorService } from '../../services/TrabajadorService';
+import Swal  from 'sweetalert2';
 
 interface puestoLista{
   puesto_nombre: string;
@@ -81,8 +82,20 @@ export class RegistroTrabajadorComponent implements OnInit {
 
     this.trabajadorService.registrarTrabajador(newTrabajador).subscribe(
       (response: any)=>{
-        console.log(response);
-        
+
+        if(response){
+          Swal.fire('Éxitoso!','Trabajador registrado','success');
+        } else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+          })
+        }
+
+
+
+        this.router.navigateByUrl("/admin/listarTrabajadores")
       }
     )
 

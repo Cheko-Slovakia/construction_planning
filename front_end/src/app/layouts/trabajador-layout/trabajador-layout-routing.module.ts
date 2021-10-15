@@ -16,6 +16,7 @@ export const routes: Routes = [{
   children:[
 
     //Rutas para operarios
+      {path:'',component: EvidenciaRegistrarComponent},
      {path:'registrarEvidencia',component: EvidenciaRegistrarComponent},
      
 

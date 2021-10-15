@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { ClienteListarComponent } from '../../views/cliente-listar/cliente-listar.component';
 import { DashboardComponent } from '../../views/dashboard/dashboard.component';
+import { MaterialListarComponent } from '../../views/material-listar/material-listar.component'
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { DashboardComponent } from '../../views/dashboard/dashboard.component';
     ObraEditarComponent,
     RegistroTrabajadorComponent,
     TrabajadorEditarComponent,
+    MaterialListarComponent,
     DashboardComponent
     
   ],

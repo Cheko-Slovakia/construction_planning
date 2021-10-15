@@ -30,7 +30,22 @@ $breakpoint-cel: 600px;
   }
 }
 
+.label-cargo{
+  font-size: 18px;
+  font-family: $fuente;
+  font-weight: bold;
+}
 
+.boostrap-select{
+  padding:3px 0px 8px 0px;
+  text-align: center;
+  width: 100%;
+  select{
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 
 

@@ -73,20 +73,6 @@
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="cil-badge"></i></span>
-              </div>
-              <div class="input-group mb-3 boostrap-select">
-                <select formControlName="cargo" class="form-select select-bt" aria-label="Default select example">
-                  <option  *ngFor="let puestoLista of puestos"
-                  [value]= "puestoLista.puesto_nombre"
-                  >
-                  {{ puestoLista.puesto_nombre }}</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-lock"></i></span>
               </div>
               <input
@@ -114,6 +100,18 @@
               />
             </div>
 
+            <div class="p-2 label-cargo" align=center>
+              SELECCIONE UN CARGO:
+            </div>
+            <div class="input-group mb-5 boostrap-select">
+              <select formControlName="cargo" class="form-select" aria-label="Default select example">
+                <option  *ngFor="let puestoLista of puestos"
+                [value]= "puestoLista.puesto_nombre"
+                >
+                {{ puestoLista.puesto_nombre }}</option>
+              </select>
+            </div>
+
             <button
               type="button"
               class="btn btn-block btn-success"
@@ -122,7 +120,7 @@
             >
               Registrar
             </button>
-            <button type="button"  [routerLink]="['/admin/listarTrabajadores']" class="btn btn-block btn-danger">
+            <button type="button"  class="btn btn-block btn-danger">
               Cancelar
             </button>
           </form>

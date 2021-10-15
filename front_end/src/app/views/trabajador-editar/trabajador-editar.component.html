@@ -68,24 +68,6 @@
               />
             </div>
 
-
-
-            <div class="input-group mb-3" *ngIf="admin">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="cil-badge"></i></span>
-                </div>
-                <div class="input-group mb-3 boostrap-select">
-                  <select formControlName="cargo" class="form-select select-bt" aria-label="Default select example">
-                    <option  *ngFor="let puestoLista of puestos"
-                    [value]= "puestoLista.puesto_nombre"
-                    >
-                    {{ puestoLista.puesto_nombre }}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
             <div class="input-group mb-3" *ngIf="!admin">
               <div class="input-group-prepend">
                 <span class="input-group-text"
@@ -117,9 +99,27 @@
               />
             </div>
 
+            <div class="p-1 label-cargo" align=center>
+              CARGO:
+            </div>
+
+            <div class="input-group mb-3" *ngIf="admin">
+              <div class="input-group mb-3">
+                <div class="input-group boostrap-select">
+                  <select formControlName="cargo" class="form-select select-bt" aria-label="Default select example">
+                    <option  *ngFor="let puestoLista of puestos"
+                    [value]= "puestoLista.puesto_nombre"
+                    >
+                    {{ puestoLista.puesto_nombre }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+
             <!-- Obra asignada  -->
             <table style='width:100%'>
-              <p class= "ml-1 mt-3">OBRA ASIGNADA:</p>
+              <p class= "ml-1">OBRA ASIGNADA:</p>
               <div class="input-group mb-3 select-div">
                 <select formControlName="obra" class="form-select mb-5 select-obra" data-live-search="true" aria-label="Default select example">
                   <option  *ngFor="let obra of obrasLista"

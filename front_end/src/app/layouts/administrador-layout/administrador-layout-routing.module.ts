@@ -10,11 +10,12 @@ import { RegistroTrabajadorComponent } from '../../views/trabajador-registrar/tr
 import { ClienteListarComponent } from '../../views/cliente-listar/cliente-listar.component';
 import { ClienteEditarComponent } from '../../views/cliente-editar/cliente-editar.component';
 import { DashboardComponent } from '../../views/dashboard/dashboard.component';
+import { MaterialListarComponent } from '../../views/material-listar/material-listar.component';
+
 
 export const routes: Routes = [{
   path:'',
   children:[
-     {path:'home',component: DashboardComponent},
 
      {path:'registrarObra',component: ObraRegistrarComponent},
      {path:'editarObra/:obra_id',component: ObraEditarComponent},
@@ -27,6 +28,9 @@ export const routes: Routes = [{
      {path:'registrarTrabajador',component: RegistroTrabajadorComponent},
      {path:'editarTrabajador/:trabajador_cedula',component: TrabajadorEditarComponent},
      {path:'listarTrabajadores',component: TrabajadorListarComponent},
+     
+     {path:'listarMateriales',component: MaterialListarComponent},
+     {path:'',component: MaterialListarComponent},
      
      {path: '**', redirectTo: 'dashboard'}
   ]
