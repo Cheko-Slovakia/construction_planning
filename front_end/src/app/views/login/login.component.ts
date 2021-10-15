@@ -9,16 +9,16 @@ import { LoginService } from '../../services/LoginService';
 })
 
 
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
 
 
   credentialsForm: FormGroup = this.fb.group({
-    usuario: ['',Validators.required],
-    contrasena: ['',Validators.required]
+    usuario: ['', Validators.required],
+    contrasena: ['', Validators.required]
 
   })
 
-  constructor(private fb : FormBuilder, private router: Router, private loginService: LoginService){
+  constructor(private fb: FormBuilder, private router: Router, private loginService: LoginService) {
 
 
   }
@@ -27,23 +27,75 @@ export class LoginComponent implements OnInit{
 
 
   ngOnInit(): void {
+
+    
+    let log = localStorage.getItem("log");
+    
+    if (log) {
+      if (localStorage.getItem("admin")) {
+        
+        this.router.navigateByUrl('/admin')
+      }
+      else if (localStorage.getItem("operario")) {
+        this.router.navigateByUrl('/trabajador')
+
+      }
+
+    }
   }
 
-  iniciarSesion(){
+  iniciarSesion() {
 
-    const credentials: any={
+    const credentials: any = {
       numero_cedula: this.credentialsForm.get('usuario')?.value,
       password: this.credentialsForm.get('contrasena')?.value
     }
 
-    console.log(credentials);
 
 
     this.loginService.postCredentials(credentials).subscribe(
-      (response:any)=>{
-        console.log(response)
+      (response: any) => {
+        console.log(response.data.profile)
+        let usuario = response.data.profile;
+        let rol = usuario.cargo
+
+        if (usuario.trabajador_id) {
+
+          console.log(rol == "ADMINISTRADOR");
+
+          localStorage.setItem("log", "true");
+
+          localStorage.setItem("id", usuario.trabajador_id);
+          localStorage.setItem("nombre", usuario.nombre);
+          localStorage.setItem("apellido", usuario.apellido);
+          localStorage.setItem("cargo", usuario.cargo);
+          localStorage.setItem("obra", usuario.obra_participante);
+          localStorage.setItem("cedula", usuario.numero_cedula);
+
+          if (rol == "ADMINISTRADOR") {
+            localStorage.setItem("admin", "true");
+            this.router.navigateByUrl('/admin')
+          }
+          else if (rol == "OPERARIO") {
+            localStorage.setItem("operario", "true");
+            this.router.navigateByUrl('/trabajador')
+          }
+
+        }
       }
     )
-//    this.router.navigateByUrl("/admin")
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
- }
+}
