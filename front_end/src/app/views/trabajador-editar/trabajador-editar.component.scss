@@ -14,6 +14,7 @@ $breakpoint-cel: 600px;
   
   table p{
     text-align: center;
+    font-size: 18px;
     color:  $color-headers;
     font-family: $fuente;
     font-weight: bold;
@@ -23,8 +24,25 @@ $breakpoint-cel: 600px;
     margin-left: auto;
     margin-right: auto;
     width:50%;
-    height: 30px;
+    height: 40px;
     font-family: $fuente;
+  }
+}
+
+.label-cargo{
+  font-size: 18px;
+  font-family: $fuente;
+  font-weight: bold;
+}
+
+.boostrap-select{
+  padding:3px 0px 8px 0px;
+  text-align: center;
+  width: 100%;
+  select{
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
