@@ -1,0 +1,60 @@
+language: node_js
+node_js:
+  - '12'
+dist: trusty
+jobs:
+  include:
+    # ======== Parte del frontend ========
+    - language: node_js
+      node_js:  '12'
+
+      warnings_are_errors: false
+
+      cache:
+        directories:
+          - node_modules
+
+      branches:
+        only:
+          - master
+
+      before_install:
+        - cd front_end
+
+      script:
+          - npm test
+          - npm run build
+
+      deploy:
+        provider: heroku
+        api_key: $APIKEYHEROKU
+        app: construction-planning-frontend
+
+    # ======== Parte de Backend ========
+    - language: python
+      python:
+        - "3.6"      # current default Python on Travis CI
+        - "3.7"
+        - "3.8"
+        - "3.9"
+        - "3.9-dev"  # 3.9 development branch
+        - "nightly"  # nightly build
+        # command to install dependencies
+
+      warnings_are_errors: false
+
+      branches:
+        only:
+          - master
+
+      before_install:
+        - cd back_end
+      install:
+        - pip install -r requirements.txt
+      script:
+        - python manage.py runserver 0.0.0.0:$PORT
+
+      deploy:
+        provider: heroku
+        api_key: $APIKEYHEROKU
+        app: construction-planning-backend
