@@ -31,28 +31,21 @@ jobs:
         app: construction-planning-frontend
 
     # ======== Parte de Backend ========
-    - language: python
+      - language: python
+      dist: xenial
       python:
-        - "3.6"      # current default Python on Travis CI
-        - "3.7"
-        - "3.8"
-        - "3.9"
-        - "3.9-dev"  # 3.9 development branch
-        - "nightly"  # nightly build
-        # command to install dependencies
+        - 3.8
 
       warnings_are_errors: false
 
-      branches:
-        only:
-          - master
-
       before_install:
         - cd back_end
-      install:
+
+      before_script:
         - pip install -r requirements.txt
+
       script:
-        - python manage.py runserver 0.0.0.0:$PORT
+        - python manage.py runserver
 
       deploy:
         provider: heroku
