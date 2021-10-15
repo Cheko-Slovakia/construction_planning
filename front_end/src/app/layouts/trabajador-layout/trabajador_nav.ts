@@ -4,16 +4,16 @@ export const navItemsOperario: INavData[] = [
   {
     name: 'Operario',
     url: 'home',
-    icon: 'icon-speedometer',
+    icon: 'icon-briefcase',
   },
   {
     name: 'Obras',
-    icon: 'icon-puzzle',
+    icon: 'icon-flag',
     children: [
       {
         name: 'Registrar Evidencia',
         url: 'registrarEvidencia',
-        icon: 'icon-list'
+        icon: 'icon-docs'
       }
     ]
   },
@@ -23,11 +23,11 @@ export const navItemsJefeObra: INavData[] = [
   {
     name: 'Jefe de Obra',
     url: 'home',
-    icon: 'icon-speedometer',
+    icon: 'icon-organization',
   },
   {
     name: 'Supervisar Obras',
-    icon: 'icon-puzzle',
+    icon: 'icon-eye',
     children: [
       {
         name: 'Listar Evidencias',
@@ -36,12 +36,12 @@ export const navItemsJefeObra: INavData[] = [
       },{
         name: 'Asignar Trabajadores',
         url: 'listarTrabajadores',
-        icon: 'icon-list'
+        icon: 'icon-user-follow'
       },
       {
         name: 'Solicitar material de obra',
         url: 'solicitarMaterial',
-        icon: 'icon-user-follow'
+        icon: 'icon-notebook'
       },
     ]
   },
@@ -51,21 +51,21 @@ export const navItemsJefeAlmacen: INavData[] = [
   {
     name: 'Jefe de almacen',
     url: 'home',
-    icon: 'icon-speedometer',
+    icon: 'icon-organization',
   },
   {
     name: 'Obras',
-    icon: 'icon-puzzle',
+    icon: 'icon-flag',
     children: [
       {
         name: 'Autorización de solicitudes de materiales',
         url: 'listarSolicitudesMateriales',
-        icon: 'icon-list'
+        icon: 'icon-like'
       },
       {
         name: 'Ver inventario',
         url: 'listarMateriales',
-        icon: 'icon-user-follow'
+        icon: 'icon-grid'
       },
     ]
   },

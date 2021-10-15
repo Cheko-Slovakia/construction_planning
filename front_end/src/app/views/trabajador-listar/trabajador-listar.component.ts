@@ -108,7 +108,6 @@ export class TrabajadorListarComponent implements OnInit {
         this.dataSourceTrabajadores = new MatTableDataSource<trabajadoresTabla>(this.trabajadores)
         this.dataSourceTrabajadores.sort = this.sort;
         this.dataSourceTrabajadores.paginator = this.paginator;
-
       }
     )
   }
@@ -118,7 +117,6 @@ export class TrabajadorListarComponent implements OnInit {
 
     this.trabajadoresService.obtenerTrabajadoresCargo(cargo).subscribe(
       (response: Trabajador[]) => {
-
         response.forEach(trabajador => {
           this.trabajadorAux = {
             cedula: trabajador.numero_cedula,
@@ -145,7 +143,6 @@ export class TrabajadorListarComponent implements OnInit {
     this.obraService.obtenerObras().subscribe(
       (response: Obra[]) => {
 
-
         response.forEach(obra => {
           let obraAux = {
             id: obra.obra_id,
@@ -155,7 +152,6 @@ export class TrabajadorListarComponent implements OnInit {
           this.obrasLista.push(obraAux);
 
         });
-
       }
 
     )

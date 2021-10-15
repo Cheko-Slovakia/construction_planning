@@ -69,7 +69,6 @@ export class ObraListarComponent implements OnInit {
             latitud: obra.latitud,
             longitud: obra.longitud,
           }
-          console.log(this.obraAux)
           this.obras.push(this.obraAux)
           
         }
