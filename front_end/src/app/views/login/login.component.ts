@@ -83,6 +83,10 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("obrero", "true");
             this.router.navigateByUrl('/trabajador')
           }
+          else if (rol == "JEFE_OBRA") {
+            localStorage.setItem("jefe", "true");
+            this.router.navigateByUrl('/trabajador')
+          }
 
           else if(rol == "JEFE_ALMACEN"){
             localStorage.setItem("almacen","true");

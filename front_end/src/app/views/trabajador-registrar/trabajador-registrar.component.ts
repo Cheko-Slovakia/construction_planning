@@ -33,8 +33,6 @@ export class RegistroTrabajadorComponent implements OnInit {
     puesto_nombre: "JEFE_OBRA"
   },
   
-  
-
 ]
 
   

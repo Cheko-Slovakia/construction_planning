@@ -8,6 +8,10 @@ import { TrabajadorService } from '../../services/TrabajadorService';
 
 import Swal from 'sweetalert2';
 
+interface puestoLista{
+  puesto_nombre: string;
+}
+
 
 interface obraAux{
   id: number,
@@ -23,22 +27,26 @@ interface obraAux{
 
 export class TrabajadorEditarComponent implements OnInit {
 
+  public puestos : puestoLista[] ;
+  public admin = localStorage.getItem("admin");
+
+
   private obrasLista: obraAux[]= [{id: 0,nombre: 'Sin Asignar'}];
   private trabajador_cedula: string;
 
   editarTrabajadorForm: FormGroup = this.fb.group({
 
 
-    trabajador_id:[{value: '', disabled: true}],
+    trabajador_id:[{value: '', disabled: !(this.admin)}],
     obra:[{value: '', disabled: false}],
-    cedula: [{value: '', disabled: true}],
-    nombre: [{value: '', disabled: false}],
-    apellido: [{value: '', disabled: false}],
-    celular: [{value: '', disabled: false},Validators.required],
-    contrasena: [{value: '', disabled: false},Validators.required],
+    cedula: [{value: '', disabled: !(this.admin)}],
+    nombre: [{value: '', disabled: !(this.admin)}],
+    apellido: [{value: '', disabled: !(this.admin)}],
+    celular: [{value: '', disabled: !(this.admin)}],
+    contrasena: [{value: '', disabled: !(this.admin)}],
     //c_contrasena: [{value: '', disabled: false},Validators.required],
-    cargo: [{value: '', disabled: false},Validators.required],
-    is_active: [{value: '', disabled: false}],
+    cargo: [{value: '', disabled: !(this.admin)},Validators.required],
+    is_active: [{value: '', disabled: !(this.admin)}],
   
   
 
@@ -51,6 +59,33 @@ export class TrabajadorEditarComponent implements OnInit {
   constructor(private fb: FormBuilder,private trabajadorService: TrabajadorService, private aRoute: ActivatedRoute, private router: Router,private obraService: ObraService) {}
 
   ngOnInit(): void {
+
+    if(this.admin)
+    { 
+      this.puestos =
+      [
+        {
+        puesto_nombre: "ADMINISTRADOR"
+      },
+      {
+        puesto_nombre: "OBRERO"
+      },
+      {
+        puesto_nombre: "JEFE_ALMACEN"
+      },
+      {
+        puesto_nombre: "JEFE_OBRA"
+      },
+      
+    ]
+    }
+    else {
+      this.puestos=[
+      {
+        puesto_nombre: "OBRERO"
+      }
+    ]
+    }
     this.obtenerObras();
     this.trabajador_cedula = this.aRoute.snapshot.paramMap.get("trabajador_cedula");
     this.obtenerTrabajador();
@@ -93,10 +128,13 @@ export class TrabajadorEditarComponent implements OnInit {
     }
 
     
+    console.log(editadoTrabajador);
     
 
     this.trabajadorService.actualizarTrabajador(editadoTrabajador).subscribe(
       (response: any)=>{
+        console.log(response);
+        
       if(response){
         Swal.fire('Éxitoso!','Trabajador actualizado','success');
       } else{
@@ -109,11 +147,6 @@ export class TrabajadorEditarComponent implements OnInit {
       }
     )
     
-    // if(perfil_cargo=='Jefe_Obra'){
-    //   this.router.navigateByUrl("/trabajador/listarTrabajadores")
-    // } else if(perfil_cargo == 'ADMINISTRADOR'){
-    //   this.router.navigateByUrl("/admin/listarTrabajadores")
-    // }
     
     this.router.navigateByUrl("/admin/listarTrabajadores")
     this.editarTrabajadorForm.reset();

@@ -75,13 +75,12 @@ export class TrabajadorListarComponent implements OnInit {
   ngOnInit() {
     //Se genera el menu
     this.obtenerObras();
-    this.generarMenuTrabajadores();
-
-    // if(this.perfil_cargo == "Jefe_obra"){
-    //   this.generarMenuTrabajadoresObreros(perfil_cargo)
-    // }else{
-    //   this.generarMenuTrabajadores();
-    // }
+     if(localStorage.getItem("jefe")){
+       
+       this.generarMenuTrabajadoresObreros("OBRERO")
+     }else{
+       this.generarMenuTrabajadores();
+     }
     
     
     
@@ -110,8 +109,6 @@ export class TrabajadorListarComponent implements OnInit {
         this.dataSourceTrabajadores.sort = this.sort;
         this.dataSourceTrabajadores.paginator = this.paginator;
 
-        console.log(this.trabajadores);
-
       }
     )
   }
@@ -139,7 +136,6 @@ export class TrabajadorListarComponent implements OnInit {
         this.dataSourceTrabajadores.sort = this.sort;
         this.dataSourceTrabajadores.paginator = this.paginator;
 
-        console.log(this.trabajadores);
 
       }
     )
@@ -149,7 +145,6 @@ export class TrabajadorListarComponent implements OnInit {
     this.obraService.obtenerObras().subscribe(
       (response: Obra[]) => {
 
-        console.log(response);
 
         response.forEach(obra => {
           let obraAux = {
@@ -161,7 +156,6 @@ export class TrabajadorListarComponent implements OnInit {
 
         });
 
-        console.log(this.obrasLista);
       }
 
     )
