@@ -4,19 +4,27 @@
       <div class="card-header">Registrar Cliente</div>
       <div class="card-body">
         <div class="formulario-registro-cliente">
-          <form autocomplete="off" [formGroup]="clienteForm">
-            <!-- <ng-container *ngIf="registroCliente">
-              <h1>Registrar Cliente</h1>
-              <p class="text-muted">Complete el formulario</p>
-            </ng-container>
+          <form autocomplete="off" [formGroup]="registrarClienteForm">
 
-            <ng-container *ngIf="edicionCliente">
-              <h1>Actualizar cliente</h1>
-              <p class="text-muted">
-                Actualice la información deseada del cliente
-              </p>
-            </ng-container> -->
 
+            <!-- NIT -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"
+                  ><i class="cil-user"></i
+                ></span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Nit"
+                autocomplete="nit"
+                formControlName="numero_nit"
+                required
+              />
+            </div>
+
+            <!-- NOMBRE -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
@@ -32,6 +40,8 @@
                 required
               />
             </div>
+
+            <!-- APELLIDO -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
@@ -47,6 +57,8 @@
                 required
               />
             </div>
+
+            <!-- CORREO -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
@@ -56,12 +68,14 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Cedula"
-                autocomplete="cedula"
-                formControlName="cedula"
+                placeholder="Correo"
+                autocomplete="correo"
+                formControlName="correo"
                 required
               />
             </div>
+
+              <!-- DIRECCION -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
@@ -77,22 +91,8 @@
                 required
               />
             </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="cil-mobile"></i
-                ></span>
-              </div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Celular"
-                autocomplete="celular"
-                formControlName="celular"
-                required
-              />
-            </div>
-
+          
+            <!-- CARGO -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
@@ -126,29 +126,13 @@
                 required
               />
             </div>
-
-            <div class="input-group mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="icon-lock"></i
-                ></span>
-              </div>
-              <input
-                type="password"
-                class="form-control"
-                placeholder="Confirmar contraseña"
-                formControlName="c_contrasena"
-                autocomplete="new-password"
-                required
-              />
-            </div>
-
+            
             <ng-container *ngIf="registroCliente">
               <button
                 type="button"
                 class="btn btn-block btn-success"
                 (click)="registrarCliente()"
-                [disabled]="!clienteForm.valid"
+                [disabled]="!registrarClienteForm.valid"
               >
                 Registrar
               </button>
@@ -158,7 +142,7 @@
                 Actualizar
               </button>
             </ng-container>
-            <button type="button" class="btn btn-block btn-danger">
+            <button type="button" [routerLink]="['/admin/listarClientes']" class="btn btn-block btn-danger">
               Cancelar
             </button>
           </form>

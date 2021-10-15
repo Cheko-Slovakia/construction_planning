@@ -116,14 +116,13 @@
 
             <button
               type="button"
-              [routerLink]="['/admin/listarTrabajadores']"
               class="btn btn-block btn-success"
               (click)="registrarTrabajador()"
               [disabled]="!registrarTrabajadorForm.valid"
             >
               Registrar
             </button>
-            <button type="button" class="btn btn-block btn-danger">
+            <button type="button"  [routerLink]="['/admin/listarTrabajadores']" class="btn btn-block btn-danger">
               Cancelar
             </button>
           </form>

@@ -85,12 +85,9 @@ export class ClienteEditarComponent implements OnInit {
       }
     )
       
-    this.obtenerCliente();
+    this.router.navigateByUrl('admin/listarClientes')
     this.editarClienteForm.reset();
 
-
-    //Crear acción para redirigir al usuario a la lista de clientes actualizada
-    
     
   }
 

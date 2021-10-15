@@ -90,7 +90,6 @@ export class TrabajadorEditarComponent implements OnInit {
       cargo: this.editarTrabajadorForm.get('cargo')?.value,
       is_active: this.editarTrabajadorForm.get('is_active')?.value,
       obra_participante: this.editarTrabajadorForm.get('obra')?.value
-      
     }
 
     
@@ -109,12 +108,16 @@ export class TrabajadorEditarComponent implements OnInit {
       }
       }
     )
-
-    this.obtenerTrabajador();
+    
+    // if(perfil_cargo=='Jefe_Obra'){
+    //   this.router.navigateByUrl("/trabajador/listarTrabajadores")
+    // } else if(perfil_cargo == 'ADMINISTRADOR'){
+    //   this.router.navigateByUrl("/admin/listarTrabajadores")
+    // }
+    
     this.router.navigateByUrl("/admin/listarTrabajadores")
     this.editarTrabajadorForm.reset();
     
-    //crear acción para redirigir al usuario a la lista de trabajadores actualizada
   }
 
   obtenerObras(){
@@ -125,15 +128,9 @@ export class TrabajadorEditarComponent implements OnInit {
             id: obra.obra_id,
             nombre: obra.nombre
           }
-
           this.obrasLista.push(obraAux);
-          
         });
-
-        
-      console.log(this.obrasLista);
       }
-      
     )
   }
 
