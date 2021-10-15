@@ -1,53 +1,54 @@
-<div class="animated fadeIn app-body">
-    <main class="main d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <div class="card mx-4">
-                        <div class="card-body p-4">
-                            <form autocomplete="off" [formGroup]="solicitarMaterialForm">
-
-                                <h1>Solicitar Material</h1>
-                                <p class="text-muted">
-                                    Seleccione el material a pedir
-                                </p>
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text"
-                                        ><i class="cil-building"></i
-                                      ></span>
-                                    </div>
-                                    <select formControlName="material" class="form-select" aria-label="Default select example">
-                                      <option  
-                                      *ngFor="let materialLista of materiales "
-                                      [value]="materialLista.material_id"
-                                      >
-                                      {{materialLista.material_nombre}}</option>
-                                    </select>
-                                  </div>
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="cil-building"></i></span>
-                                    </div>
-                                    <input type="number" class="form-control" placeholder="Unidades" autocomplete="unidades"
-                                        formControlName="unidades" required />
-                                </div>
-                                
-
-                                    <button type="button" class="btn btn-block btn-success" (click)="solicitarMaterial()"
-                                        [disabled]="!solicitarMaterialForm.valid">
-                                        Realizar soliciud
-                                    </button>
-                                <button type="button" class="btn btn-block btn-danger">
-                                    Cancelar
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+<div class="animated fadeIn contenedor">
+  <div class="col-xl-12 mb-lg-8 mb-sm-4 mb-2">
+    <div class="card">
+      <div class="card-header">Solicitar Material</div>
+      <div class="card-body">
+        <div class="formulario-solicitar-material">
+          <form autocomplete="off" [formGroup]="solicitarMaterialForm">
+            
+            <p class="text-muted" align="center">SELECCIONE UN MATERIAL:</p>
+            <div class="material-select">
+              
+              <select
+                formControlName="material"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option
+                  *ngFor="let materialLista of materiales"
+                  [value]="materialLista.material_id"
+                >
+                  {{ materialLista.material_nombre }}
+                </option>
+              </select>
             </div>
+
+          
+            <p class="text-muted" align="center">CANTIDAD:</p>
+            <div class="input-unidades">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Unidades"
+                autocomplete="unidades"
+                formControlName="unidades"
+                required
+              />
+            </div>
+            <button
+              type="button"
+              class="btn btn-block btn-success"
+              (click)="solicitarMaterial()"
+              [disabled]="!solicitarMaterialForm.valid"
+            >
+              Realizar soliciud
+            </button>
+            <button type="button" class="btn btn-block btn-danger">
+              Cancelar
+            </button>
+          </form>
         </div>
-    </main>
+      </div>
+    </div>
+  </div>
 </div>
