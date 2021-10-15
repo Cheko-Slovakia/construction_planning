@@ -111,9 +111,7 @@ export class EvidenciaListarComponent implements OnInit {
 
 
   generarMenuClientes() {
-
-
-    this.evidenciaService.obtenerEvidenciasPorEstadoObra(1, 'False').subscribe(
+    this.evidenciaService.obtenerEvidenciasPorEstadoObra(2, 'False').subscribe(
       (response: any[]) => {
         console.log(response);
         response.forEach(evidencia => {

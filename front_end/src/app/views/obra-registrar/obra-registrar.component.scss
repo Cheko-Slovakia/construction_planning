@@ -55,22 +55,22 @@ $breakpoint-cel: 600px;
     height: 30vh;
 }
 
-  .label-cliente{
-    font-size: 18px;
-    font-family: $fuente;
-    font-weight: bold;
-  }
+.label-cliente{
+  font-size: 18px;
+  font-family: $fuente;
+  font-weight: bold;
+}
 
-  .boostrap-select{
-    padding:3px 0px 8px 0px;
-    text-align: center;
-    width: 100%;
-    select{
-      width:50%;
-      margin-left: auto;
-      margin-right: auto;
-    }
+.boostrap-select{
+  padding:3px 0px 8px 0px;
+  text-align: center;
+  width: 100%;
+  select{
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
   }
+}
 
 
 .mat-form-field mat-label{
