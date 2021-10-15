@@ -59,7 +59,11 @@ export class MaterialSolicitudesComponent implements OnInit {
     this.materialesService.obtenerSolicitudesMaterialesObras().subscribe(
       (response: any) => {
 
-        response.forEach(solicitud => {
+        console.log(response);
+        
+
+
+        response.data.forEach(solicitud => {
           this.materialAux = {
             material_id: solicitud.material,
             material_nombre: solicitud.nombre_material,

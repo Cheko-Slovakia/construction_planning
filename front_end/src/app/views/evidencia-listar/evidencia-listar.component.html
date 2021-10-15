@@ -31,15 +31,6 @@
                       {{ evidenciasTabla.obra }}
                     </td>
                   </ng-container>
-                  <!--  Columna Apellido -->
-                  <ng-container matColumnDef="trabajador">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                      Subida por
-                    </th>
-                    <td mat-cell *matCellDef="let evidenciasTabla">
-                      {{ evidenciasTabla.trabajador }}
-                    </td>
-                  </ng-container>
 
                   <ng-container matColumnDef="fecha">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -87,12 +78,42 @@
 </ng-container>
 
 <ng-container *ngIf="detallar">
-  <div>
 
-    <app-mapa [latitud]="latitudEvidencia" [longitud]="longitudEvidencia" [enlace] ="enlaceEvidencia" [descripcion]="descripcionEvidencia"
-      [fecha]="fechaEvidencia" [trabajador] = "trabajadorEvidencia">
 
-    </app-mapa>
+  <div class="mb-4 center">
+
+    <div class="animated fadeIn contenedor">
+      <div class="col-xl-12 mb-lg-8 mb-sm-4 mb-2">
+        <div class="card">
+          <div class="card-header">Evidencia</div>
+          <div class="card-body">
+            <div class="formulario-evidencia-obra">
+
+              <h1>Descripción:</h1>
+              <p>{{descripcionEvidencia}} </p>
+
+              <h1>Enlace:</h1>
+              <a href="{{enlaceEvidencia}}">Evidencia</a>
+              
+                <div class="mb-4 center">
+                  <h2>Ubicación:</h2>  
+                  <app-mapa  [latitud]="latitudEvidencia" [longitud]="longitudEvidencia" [zoom]=10>
+                  </app-mapa>
+                  <button type="button" (click)="cerrarDetalle()" class="btn btn-block btn-danger">
+                    Cerrar
+                  </button>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="card-footer">
+            Subido el : {{fechaEvidencia}}
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
   </div>

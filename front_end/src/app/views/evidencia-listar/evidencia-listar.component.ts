@@ -40,7 +40,7 @@ export class EvidenciaListarComponent implements OnInit {
   public enlaceEvidencia;
 
   private evidencias: evidenciasTabla[] = [];//evidencias
-  private columnasEvidencias: string[] = ['tipo', 'Obra', 'trabajador', 'fecha', 'detalle'];//Columnas a mostrar en la tabla
+  private columnasEvidencias: string[] = ['tipo', 'Obra', 'fecha', 'detalle'];//Columnas a mostrar en la tabla
   private dataSourceEvidencias: MatTableDataSource<evidenciasTabla>
 
 
@@ -109,7 +109,7 @@ export class EvidenciaListarComponent implements OnInit {
     
   }
 
-
+456
   generarMenuClientes() {
     this.evidenciaService.obtenerEvidenciasPorEstadoObra(2, 'False').subscribe(
       (response: any[]) => {
@@ -155,6 +155,8 @@ export class EvidenciaListarComponent implements OnInit {
 
   detallarEvidencia(evidencia: any){
 
+    
+
     console.log(evidencia);
     
     this.latitudEvidencia = evidencia.lat;
@@ -166,6 +168,10 @@ export class EvidenciaListarComponent implements OnInit {
     this.detallar = true;
     console.log(evidencia.descripcion);
     
+  }
+
+  cerrarDetalle(){
+    this.detallar = false;
   }
 
 }
