@@ -9,11 +9,33 @@ import { navItems } from './administrador_nav';
 })
 export class AdministradorLayoutComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(private router: Router) { }
   public sidebarMinimized = false;
   public navItems = navItems;
 
   ngOnInit(): void {
+
+    let log = localStorage.getItem("log");
+
+    if (log) {
+      if (localStorage.getItem("cliente")) {
+
+        this.router.navigateByUrl('/cliente')
+      }
+
+      else if (localStorage.getItem("operario")) {
+        this.router.navigateByUrl('/trabajador')
+      }
+      else {
+      }
+
+    }
+    else {
+      this.router.navigateByUrl('/login')
+    }
+
+
+
 
   }
 

@@ -12,11 +12,38 @@ export class TrabajadorLayoutComponent implements OnInit {
   constructor(private router: Router) { }
   public sidebarMinimized = false;
   public navItems = [];
-  private navItemsOperario
 
   ngOnInit(): void {
 
-    this.navItems = navItemsJefeObra;
+
+    let log = localStorage.getItem("log");
+    
+    if (log) {
+      if (localStorage.getItem("admin")) {
+        
+        this.router.navigateByUrl('/admin')
+      }
+
+      else if(localStorage.getItem("cliente")){
+        this.router.navigateByUrl('/cliente')
+      }
+      else {
+        if (localStorage.getItem("operario")) {
+          this.navItems= navItemsOperario
+        }
+        else if(localStorage.getItem("almacen")){
+          this.navItems= navItemsJefeAlmacen
+        }
+        else if(localStorage.getItem("jefe")){
+          this.navItems = navItemsJefeObra
+        }
+      }
+
+    }
+    else{
+      this.router.navigateByUrl('/login')
+    }
+
 
 
   }

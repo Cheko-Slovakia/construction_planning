@@ -14,6 +14,25 @@ export class ClienteLayoutComponent implements OnInit {
   public navItems = navItems;
 
   ngOnInit(): void {
+
+    let log = localStorage.getItem("log");
+    
+    if (log) {
+      if (localStorage.getItem("admin")) {
+        
+        this.router.navigateByUrl('/admin')
+      }
+
+      else if(localStorage.getItem("operario")){
+        this.router.navigateByUrl('/trabajador')
+      }
+      else {
+      }
+
+    }
+    else{
+      this.router.navigateByUrl('/login')
+    }
   }
 
 }
