@@ -24,6 +24,8 @@ export class EvidenciaRegistrarComponent implements OnInit{
   
   constructor(private fb: FormBuilder, private router: Router, private evidenciaService : EvidenciaService) {}
 
+  public registrar = false;
+
   loader = new Loader({
     apiKey : 'AIzaSyDi3vXai4YsLlN7j9nV03i_cp_Gk_-4IMY'
   })
@@ -62,6 +64,16 @@ export class EvidenciaRegistrarComponent implements OnInit{
 
   
   ngOnInit() {
+
+    let log = localStorage.getItem("log");
+    
+    if (log) {
+      if (localStorage.getItem("obrero")){
+        
+        this.registrar = true;
+      }
+    }
+
 
 
     if('geolocation' in navigator){

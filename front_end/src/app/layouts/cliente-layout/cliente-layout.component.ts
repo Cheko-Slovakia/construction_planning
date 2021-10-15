@@ -23,7 +23,7 @@ export class ClienteLayoutComponent implements OnInit {
         this.router.navigateByUrl('/admin')
       }
 
-      else if(localStorage.getItem("operario")){
+      else if(localStorage.getItem("obrero")){
         this.router.navigateByUrl('/trabajador')
       }
       else {
@@ -33,6 +33,11 @@ export class ClienteLayoutComponent implements OnInit {
     else{
       this.router.navigateByUrl('/login')
     }
+  }
+
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigateByUrl('/login')
   }
 
 }

@@ -28,7 +28,7 @@ export class TrabajadorLayoutComponent implements OnInit {
         this.router.navigateByUrl('/cliente')
       }
       else {
-        if (localStorage.getItem("operario")) {
+        if (localStorage.getItem("obrero")) {
           this.navItems= navItemsOperario
         }
         else if(localStorage.getItem("almacen")){
@@ -46,6 +46,11 @@ export class TrabajadorLayoutComponent implements OnInit {
 
 
 
+  }
+
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigateByUrl('/login')
   }
 
 }

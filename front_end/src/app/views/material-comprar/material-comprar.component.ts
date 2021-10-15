@@ -73,6 +73,10 @@ export class MaterialComprarComponent implements OnInit {
 
     console.log(proveedor_consulta);
 
+  }
+
+  comprarMaterial(){
+    
 
   }
 
