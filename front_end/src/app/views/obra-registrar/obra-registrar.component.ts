@@ -9,8 +9,6 @@ import { ClienteService } from '../../services/ClienteService';
 import { ObraService } from '../../services/ObraService';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
-import Swal from 'sweetalert2';
-
 interface clienteLista{
   cliente_id: number;
   cliente_nombre: string;
@@ -55,7 +53,7 @@ export class ObraRegistrarComponent implements OnInit{
 
 
   registrarObraForm: FormGroup = this.fb.group({
-    ciudad_obra: [{value:'', disabled: true},Validators.required],
+    ciudad_obra: [{value:'', disabled: false},Validators.required],
     nombre_obra: ['',Validators.required],
     direccion_obra: ['',Validators.required],
     latitud: [{value: '', disabled: true},Validators.required],
@@ -91,7 +89,6 @@ export class ObraRegistrarComponent implements OnInit{
     this.registrarObraForm.patchValue({
       latitud: address.geometry.location.lat(),
       longitud: address.geometry.location.lat(),
-      ciudad_obra: address.vicinity,
       direccion_obra: address.vicinity
     })
 
@@ -112,6 +109,14 @@ export class ObraRegistrarComponent implements OnInit{
     })
 
     
+    
+  }
+
+  public handleAddressChangeCity(address: Address){
+    this.registrarObraForm.patchValue({
+      ciudad_obra: address.vicinity
+    })
+
     
   }
  
@@ -156,19 +161,14 @@ export class ObraRegistrarComponent implements OnInit{
       cliente: this.registrarObraForm.get('cliente_obra')?.value
     
     }
+    console.log(newObra.cliente)
+
+    console.log(newObra);
     
 
     this.obraServicio.registrarObra(newObra).subscribe(
       (response:any)=>{
-        if(response){
-          Swal.fire('Éxitoso!','Obra registrada','success');
-        } else{
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-          })
-        }
+        console.log(response);
     
         this.registrarObraForm.reset();
         

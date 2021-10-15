@@ -6,12 +6,8 @@ import { Trabajador } from '../../../models/Trabajador';
 import { ObraService } from '../../services/ObraService';
 import { TrabajadorService } from '../../services/TrabajadorService';
 
-import Swal from 'sweetalert2';
-
-
-interface obraAux {
-  id: number,
-  nombre: string
+interface puestoLista{
+  puesto_nombre: string;
 }
 
 @Component({
@@ -23,7 +19,25 @@ interface obraAux {
 
 export class RegistroTrabajadorComponent implements OnInit {
 
-  private obrasLista: obraAux[] = [];
+  public puestos : puestoLista[] = [
+    {
+    puesto_nombre: "ADMINISTRADOR"
+  },
+  {
+    puesto_nombre: "OBRERO"
+  },
+  {
+    puesto_nombre: "JEFE_ALMACEN"
+  },
+  {
+    puesto_nombre: "JEFE_OBRA"
+  },
+  
+  
+
+]
+
+  
 
   registrarTrabajadorForm: FormGroup = this.fb.group({
 
@@ -45,6 +59,8 @@ export class RegistroTrabajadorComponent implements OnInit {
   constructor(private obraService: ObraService, private fb: FormBuilder, private trabajadorService: TrabajadorService, private router: Router) { }
 
   ngOnInit(): void {
+
+    
     
 
   }
@@ -52,7 +68,10 @@ export class RegistroTrabajadorComponent implements OnInit {
   //Registro 
 
   registrarTrabajador() {
-     const newTrabajador: any = {
+
+
+
+    const newTrabajador: any = {
       numero_cedula: this.registrarTrabajadorForm.get('cedula')?.value,
       nombre: this.registrarTrabajadorForm.get('nombre')?.value,
       apellido: this.registrarTrabajadorForm.get('apellido')?.value,
@@ -64,20 +83,13 @@ export class RegistroTrabajadorComponent implements OnInit {
 
     this.trabajadorService.registrarTrabajador(newTrabajador).subscribe(
       (response: any)=>{
-        if(response){
-          Swal.fire('Éxitoso!','Trabajador registrado','success');
-        } else{
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-          })
-        }
+        console.log(response);
         
       }
     )
 
-    this.router.navigateByUrl('admin/listarTrabajadores')
+    console.log(newTrabajador);
+
     this.registrarTrabajadorForm.reset();
   }
 

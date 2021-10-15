@@ -36,9 +36,12 @@ export class LoginComponent implements OnInit {
         
         this.router.navigateByUrl('/admin')
       }
-      else if (localStorage.getItem("operario")) {
+      else if (localStorage.getItem("obrero")) {
         this.router.navigateByUrl('/trabajador')
 
+      }
+      else if(localStorage.getItem("almacen")){
+        this.router.navigateByUrl('/trabajador')
       }
 
     }
@@ -61,7 +64,7 @@ export class LoginComponent implements OnInit {
 
         if (usuario.trabajador_id) {
 
-          console.log(rol == "ADMINISTRADOR");
+          console.log(rol);
 
           localStorage.setItem("log", "true");
 
@@ -76,8 +79,13 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("admin", "true");
             this.router.navigateByUrl('/admin')
           }
-          else if (rol == "OPERARIO") {
-            localStorage.setItem("operario", "true");
+          else if (rol == "OBRERO") {
+            localStorage.setItem("obrero", "true");
+            this.router.navigateByUrl('/trabajador')
+          }
+
+          else if(rol == "JEFE_ALMACEN"){
+            localStorage.setItem("almacen","true");
             this.router.navigateByUrl('/trabajador')
           }
 

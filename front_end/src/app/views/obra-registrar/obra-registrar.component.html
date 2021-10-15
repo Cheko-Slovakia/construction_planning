@@ -43,6 +43,9 @@
 
             
             <!-- input de ciudad -->
+
+           
+
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"
@@ -50,13 +53,12 @@
                 ></span>
               </div>
               <input
-                type="text"
-                class="form-control"
-                placeholder="Ciudad de la obra"
-                autocomplete="ciudad"
-                formControlName="ciudad_obra"
-                required
-              />
+                  formControlName="ciudad_obra"
+                  ngx-google-places-autocomplete
+                  [options]="options"
+                  #placesRef="ngx-places"
+                  (onAddressChange)="handleAddressChangeCity($event)"
+                />
             </div>
 
             <div class="mb-4 center">

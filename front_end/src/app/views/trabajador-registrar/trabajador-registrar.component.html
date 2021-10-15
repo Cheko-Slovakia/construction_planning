@@ -75,14 +75,14 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="cil-badge"></i></span>
               </div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Cargo"
-                autocomplete="cargo"
-                formControlName="cargo"
-                required
-              />
+              <div class="input-group mb-3 boostrap-select">
+                <select formControlName="cargo" class="form-select select-bt" aria-label="Default select example">
+                  <option  *ngFor="let puestoLista of puestos"
+                  [value]= "puestoLista.puesto_nombre"
+                  >
+                  {{ puestoLista.puesto_nombre }}</option>
+                </select>
+              </div>
             </div>
 
             <div class="input-group mb-3">
